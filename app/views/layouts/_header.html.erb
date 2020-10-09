@@ -1,0 +1,18 @@
+<header class="p-1">
+<nav class="navbar navbar-expand-lg navber-light bg-light">
+<div class="container">
+<h3 class="navber-brand"><%= link_to "Habit is power", root_url %></h3>
+<% unless user_signed_in? %>
+<ul class="#">
+  <li class="#"><%= link_to "ログイン", user_session_path %></li>
+  <li class="#"><%= link_to "ユーザー登録", new_user_registration_path %></li>
+</ul>
+<% else %>
+<ul class="navber-nav">
+  <li><%= link_to "ログアウト", destroy_user_session_path %></li>
+</ul>
+</div>
+</div>
+</nav>
+<% end %>
+</header>
