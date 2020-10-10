@@ -1,0 +1,35 @@
+.index-content {
+  background-image: image-url('habit.jpeg');
+  background-size: cover;
+  text-align: left;
+  height: 690px;
+  
+.index-box {
+display: inline-block;
+background-color: white;
+margin: 40px;
+padding: 10px 90px 10px 10px;
+opacity: 0.7;
+border-radius: 10px;
+h5 {
+color: #222;
+border-bottom: double;
+}
+
+.habit-list {
+
+.habit-list-item {
+// border-left: solid 3px #005FFF;
+// background: white;
+// margin-bottom: 3px;
+// line-height: 1.5;
+color: #2d8fdd;
+border-left: solid 6px #2d8fdd;
+background: #f1f8ff;
+margin-bottom: 3px;
+ line-height: 1.5;
+padding: 0.5em;
+}
+}
+}
+}
