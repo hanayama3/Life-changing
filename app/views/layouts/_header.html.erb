@@ -3,13 +3,19 @@
 <div class="container">
 <h3 class="navber-brand"><%= link_to "Habit is power", root_url %></h3>
 <% unless user_signed_in? %>
-<ul class="#">
-  <li class="#"><%= link_to "ログイン", user_session_path %></li>
-  <li class="#"><%= link_to "ユーザー登録", new_user_registration_path %></li>
+<ul>
+  <li><%= link_to "ログイン", user_session_path %></li>
+  <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
 </ul>
 <% else %>
-<ul class="navber-nav">
+<ul>
+  <li><%= link_to "習慣の登録","#" %></li>
+  <li><%= link_to "習慣の記録","#" %></li>
+  <li><%= link_to "友達一覧","#" %></li>
+  <li><%= link_to "友達を探す","#" %></li>
+  <li><%= link_to "通知","#" %></li>
   <li><%= link_to "ログアウト", destroy_user_session_path %></li>
+  </li>
 </ul>
 </div>
 </div>
