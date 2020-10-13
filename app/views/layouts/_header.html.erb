@@ -10,12 +10,11 @@
 <% else %>
 <ul>
   <li><%= link_to "習慣の登録","#" %></li>
-  <li><%= link_to "習慣の記録","#" %></li>
-  <li><%= link_to "友達一覧","#" %></li>
   <li><%= link_to "友達を探す","#" %></li>
   <li><%= link_to "通知","#" %></li>
+  <li><%= link_to "マイページ", "#" %></li>
   <li><%= link_to "ログアウト", destroy_user_session_path %></li>
-  </li>
+  <li><%= current_user.name %></li>
 </ul>
 </div>
 </div>
