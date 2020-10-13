@@ -1,2 +1,9 @@
-<h1>ようこそ<%= @user.name %></h1>
-
+<div class="container mt-3">
+<h5><%= current_user.name %></h5>
+<% if current_user.profile_image %>
+image_tag(current_user.profile_image)
+<% else %>
+<p>no image</p>
+<% end %>
+<p><%= current_user.profile %></p>
+</div>
