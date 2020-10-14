@@ -18,9 +18,17 @@ width: 66%;
 
 // show
 
-.image {
- width: 200px;
- height: 200px;
- border-radius: 39px;
+
+ .show-content {
+  height: 333px;
+ .user-content {
+ text-align: center;
+ }
+.user-image {
+ width: 96px;
+ height: 96px;
+ border: solid 1px black;
+ border-radius: 58px;
  object-fit: cover;
+}
 }
