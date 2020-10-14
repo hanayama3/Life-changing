@@ -1,9 +1,5 @@
 <div class="container mt-3">
-<h5><%= current_user.name %></h5>
-<% if current_user.profile_image %>
-image_tag(current_user.profile_image)
-<% else %>
-<p>no image</p>
-<% end %>
-<p><%= current_user.profile %></p>
+<h5><%= @user.name %></h5>
+<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg", class: "image" %>
+<p><%= @user.profile %></p>
 </div>
