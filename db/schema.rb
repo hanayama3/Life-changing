@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_053238) do
     t.datetime "remember_created_at"
     t.string "name"
     t.text "profile"
+    t.string "profile_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_id"
