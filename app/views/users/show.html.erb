@@ -4,7 +4,7 @@
 <div class="user-content pt-3">
 <%= attachment_image_tag @user, :image, fallback: "no-image.jpeg", class: "user-image" %>
 <h5 class="pt-3"><%= @user.name %></h5>
-<p>称号 負け犬</p>
+<p>称号 <%= degree(@user.level) %></p>
 </div>
 </div>
 <% if @user == current_user %>

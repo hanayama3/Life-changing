@@ -3,7 +3,7 @@
   <tr><th>名前</th><th>称号</th></tr>
    <% @user.each do |user| %>
   <tr><td> <%= link_to user.name, "/users/#{user.id}" %></td>
-  <td>負け犬</td></tr>
+  <td><%= degree(user.level) %></td></tr>
   <% end %>
   </table>
 </div>
