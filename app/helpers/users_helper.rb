@@ -1,5 +1,4 @@
 module UsersHelper
-
 def degree(level)
  num = level.to_i
  case num
