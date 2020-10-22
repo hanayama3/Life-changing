@@ -16,9 +16,11 @@ end
 end
 
 def edit
+@habit = Habit.find_by(id: params[:id])
 end
 
 def update
+    render html: "俺は天才"
 end
 
 def destroy

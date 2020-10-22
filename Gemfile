@@ -23,6 +23,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'mini_racer'
 gem 'faker'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

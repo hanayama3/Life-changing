@@ -6,22 +6,22 @@
   
  <div class="form-box pt-3">
   <div class="form-item">
-    <%= f.label :name,'名前', class: "label" %><br/>
+    <%= f.label :name, '名前', class: "label" %><br/>
     <%= f.text_field :name, autofocus: true,  placeholder: "名前を入力してください", class: "form" %>
   </div>
 
   <div class="form-item">
-    <%= f.label :email,'メールアドレス', class: "label" %><br />
+    <%= f.label :email, class: "label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください", class: "form"%>
   </div>
 
   <div class="form-item">
-    <%= f.label :password, 'パスワード(6文字以上)' , class: "label" %>
+    <%= f.label :password,  class: "label" %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください", class: "form"%>
   </div>
 
   <div class="form-item">
-    <%= f.label :password_confirmation,'確認用パスワード', class: "label" %><br />
+    <%= f.label :password_confirmation, class: "label" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードの確認", class: "form"%>
   </div>
   

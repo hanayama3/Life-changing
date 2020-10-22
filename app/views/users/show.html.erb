@@ -10,10 +10,13 @@
 <% if @user == current_user %>
 <%= link_to "ユーザー編集", edit_user_registration_path(@user.id) %>
 <% end %>
-<div class="habit-box">
-<div class="mt-3"><%= @user.name %>の習慣</div>
+<h5 class="mt-5">習慣一覧</h5>
+<table class="table table-light">
+<tr><th>項目</th><th>週</th></tr>
 <% @user.habits.each do |habit| %>
-<div class="m-2"><%= habit.task %> 週<%= habit.frequency %></div>
+<tr><td><%= link_to habit.task, edit_habit_path(habit) %></td>
+<td><%= habit.frequency %>回</td>
+</tr>
 <% end %>
-</div>
+ </table>
 </div>
