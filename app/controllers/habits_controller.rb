@@ -5,10 +5,10 @@ def new
 end
 
 def create
-habit = Habit.new(habit_params)
-if habit.save
+@habit = Habit.new(habit_params)
+if @habit.save
 flash[:notice] = "習慣を登録しました"
-redirect_to habit.user
+redirect_to @habit.user
 else
 flash[:alert] = "習慣の登録に失敗しました"
 render 'new'
@@ -20,10 +20,17 @@ def edit
 end
 
 def update
-    render html: "俺は天才"
+@habit = Habit.find_by(id: params[:id])
+@habit.update(habit_params)
+flash[:notice] = "習慣を変更しました"
+redirect_to @habit.user
 end
 
 def destroy
+@habit = Habit.find_by(id: params[:id])
+@habit.destroy
+flash[:alert] = "習慣を削除しました"
+redirect_to @habit.user
 end
 
 private

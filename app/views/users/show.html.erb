@@ -14,8 +14,10 @@
 <table class="table table-light">
 <tr><th>項目</th><th>週</th></tr>
 <% @user.habits.each do |habit| %>
-<tr><td><%= link_to habit.task, edit_habit_path(habit) %></td>
+<tr>
+<td><%= link_to habit.task, "#" %></td>
 <td><%= habit.frequency %>回</td>
+<td><%= link_to "変更",  edit_habit_path(habit)%></td>
 </tr>
 <% end %>
  </table>
