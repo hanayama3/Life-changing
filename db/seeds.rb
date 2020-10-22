@@ -3,7 +3,7 @@ name:  "hanayama",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
 profile: "Rails余裕",
-level: 100
+level: 300
 )
 
 10.times do |n|
@@ -18,3 +18,9 @@ name: name,
 level: level
 )
 end
+
+Habit.create!(
+task: "ランニング",
+frequency: 3,
+user_id: 1
+)

@@ -7,10 +7,10 @@ end
 def create
 habit = Habit.new(habit_params)
 if habit.save
-flash[:success] = "習慣を登録しました"
+flash[:notice] = "習慣を登録しました"
 redirect_to habit.user
 else
-flash[:danger] = "習慣の登録に失敗しました"
+flash[:alert] = "習慣の登録に失敗しました"
 render 'new'
 end
 end
