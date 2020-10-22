@@ -8,6 +8,12 @@
 </div>
 </div>
 <% if @user == current_user %>
-<%= link_to "編集", edit_user_registration_path(@user.id) %>
+<%= link_to "ユーザー編集", edit_user_registration_path(@user.id) %>
 <% end %>
+<div class="habit-box">
+<div class="mt-3"><%= @user.name %>の習慣</div>
+<% @user.habits.each do |habit| %>
+<div class="m-2"><%= habit.task %> 週<%= habit.frequency %></div>
+<% end %>
+</div>
 </div>

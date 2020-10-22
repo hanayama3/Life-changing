@@ -5,12 +5,12 @@
 
    <div class="form-box pt-3">
   <div class="from-item">
-    <%= f.label :email %><br />
+    <%= f.label :email,'メールアドレス', class: "label"%> <br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレスを入力してください", class: "form"%>
   </div>
 
   <div class="form-item">
-    <%= f.label :password %><br />
+    <%= f.label :password, 'パスワード', class: "label"%><br />
     <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください", class: "form"%>
   </div>
 

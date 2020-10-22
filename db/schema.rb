@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_111406) do
+ActiveRecord::Schema.define(version: 2020_10_22_012256) do
+
+  create_table "habits", force: :cascade do |t|
+    t.string "task"
+    t.integer "frequency"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

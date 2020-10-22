@@ -1,0 +1,24 @@
+<div class="container mt-3">
+<h4 class="mb-5">ユーザー： <%= current_user.name %></h4>
+
+<%= form_with(model: @habit, local: true) do |f| %>
+
+<div class="form-box pt-3">
+
+<div class="form-item">
+<%= f.label :task, 'タスク', class: "label" %>
+<%= f.text_field :task %>
+</div>
+
+<div class="form-item">
+<%= f.label :frequency, '週', class: "label" %>
+<%= f.number_field :frequency, in: 1..7 %>
+</div>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+
+<%= f.submit "登録", class: "btn btn-primary m-5" %>
+
+<% end %>
+</div>
+</div>

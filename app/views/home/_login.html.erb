@@ -1,19 +1,26 @@
 <div class="container login-index">
 <div class="index-box">
-<h5 class="mb-5">習慣は人生を変える</h5>
+<h5 class="mt-2 mb-5">継続は力なり<i class="fa fa-flag "></i></h5>
 
 <div class="habit-list mb-3">
-<p><%= current_user.name %>の習慣一覧</p>
+<p><%= current_user.name %>の習慣</p>
 
-<div class="habit-list-item"><%= link_to "プログラミング", "#" %></div>
-<div class="habit-list-item"><%= link_to "ランニング", "#" %></div>
-
+<% if current_user.habits.empty? %>
+<div class="not-habit">なし</div>
+<% else %>
+<div class="habit-list-item">
+<% current_user.habits.each do |habit| %>
+<div class="p-1"><%= link_to habit.task, "#" %></div>
+<% end %>
 </div>
+<% end %>
+</div>
+
+
 <div class="pb-3 "><%= link_to "フレンド数 0", "#" %></div>
 
 <div class="button">
 <%= link_to "記録する", "#" %>
 </div>
-
 </div>
 </div>

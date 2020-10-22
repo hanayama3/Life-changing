@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 end
 
 resources :users, :only => [:index, :show]
+resources :habits, :only => [:new, :create, :edit, :update, :destroy]
  
 end

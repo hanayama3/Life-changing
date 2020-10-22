@@ -1,3 +1,4 @@
+// ログイン中ホーム
 .login-index {
   background-image: image-url('habit.jpeg');
   background-size: cover;
@@ -19,8 +20,7 @@ border-bottom: double;
 .habit-list {
 p {
  font-size: 18px;
- border-left: solid 3px black;
- padding-left: 0.5em;
+ color: #555;
 }
 .habit-list-item {
 color: #2d8fdd;
@@ -30,13 +30,18 @@ margin-bottom: 3px;
 line-height: 1.5;
 padding: 0.5em;
 }
+.not-habit {
+font-size: 17px;
 }
+}
+
 .button {
 display: inline-block;
 }
 }
 }
 
+// ログインする前のフォーム
 .not_login-index {
 margin-top: 38px;
 text-align: center;
