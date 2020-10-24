@@ -10,7 +10,6 @@ if @habit.save
 flash[:notice] = "習慣を登録しました"
 redirect_to @habit.user
 else
-flash[:alert] = "習慣の登録に失敗しました"
 render 'new'
 end
 end
