@@ -5,6 +5,10 @@
 <%= attachment_image_tag @user, :image, fallback: "no-image.jpeg", class: "user-image" %>
 <h5 class="pt-3"><%= @user.name %></h5>
 <p>称号 <%= degree(@user.level) %></p>
+<%= link_to "フォロー", following_user_path(@user) %>
+<%= @user.following.count %>
+<%= link_to "フォロワー", followers_user_path(@user) %>
+<%= @user.followers.count %>
 </div>
 </div>
 <% if @user == current_user %>

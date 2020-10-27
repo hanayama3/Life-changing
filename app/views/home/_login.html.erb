@@ -1,15 +1,16 @@
 <div class="container login-index">
 <div class="index-content">
+<% @user ||= current_user %>
 <h5 class="mt-2 mb-5">継続は力なり<i class="fa fa-flag "></i></h5>
 
 <div class="habit-list mb-3">
-<p><%= current_user.name %>の習慣</p>
+<p><%= @user.name %>の習慣</p>
 
-<% if current_user.habits.empty? %>
+<% if @user.habits.empty? %>
 <div class="not-habit">なし</div>
 <% else %>
 <div class="habit-list-item">
-<% current_user.habits.each do |habit| %>
+<% @user.habits.each do |habit| %>
 <div class="p-1"><%= link_to habit.task, "#" %></div>
 <% end %>
 </div>
@@ -17,7 +18,10 @@
 </div>
 
 
-<div class="pb-3 "><%= link_to "フレンド数 0", "#" %></div>
+<div class="pb-3">
+<p><%= link_to "フォロー", following_user_path(@user) %></p>
+<p><%= link_to "フォロワー", followers_user_path(@user) %></p>
+</div>
 
 <div class="button">
 <%= link_to "記録する", "#" %>
