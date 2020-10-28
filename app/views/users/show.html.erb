@@ -1,16 +1,22 @@
 <div class="container">
-  <div class="show-content">
 <img src="/assets/show.jpeg" width="100%" height="100px">
-<div class="user-content pt-3">
+
+<div class="show-content">
 <%= attachment_image_tag @user, :image, fallback: "no-image.jpeg", class: "user-image" %>
-<h5 class="pt-3"><%= @user.name %></h5>
-<p>称号 <%= degree(@user.level) %></p>
+<div class="pl-4">
+<h5><%= @user.name %></h5>
+<strong>称号 <%= degree(@user.level) %></strong>
+<div class="pt-3">
 <%= link_to "フォロー", following_user_path(@user) %>
 <%= @user.following.count %>
 <%= link_to "フォロワー", followers_user_path(@user) %>
 <%= @user.followers.count %>
 </div>
 </div>
+</div>
+
+<%= render 'follow_form' %>
+
 <% if @user == current_user %>
 <%= link_to "ユーザー編集", edit_user_registration_path(@user.id) %>
 <% end %>

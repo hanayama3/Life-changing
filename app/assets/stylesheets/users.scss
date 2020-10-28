@@ -20,17 +20,29 @@ width: 66%;
 
 // show
 
+.show-content {
+ display: flex;
+ padding: 13px;
 
- .show-content {
-  height: 333px;
- .user-content {
- text-align: center;
- }
+}
+//  .user-image-box {
+//  padding-left: 13px;
+//  display: inline-block;
+//  }
+// .user-infomation {
+//  display: inline-block;
+//  margin-top: 20px;
+//  margin-left: 20px;
+// strong {
+// display: block;
+// }
+// }
+
+
 .user-image {
  width: 96px;
  height: 96px;
  border: solid 1px black;
  border-radius: 58px;
  object-fit: cover;
-}
 }
