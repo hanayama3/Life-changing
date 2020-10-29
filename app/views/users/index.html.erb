@@ -1,7 +1,7 @@
 <div class="container mt-5">
 <table class="table table-light">
   <tr><th>名前</th><th>称号</th></tr>
-   <% @user.each do |user| %>
+   <% @users.each do |user| %>
   <tr><td> <%= link_to user.name, "/users/#{user.id}" %></td>
   <td><%= degree(user.level) %></td></tr>
   <% end %>

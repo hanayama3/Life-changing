@@ -20,7 +20,7 @@ level: level
 end
 
 10.times do |n|
-task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩"]
+task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩","早寝早起き","片付け","日記","ランニング"]
 frequency = rand(1..7)
 user_id = n+1
 Habit.create!(

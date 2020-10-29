@@ -21,5 +21,4 @@ resources :users, :only => [:index, :show] do
 
 resources :habits, :only => [:new, :create, :edit, :update, :destroy]
 resources :relationships, :only => [:create, :destroy]
- 
 end

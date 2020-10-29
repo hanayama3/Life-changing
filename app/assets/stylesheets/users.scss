@@ -23,21 +23,7 @@ width: 66%;
 .show-content {
  display: flex;
  padding: 13px;
-
 }
-//  .user-image-box {
-//  padding-left: 13px;
-//  display: inline-block;
-//  }
-// .user-infomation {
-//  display: inline-block;
-//  margin-top: 20px;
-//  margin-left: 20px;
-// strong {
-// display: block;
-// }
-// }
-
 
 .user-image {
  width: 96px;
@@ -45,4 +31,10 @@ width: 66%;
  border: solid 1px black;
  border-radius: 58px;
  object-fit: cover;
+}
+
+// show_follow
+
+.users {
+ display: block;
 }

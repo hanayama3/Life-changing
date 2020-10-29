@@ -15,23 +15,13 @@
 </div>
 </div>
 
-<%= render 'follow_form' %>
-
-<% if @user == current_user %>
-<%= link_to "ユーザー編集", edit_user_registration_path(@user.id), class: "pl-3" %>
-<% end %>
-
-<h5 class="mt-5">習慣一覧</h5>
+<p><%= link_to "習慣一覧", @user, class: "pl-4"%></p>
+ 
+<h5 class="mt-5"><%= @title %></h5>
 <table class="table table-light">
-<tr><th>項目</th><th>週</th></tr>
-<% @user.habits.each do |habit| %>
-<tr>
-<td><%= link_to habit.task, "#" %></td>
-<td><%= habit.frequency %>回</td>
-<% if current_user == @user %>
-<td><%= link_to "変更",  edit_habit_path(habit)%></td>
-<% end %>
-</tr>
-<% end %>
- </table>
-</div>
+  <tr><th>名前</th><th>称号</th></tr>
+   <% @users.each do |user| %>
+  <tr><td> <%= link_to user.name, "/users/#{user.id}" %></td>
+  <td><%= degree(user.level) %></td></tr>
+  <% end %>
+  </table>
