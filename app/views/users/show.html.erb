@@ -7,10 +7,15 @@
 <h5><%= @user.name %></h5>
 <strong>称号 <%= degree(@user.level) %></strong>
 <div class="pt-2">
+<div id="following">
 <%= link_to "フォロー", following_user_path(@user) %>
 <%= @user.following.count %>
+</div>
+<div id="followers">
 <%= link_to "フォロワー", followers_user_path(@user) %>
 <%= @user.followers.count %>
+</div>
+
 </div>
 </div>
 </div>
