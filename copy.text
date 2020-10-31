@@ -1,0 +1,14 @@
+<div class="container">
+<h5><%= @habit.task %></h5>
+<h5><%= @habit.id %></h5>
+
+<%= form_with(model: @habit, url: {controller: 'habits', action: 'complete' }, local: true) do |f| %>
+<%= f.label :complete, @habit.task %>
+<%= f.check_box :complete %>
+
+<!--<%= hidden_field_tag :id, @habit.id %>-->
+
+<%= f.submit "達成" %>
+<% end %>
+
+</div>

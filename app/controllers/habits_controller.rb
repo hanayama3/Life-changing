@@ -32,8 +32,13 @@ flash[:alert] = "習慣を削除しました"
 redirect_to @habit.user
 end
 
-def mission
+def record
 @habit = Habit.find_by(id: params[:id])
+end
+
+def mission
+ @user = User.find_by(id: params[:id])
+ @habits = @user.habits
 end
 
 def complete

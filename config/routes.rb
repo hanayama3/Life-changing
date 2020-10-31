@@ -21,7 +21,8 @@ resources :users, :only => [:index, :show] do
 
 resources :habits, :only => [:new, :create, :edit, :update, :destroy] do
   member do
-   get :mission
+   get   :record
+   get   :mission
    patch :complete
  end
 end
