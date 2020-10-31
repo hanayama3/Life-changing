@@ -6,7 +6,7 @@
 <div class="pl-4">
 <h5><%= @user.name %></h5>
 <strong>称号 <%= degree(@user.level) %></strong>
-<div class="pt-2">
+<div class="user-relation pt-2">
 <%= link_to "フォロー", following_user_path(@user) %>
 <strong id="following">
 <%= @user.following.count %>
@@ -17,8 +17,7 @@
 </strong>
 
 </div>
-</div>
-</div>
 
-<%= render 'follow_form' %>
+</div>
+</div>
 
