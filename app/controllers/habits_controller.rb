@@ -33,11 +33,11 @@ redirect_to @habit.user
 end
 
 def mission
-@habit = Habit.find_by(id: params[:habit_id])
+@habit = Habit.find_by(id: params[:id])
 end
 
 def complete
-@habit = Habit.find_by(id: params[:habit_id])
+@habit = Habit.find_by(id: params[:id])
 @complete = params[:habit][:complete]
 if @complete == "1"
   @habit.complete += 1
