@@ -33,20 +33,24 @@ redirect_to @habit.user
 end
 
 def mission
- @habit = Habit.find_by(params[:id])
+@habit = Habit.find_by(id: params[:habit_id])
 end
 
 def complete
-@habit = Habit.find_by(params[:id])
-@habit.update_attribute(:complete, @habit[:complete])
-flash[:notice] = "よくやった"
+@habit = Habit.find_by(id: params[:habit_id])
+@complete = params[:habit][:complete]
+if @complete == "1"
+  @habit.complete += 1
+  @habit.save
+  flash[:notice] = "よくやった"
+end
 redirect_to @habit.user
 end
 
 private
 
 def habit_params
-params.require(:habit).permit(:task, :frequency, :user_id, :complete)
+params.require(:habit).permit(:task, :frequency, :user_id)
 end
 
 end
