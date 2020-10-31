@@ -32,10 +32,21 @@ flash[:alert] = "習慣を削除しました"
 redirect_to @habit.user
 end
 
+def mission
+ @habit = Habit.find_by(params[:id])
+end
+
+def complete
+@habit = Habit.find_by(params[:id])
+@habit.update_attribute(:complete, @habit[:complete])
+flash[:notice] = "よくやった"
+redirect_to @habit.user
+end
+
 private
 
 def habit_params
-params.require(:habit).permit(:task, :frequency, :user_id)
+params.require(:habit).permit(:task, :frequency, :user_id, :complete)
 end
 
 end

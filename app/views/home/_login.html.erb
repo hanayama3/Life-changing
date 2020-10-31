@@ -11,7 +11,7 @@
 <% else %>
 <div class="habit-list-item">
 <% @user.habits.each do |habit| %>
-<div class="p-1"><%= link_to habit.task, "#" %></div>
+<div class="p-1"><%= link_to habit.task, habit_mission_path(habit) %></div>
 <% end %>
 </div>
 <% end %>

@@ -1,0 +1,10 @@
+<div class="container">
+    <h5><%= @habit.task %></h5>
+    
+    <%= form_with(model: @habit, url: {controller: 'habits', action: 'complete' }, local: true) do |f| %>
+    <%= f.label :complete, @habit.task %>
+    <%= f.check_box :complete %>
+    <%= f.submit "達成" %>
+    <% end %>
+    
+</div>
