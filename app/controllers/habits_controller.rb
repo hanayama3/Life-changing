@@ -43,13 +43,16 @@ end
 
 def complete
 @habit = Habit.find_by(id: params[:id])
-@complete = params[:habit][:complete]
-if @complete == "1"
+@complete = params[:habit][:complete][]
+@cimplete.each do |complete|
+if complete == "1"
   @habit.complete += 1
   @habit.save
+end
   flash[:notice] = "よくやった"
 end
 redirect_to @habit.user
+# render html: "きた"
 end
 
 private

@@ -23,7 +23,7 @@ resources :habits, :only => [:new, :create, :edit, :update, :destroy] do
   member do
    get   :record
    get   :mission
-   patch :complete
+   post :complete
  end
 end
 
