@@ -15,15 +15,15 @@ end
 
 resources :users, :only => [:index, :show] do
   member do
-    get :following, :followers
+    get  :following, :followers
+    get  :mission
+    patch :complete
   end
   end
 
 resources :habits, :only => [:new, :create, :edit, :update, :destroy] do
   member do
    get   :record
-   get   :mission
-   post :complete
  end
 end
 

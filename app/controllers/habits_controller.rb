@@ -36,31 +36,6 @@ def record
 @habit = Habit.find_by(id: params[:id])
 end
 
-def mission
- @user = User.find_by(id: params[:id])
- @habits = @user.habits
-end
-
-def complete
-# @habit = Habit.find_by(id: params[:id])
-# @complete = params[:habit][:complete][]
-# @cimplete.each do |complete|
-# if complete == "1"
-#   @habit.complete += 1
-#   @habit.save
-# end
-#   flash[:notice] = "よくやった"
-# end
-# redirect_to @habit.user
-render html: "きた"
-# @complete = params[:complete]
-# if @complete
-# @complete.each do |complete|
-
-# end
-# end
-end
-
 private
 
 def habit_params

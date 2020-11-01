@@ -1,11 +1,12 @@
 <div class="container">
 <h5>habitモデルを一気に更新する</h5>
 <h5>複数のcheck_boxをフォームに送信したい</h5>
-<%= form_with(url: complete_habit_path, local: true) do |f| %>
-<% @habits.each do |habit| %>
+<%= @user.name %>
+<%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
+<% @user.habits.each do |habit|%>
 <label><%= habit.task %></label>
-<%= check_box_tag 'complete[]'%>
+<%= check_box_tag 'complete[]' %>
 <% end %>
 <%= f.submit "送信"%>
-<% end%>
+<% end %>
 </div>
