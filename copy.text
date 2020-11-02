@@ -1,25 +1,26 @@
 <div class="container">
-<h5><%= @habit.task %></h5>
-<h5><%= @habit.id %></h5>
-
-<%= form_with(model: @habit, url: {controller: 'habits', action: 'complete' }, local: true) do |f| %>
-<%= f.label :complete, @habit.task %>
-<%= f.check_box :complete %>
-
-<!--<%= hidden_field_tag :id, @habit.id %>-->
-
-<%= f.submit "達成" %>
+<h5>habitモデルを一気に更新する</h5>
+<h5>複数のcheck_boxをフォームに送信したい</h5>
+<%= @user.name %>
+<%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
+<% @user.habits.each do |habit|%>
+<label><%= habit.task %></label>
+<%= check_box_tag 'complete[]' %>
 <% end %>
-
+<%= f.submit "送信"%>
+<% end %>
 </div>
 
 def complete
-@habit = Habit.find_by(id: params[:id])
-@complete = params[:habit][:complete]
-if @complete == "1"
-  @habit.complete += 1
-  @habit.save
-  flash[:notice] = "よくやった"
+@user = User.find_by(id: params[:id])
+@complete = params[:complete]
+if @complete
+@complete.each do |complete|
+  @user.level += 1
+  # @user.habits.map {|habit| habit.complete += 1}
+  flash[:notice] = "レベルアップ！"
+  @user.save
 end
-redirect_to @habit.user
+end
+redirect_to @user
 end

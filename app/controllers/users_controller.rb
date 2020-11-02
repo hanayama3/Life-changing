@@ -27,17 +27,25 @@ def mission
 end
 
 def complete
+# @user = User.find_by(id: params[:id])
+# @complete = params[:complete]
+# if @complete
+# @complete.each do |complete|
+#   @user.level += 1
+#   # @user.habits.map {|habit| habit.complete += 1}
+#   flash[:notice] = "レベルアップ！"
+#   @user.save
+# end
+# end
+# redirect_to @user
 @user = User.find_by(id: params[:id])
-@complete = params[:complete]
-if @complete
-@complete.each do |complete|
-  @user.level += 1
-  # @user.habits.map {|habit| habit.complete += 1}
-  flash[:notice] = "レベルアップ！"
-  @user.save
+@complete = params[:user][:complete]
+# num = @complete.map(&:to_s)
+@user.habits.each do |habit|
+  habit.complete += 1
 end
-end
+@user.save
+flash[:notice] = "コンプリート！"
 redirect_to @user
 end
-
 end
