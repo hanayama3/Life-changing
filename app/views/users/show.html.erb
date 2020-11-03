@@ -9,11 +9,12 @@
 
 <h5 class="mt-5">習慣一覧</h5>
 <table class="table table-light">
-<tr><th>項目</th><th>週</th></tr>
+<tr><th>項目</th><th>週</th><th>総回数</th></tr>
 <% @user.habits.each do |habit| %>
 <tr>
 <td><%= link_to habit.task, "#" %></td>
 <td><%= habit.frequency %>回</td>
+<td><%= habit.complete %>回</td>
 <% if current_user == @user %>
 <td><%= link_to "変更",  edit_habit_path(habit)%></td>
 <% end %>

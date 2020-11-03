@@ -4,7 +4,8 @@
 <h5 class="mt-2 mb-5">継続は力なり<i class="fa fa-flag "></i></h5>
 
 <div class="habit-list mb-3">
-<p><%= @user.name %>の習慣</p>
+<p>名前 <%= @user.name%></p>
+<p>称号 <%= degree(@user.level) %></p>
 
 <% if @user.habits.empty? %>
 <div class="not-habit">なし</div>
@@ -20,6 +21,5 @@
 <div class="button">
 <%= link_to "記録する", mission_user_path(@user) %>
 </div>
-<%= @user.level %>
 </div>
 </div>

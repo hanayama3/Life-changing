@@ -34,4 +34,5 @@ def degree(level)
   return "負け犬"
  end
 end
+
 end

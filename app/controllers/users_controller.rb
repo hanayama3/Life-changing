@@ -28,11 +28,13 @@ end
 
 def complete
 @user = User.find_by(id: params[:id])
-if params[:complete]
-complete = params[:complete].map(&:to_i)
+complete = params[:complete]
 @user.habits.zip(complete) do |h,i|
-  h.complete += i
-  flash[:notice] = "レベルアップ！"
+if i == "達成"
+  h.complete += 1
+  @user.level += 1
+  flash[:notice]= "達成！"
+  @user.save!
   h.save!
 end
 end
