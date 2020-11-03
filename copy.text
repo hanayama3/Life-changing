@@ -1,3 +1,16 @@
+def complete
+@user = User.find_by(id: params[:id])
+if params[:complete]
+complete = params[:complete].map(&:to_i)
+@user.habits.zip(complete) do |h,i|
+  h.complete += i
+  flash[:notice] = "レベルアップ！"
+  h.save!
+end
+end
+redirect_to @user
+end
+
 <div class="container">
 <h5>habitモデルを一気に更新する</h5>
 <h5>複数のcheck_boxをフォームに送信したい</h5>
@@ -5,22 +18,18 @@
 <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
 <% @user.habits.each do |habit|%>
 <label><%= habit.task %></label>
-<%= check_box_tag 'complete[]' %>
+<%= hidden_field_tag 'complete[]', 1%>
+<%= check_box_tag 'complete[]', 0 %>
 <% end %>
 <%= f.submit "送信"%>
 <% end %>
 </div>
 
-def complete
-@user = User.find_by(id: params[:id])
-@complete = params[:complete]
-if @complete
-@complete.each do |complete|
-  @user.level += 1
-  # @user.habits.map {|habit| habit.complete += 1}
-  flash[:notice] = "レベルアップ！"
-  @user.save
-end
-end
-redirect_to @user
-end
+<!--<input type="hidden" name="complete" value="0">-->
+<!--<input type="checkbox" name="complete" value="1">-->
+
+<!--<select id="complete" name="complete[]"><option value="1">やった-->
+<!--</option><option value="0">やってない</option></select>--> できたやつ
+
+
+<%= f.check_box(:complete,{multiple: true},checked_value = "1", unchecked_value = "0")%>

@@ -5,6 +5,7 @@
 <% if @user == current_user %>
 <%= link_to "ユーザー編集", edit_user_registration_path(@user.id), class: "pl-3" %>
 <% end %>
+<h1><%= @complete %></h1>
 
 <h5 class="mt-5">習慣一覧</h5>
 <table class="table table-light">
