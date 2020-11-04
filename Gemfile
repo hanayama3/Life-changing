@@ -52,6 +52,7 @@ group :development do
   gem 'binding_of_caller'
   gem "rails-erd"
   gem 'pry-rails'
+  gem "chartkick"
 end
 
 group :test do

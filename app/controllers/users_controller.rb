@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @data = {'2019-06-01' => 100, '2019-06-02' => 200, '2019-06-03' => 150, '2019-06-04' => 220 }
   end
   
   def following
