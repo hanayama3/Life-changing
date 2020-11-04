@@ -5,8 +5,11 @@
 <% if @user == current_user %>
 <%= link_to "ユーザー編集", edit_user_registration_path(@user.id), class: "pl-3" %>
 <% end %>
-<h1><%= @complete %></h1>
-
+<% unless @user.profile.blank? %>
+<div class="plofile">
+<%= @user.profile %>
+</div>
+<% end %>
 <h5 class="mt-5">習慣一覧</h5>
 <table class="table table-light">
 <tr><th>項目</th><th>週</th><th>総回数</th></tr>

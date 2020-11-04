@@ -1,5 +1,7 @@
-<div class="container">
-    <h1>グラフを入れて可視化する</h1>
-    <%= @habit.task %>
-    <%= @habit.complete %>
+<div class="container mt-5">
+ <h4>習慣 <%= @habit.task %></h4>
+ <div class="habit-infomation">
+ <p>週 <%= @habit.frequency %>回</p>
+ <p>達成数 <%= @habit.complete%>回</p>
+</div>
 </div>
