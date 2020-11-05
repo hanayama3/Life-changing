@@ -2,13 +2,14 @@
 <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
 <h4><%= @user.name %></h4>
 <p class="pt-3">習慣</p>
-<% @user.habits.each do |habit| %>
 <div class="complete-content">
-<label><%= habit.task %></label>
-<select id="complete" name="complete[]"><option value="無念">無念</option>
-<option value="達成">達成</option></select>
-</div>
+<%= f.collection_check_boxes(:habit_ids, @user.habits,:id,:task,checked: false) do |b| %>
+<%= b.label do %>
+<%= b.check_box %>
+<%= b.text %>
 <% end %>
+<% end %>
+</div>
 <%= f.submit "送信",class: "btn btn-primary m-5"%>
 <% end %>
 </div>

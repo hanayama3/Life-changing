@@ -29,17 +29,22 @@ end
 
 def complete
 @user = User.find_by(id: params[:id])
-complete = params[:complete]
-@user.habits.zip(complete) do |h,i|
-if i == "達成"
+habit_id = (complete_params).values.flatten.compact.reject(&:empty?)
+unless habit_id.empty?
+@habit = Habit.find(habit_id)
+@habit.each do |h|
   h.complete += 1
-  @user.level += 1
-  flash[:notice]= "達成！"
-  @user.save!
+  flash[:notice] = "達成！"
   h.save!
 end
 end
 redirect_to @user
+end
+
+private
+
+def complete_params
+  params.require(:user).permit(habit_ids: [])
 end
 
 end
