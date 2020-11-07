@@ -9,6 +9,7 @@ class User < ApplicationRecord
                                   dependent:   :destroy
  has_many :following, through: :active_relationships, source: :followed
  has_many :followers, through: :passive_relationships, source: :follower
+ has_many :records, dependent: :destroy
   
  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -29,4 +30,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
+  def level_change(before_level)
+    after_level = self.level
+    unless before_level == after_level
+      date = Time.current
+      self.records.create(level: after_level,date: date)
+  end
+end
 end

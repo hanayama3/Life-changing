@@ -24,6 +24,5 @@
 </tr>
 <% end %>
  </table>
-<%= line_chart @data, title: "レベル" %>
-<%= Time.now %>
+<%= line_chart @user.records.limit(30).pluck(:date, :level) %>
 </div>

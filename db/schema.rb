@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_073649) do
+ActiveRecord::Schema.define(version: 2020_11_07_141232) do
 
   create_table "habits", force: :cascade do |t|
     t.string "task"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2020_10_31_073649) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "complete", default: 0, null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "level"
+    t.date "date"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", force: :cascade do |t|

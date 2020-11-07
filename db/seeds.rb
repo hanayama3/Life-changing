@@ -3,14 +3,23 @@ name:  "hanayama",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
 profile: "Rails余裕",
-level: 777
+level: 10
 )
+
+10.times do |n|
+date = Time.current.ago(10.days)
+Record.create!(
+level: n,
+date: date.since(n.days),
+user_id: 1
+)
+end
 
 10.times do |n|
 name = Faker::Name.name
 email = Faker::Internet.email
 password = "password"
-level = rand(100)
+level = 0
 User.create!(
 email: email,
 password: password,

@@ -6,8 +6,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @data = {"11/1" => 1,"11/2" => 2,"11/3" => 3,"11/5" => 4,"11/6" => 5,"11/7" => 6,"11/8" => 3}
-    
   end
   
   def following
@@ -30,6 +28,7 @@ end
 
 def complete
 @user = User.find_by(id: params[:id])
+before_level = @user.level
 habit_id = (complete_params).values.flatten.compact.reject(&:empty?)
 unless habit_id.empty?
 @habit = Habit.find(habit_id)
@@ -37,14 +36,11 @@ unless habit_id.empty?
   h.complete += 1
   flash[:notice] = "達成！"
   h.save!
-  # @level = @user.level += 1
-  # @user.save!
-  # @time = Time.current.strftime("%m/%d")
-  # @data = Hash.new
-  # @data.store(@time,@level)
-  # binding.pry
+  @user.level += 1
+  @user.save!
 end
 end
+@user.level_change(before_level)
 redirect_to @user
 end
 
