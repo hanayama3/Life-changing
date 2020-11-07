@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @data = {'2019-06-01' => 100, '2019-06-02' => 200, '2019-06-03' => 150, '2019-06-04' => 220 }
+    @data = {"11/1" => 1,"11/2" => 2,"11/3" => 3,"11/5" => 4,"11/6" => 5,"11/7" => 6,"11/8" => 3}
+    
   end
   
   def following
@@ -36,6 +37,12 @@ unless habit_id.empty?
   h.complete += 1
   flash[:notice] = "達成！"
   h.save!
+  @level = @user.level += 1
+  @user.save!
+  @time = Time.current.strftime("%m/%d")
+  @data = Hash.new
+  @data.store(@time,@level)
+  binding.pry
 end
 end
 redirect_to @user
