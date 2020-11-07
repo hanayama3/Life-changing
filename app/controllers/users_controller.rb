@@ -37,12 +37,12 @@ unless habit_id.empty?
   h.complete += 1
   flash[:notice] = "達成！"
   h.save!
-  @level = @user.level += 1
-  @user.save!
-  @time = Time.current.strftime("%m/%d")
-  @data = Hash.new
-  @data.store(@time,@level)
-  binding.pry
+  # @level = @user.level += 1
+  # @user.save!
+  # @time = Time.current.strftime("%m/%d")
+  # @data = Hash.new
+  # @data.store(@time,@level)
+  # binding.pry
 end
 end
 redirect_to @user

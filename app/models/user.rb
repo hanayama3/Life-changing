@@ -1,7 +1,6 @@
 class User < ApplicationRecord
- 
+
  has_many :habits, dependent: :destroy
- 
  has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -28,15 +27,6 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
-  end
- 
-  def level_up(user)
-    @time = Time.current.strftime("%m/%d")
-    @level = user.level += 1
-    user.save!
-    @data = Hash.new
-    @data.store(@time,@level)
-    binding.pry
   end
   
 end
