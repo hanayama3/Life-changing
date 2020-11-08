@@ -6,6 +6,9 @@ end
 
 def create
 @habit = Habit.new(habit_params)
+@habit.start_time = Time.current
+@habit.end_time = Time.current #test
+# @habit.end_time = Time.current.since(1.weeks)
 if @habit.save
 flash[:notice] = "習慣を登録しました"
 redirect_to @habit.user

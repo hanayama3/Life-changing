@@ -1,4 +1,5 @@
 module UsersHelper
+ 
 def degree(level)
  num = level.to_i
  case num
@@ -27,12 +28,14 @@ def degree(level)
   when 22..32
   return "見習い"
   when 11..21
-  return "親のスネかじり"
-  when 5..10
-  return "たわけ者"
-  when 1..4
+  return "修行中"
+  when 1..10
   return "負け犬"
- end
+  when 0..1
+  return "赤子"
+  end
+  if num < 0
+   return "1000年に1人の怠け者"
+  end
 end
-
 end

@@ -1,35 +1,11 @@
-def complete
-@user = User.find_by(id: params[:id])
-if params[:complete]
-complete = params[:complete].map(&:to_i)
-@user.habits.zip(complete) do |h,i|
-  h.complete += i
-  flash[:notice] = "レベルアップ！"
-  h.save!
-end
-end
-redirect_to @user
-end
-
-<div class="container">
-<h5>habitモデルを一気に更新する</h5>
-<h5>複数のcheck_boxをフォームに送信したい</h5>
-<%= @user.name %>
-<%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
-<% @user.habits.each do |habit|%>
-<label><%= habit.task %></label>
-<%= hidden_field_tag 'complete[]', 1%>
-<%= check_box_tag 'complete[]', 0 %>
-<% end %>
-<%= f.submit "送信"%>
-<% end %>
-</div>
-
-<!--<input type="hidden" name="complete" value="0">-->
-<!--<input type="checkbox" name="complete" value="1">-->
-
-<!--<select id="complete" name="complete[]"><option value="1">やった-->
-<!--</option><option value="0">やってない</option></select>--> できたやつ
-
-
-<%= f.check_box(:complete,{multiple: true},checked_value = "1", unchecked_value = "0")%>
+ if habit.end_time < Date.today && habit.complete < habit.frequency
+      before_level = user.level
+      user.level -= 5
+      user.save!
+      habit.start_time = Time.current
+      habit.end_time = Time.current.since(1.weeks)
+      habit.complete = 0
+      habit.save!
+      user.level_change(before_level)
+      flash[:notice] = "失望したよ お前には"
+  end

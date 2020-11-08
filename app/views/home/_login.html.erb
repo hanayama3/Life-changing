@@ -1,8 +1,8 @@
+<% @user ||= current_user %>
+<% time_out?(@user) %>
 <div class="container login-index">
 <div class="index-content">
-<% @user ||= current_user %>
 <h5 class="mt-2 mb-5">継続は力なり<i class="fa fa-flag "></i></h5>
-
 <div class="habit-list mb-3">
 <p>名前 <%= @user.name%></p>
 <p>称号 <%= degree(@user.level) %></p>

@@ -30,11 +30,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
-  def level_change(before_level)
-    after_level = self.level
-    unless before_level == after_level
-      date = Time.current
-      self.records.create(level: after_level,date: date)
-  end
+ def level_change(before_level)
+  after_level = self.level
+  unless before_level == after_level
+    date = Time.current
+    self.records.create(level: after_level,date: date)
+end
 end
 end

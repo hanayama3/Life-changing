@@ -12,7 +12,7 @@
 <% end %>
 <h5 class="mt-5">習慣一覧</h5>
 <table class="table table-light">
-<tr><th>項目</th><th>週</th><th>総回数</th></tr>
+<tr><th>項目</th><th>週</th><th>回数(週)</th></tr>
 <% @user.habits.each do |habit| %>
 <tr>
 <td><%= link_to habit.task, "#" %></td>

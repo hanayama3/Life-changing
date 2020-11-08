@@ -32,10 +32,16 @@ end
 task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩","早寝早起き","片付け","日記","ランニング"]
 frequency = rand(1..7)
 user_id = n+1
+complete = 0
+start_time = Time.current
+end_time = Time.current.since(1.days)
 Habit.create!(
 task: task.sample,
 frequency: frequency,
-user_id: user_id
+user_id: user_id,
+complete: complete,
+start_time: start_time,
+end_time: end_time
 )
 end
 
