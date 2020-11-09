@@ -8,8 +8,7 @@ def time_out?(user)
  
   user.habits.each do |habit|
   if habit.end_time < Date.current
-   habit.start_time = Time.current
-   habit.end_time = Time.current.since(1.weeks)
+   habit.end_time = Date.current.since(1.weeks)
   
    if habit.complete < habit.frequency
     user.level -= 5

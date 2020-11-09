@@ -33,7 +33,7 @@ class User < ApplicationRecord
  def level_change(before_level)
   after_level = self.level
   unless before_level == after_level
-    date = Time.current
+    date = Date.current
     self.records.create(level: after_level,date: date)
 end
 end

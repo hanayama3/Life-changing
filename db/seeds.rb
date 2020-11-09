@@ -7,9 +7,9 @@ level: 10
 )
 
 10.times do |n|
-date = Time.current.ago(10.days)
+date = Date.current.ago(10.days)
 Record.create!(
-level: n,
+level: rand(10),
 date: date.since(n.days),
 user_id: 1
 )
@@ -40,16 +40,13 @@ task: task.sample,
 frequency: frequency,
 user_id: user_id,
 complete: complete,
-start_time: start_time,
 end_time: end_time
 )
 end
 
 users = User.all
 user  = users.first
-# user_idが2~8までを格納
 following = users[2..8]
-# user_idが3から6までを格納
 followers = users[3..6]
 
 following.each { |followed| user.follow(followed) }
