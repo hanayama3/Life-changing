@@ -3,11 +3,12 @@
 <h4><%= @user.name %></h4>
 <p class="pt-3">習慣</p>
 <div class="complete-content">
-<%= f.collection_check_boxes(:habit_ids, @user.habits,:id,:task,checked: false) do |b| %>
+<%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
 <%= b.label do %>
 <%= b.check_box %>
 <%= b.text %>
 <% end %>
+<!--<p id="p01"></p>-->
 <% end %>
 </div>
 <%= f.submit "送信",class: "btn btn-primary m-5"%>

@@ -10,6 +10,7 @@ require("channels");
 require("jquery");
 require("chartkick");
 require("chart.js");
+require("check.js");
 
 
 
