@@ -13,6 +13,18 @@
 <div class="habit-list-item">
 <% @user.habits.each do |habit| %>
 <div class="p-1"><%= link_to habit.task, record_habit_path(habit.id)%></div>
+
+<li class="habit-show"><%= habit.task %></li>
+
+<div id="habit-modal" class="habit-modal-wrapper">
+<div class="modal-content">
+ <p>習慣 <%= habit.task %></p>
+ <p>週<%= habit.frequency %>回</p>
+ <p>達成(週)<%= habit.complete %>回</p>
+ <p>終了時間<%= habit.end_time %>日</p>
+</div>
+</div>
+
 <% end %>
 </div>
 <% end %>
