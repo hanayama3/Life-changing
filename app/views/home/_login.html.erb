@@ -12,11 +12,12 @@
 <% else %>
 <div class="habit-list-item">
 <% @user.habits.each do |habit| %>
-<div class="p-1"><%= link_to habit.task, record_habit_path(habit.id) %></div>
+<div class="p-1"><%= link_to habit.task, record_habit_path(habit.id)%></div>
 <% end %>
 </div>
 <% end %>
 </div>
+
 
 <div class="button">
 <%= link_to "記録する", mission_user_path(@user) %>

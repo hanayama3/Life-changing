@@ -15,7 +15,7 @@
  
 //   $('input[name="user[habit_ids][]"]').change(function() {
  
-//     var habit_ids = [];
+//     var habit_ids = (this).text("達成");
  
 //     $('input[name="user[habit_ids][]"]:checked').each(function() {
  
@@ -32,11 +32,7 @@
 
 // $(function() {
  
-//   //チェックボックスにチェックが入ったら
 //   $('input[name="user[habit_ids][]"]').change(function() {
- 
-//     //ボタンのdisabledを解除する
-//     $('.btn').prop('disabled', true);
- 
+// 　$('#check').text('あらあら');
 //   });
 // });
