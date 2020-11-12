@@ -18,7 +18,7 @@ border-bottom: double;
 }
 
 .habit-list {
-p {
+.user-name {
  font-size: 18px;
  color: #555;
 }
@@ -87,14 +87,22 @@ cursor: pointer;
   border-radius: 10px;
   width: 360px;
   height: 230px;
-  padding-left: 40px;
-}
-}
-
-.fa-times {
+  padding-left: 31px;
+  
+  .modal-task {
+    font-size: 18px;
+  }
+  .modal-item {
+    text-decoration: underline;
+    }
+  
+  .fa-times {
   position: absolute;
   top: 12px;
   right: 12px;
   color: rgba(128, 128, 128, 0.46);
   cursor: pointer;
 }
+}
+}
+
