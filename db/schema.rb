@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_094609) do
+ActiveRecord::Schema.define(version: 2020_11_12_141002) do
 
   create_table "habits", force: :cascade do |t|
     t.string "task"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_094609) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "complete", default: 0, null: false
     t.date "end_time"
+    t.integer "complete", default: 0, null: false
   end
 
   create_table "records", force: :cascade do |t|
