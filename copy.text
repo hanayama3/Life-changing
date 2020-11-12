@@ -1,11 +1,8 @@
- if habit.end_time < Date.today && habit.complete < habit.frequency
-      before_level = user.level
-      user.level -= 5
-      user.save!
-      habit.start_time = Time.current
-      habit.end_time = Time.current.since(1.weeks)
-      habit.complete = 0
-      habit.save!
-      user.level_change(before_level)
-      flash[:notice] = "失望したよ お前には"
-  end
+<div class="habit-modal">
+<div class="modal-content">
+ <p>習慣 <%= habit.task %></p>
+ <p>週<%= habit.frequency %>回</p>
+ <p>達成(週)<%= habit.complete %>回</p>
+ <p>終了時間<%= habit.end_time %>日</p>
+</div>
+</div>

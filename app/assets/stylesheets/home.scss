@@ -58,10 +58,14 @@ color: #555;
 }
 
 .habit-show {
-color: red;
+margin: 7px 0px;
+cursor: pointer;
+&:hover {
+ text-decoration: underline;
+}
 }
 
-.habit-modal-wrapper {
+.habit-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -71,19 +75,26 @@ color: red;
   z-index: 100;
   display: none;
   
-  .modal-content {
+  .modal-box {
   position: absolute;
-  top: 20%;
+  top: 16%;
   left: 0;
   right: 0;
-  bottom: 20%;
+  bottom: 35%;
   margin: auto;
   background-color: #e6ecf0;
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: 450px;
-  height: auto;
-  text-align: center;
+  width: 360px;
+  height: 230px;
+  padding-left: 40px;
 }
 }
 
+.fa-times {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.46);
+  cursor: pointer;
+}
