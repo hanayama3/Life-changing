@@ -25,6 +25,7 @@ gem 'mini_racer'
 gem 'faker'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem "chartkick"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -52,7 +53,7 @@ group :development do
   gem 'binding_of_caller'
   gem "rails-erd"
   gem 'pry-rails'
-  gem "chartkick"
+ 
 end
 
 group :test do
