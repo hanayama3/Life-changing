@@ -4,6 +4,6 @@ class ChangeDatatypecompleteOfHabits < ActiveRecord::Migration[6.0]
   end
   
   def down
-    change_column :habits, :complete, :boolean, default: false, null: false
+    change_column :habits, :complete, :boolean
   end
 end
