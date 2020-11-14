@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_141002) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "end_time"
-    t.integer "complete"
+    t.integer "complete", default: 0, null: false
   end
 
   create_table "records", force: :cascade do |t|
