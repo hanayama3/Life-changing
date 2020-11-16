@@ -40,7 +40,7 @@ unless habit_id.empty?
   @user.save!
 end
 end
-@user.level_change(before_level)
+@user.record(before_level)
 redirect_to @user
 end
 

@@ -1,0 +1,6 @@
+<div class="container mt-3">
+ <% @notifications.each do |n| %>
+ <p><%= n.visitor.name %>さんから</p>
+ <p><%= n.action %></p>
+ <% end %>
+</div>

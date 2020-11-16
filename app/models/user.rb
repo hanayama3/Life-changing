@@ -1,15 +1,21 @@
 class User < ApplicationRecord
 
  has_many :habits, dependent: :destroy
+ has_many :records, dependent: :destroy
  has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
                                   dependent:   :destroy
  has_many :passive_relationships, class_name:  "Relationship",
-                                foreign_key: "followed_id",
-                                  dependent:   :destroy
+                                 foreign_key: "followed_id",
+                                   dependent:   :destroy
  has_many :following, through: :active_relationships, source: :followed
  has_many :followers, through: :passive_relationships, source: :follower
- has_many :records, dependent: :destroy
+ has_many :active_notifications, class_name: 'Notification',
+                                 foreign_key: 'visitor_id',
+                                 dependent: :destroy
+ has_many :passive_notifications, class_name: 'Notification',
+                                  foreign_key: 'visited_id',
+                                  dependent: :destroy
   
  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -30,11 +36,16 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
- def level_change(before_level)
+ def record(before_level)
   after_level = self.level
-  unless before_level == after_level
-    date = Date.current
+  date = Date.current
+  if before_level < after_level
     self.records.create(level: after_level,date: date)
+  elsif before_level > after_level
+    self.records.create(level: after_level,date: date)
+    self.followers.each do |f|
+      Notification.create(visitor_id: self.id,visited_id: f.id, action: "#{self.name}はへこたれました")
+    end
 end
 end
 end
