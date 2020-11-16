@@ -1,6 +1,11 @@
-<div class="container mt-3">
+<div class="notification-box container mt-3">
  <% @notifications.each do |n| %>
- <p><%= n.visitor.name %>さんから</p>
- <p><%= n.action %></p>
+ <% if n.action == "lose" %>
+ <div class="notification-item">
+ <%= attachment_image_tag n.visitor, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
+ <div class="lose"><span><%= n.visitor.name %></span>さんがへこたれました</div>
+ <div class="ago-time">コメントを送る <%= n.how_long_ago %></div>
+ </div>
+ <% end %>
  <% end %>
 </div>

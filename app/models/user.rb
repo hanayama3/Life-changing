@@ -44,8 +44,9 @@ class User < ApplicationRecord
   elsif before_level > after_level
     self.records.create(level: after_level,date: date)
     self.followers.each do |f|
-      Notification.create(visitor_id: self.id,visited_id: f.id, action: "#{self.name}はへこたれました")
-    end
+      Notification.create(visitor_id: self.id,visited_id: f.id, action: "lose")
+  end
 end
 end
+
 end

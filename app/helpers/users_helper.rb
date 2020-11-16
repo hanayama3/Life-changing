@@ -38,4 +38,5 @@ def degree(level)
    return "1000年に1人の怠け者"
   end
 end
+
 end
