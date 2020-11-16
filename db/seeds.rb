@@ -6,6 +6,12 @@ profile: "Rails余裕",
 level: 10
 )
 
+Post.create!(
+content: "転職できる気しかしない",
+private: true,
+user_id: 1
+)
+
 10.times do |n|
 date = Date.current.ago(10.days)
 Record.create!(

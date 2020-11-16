@@ -1,5 +1,8 @@
 <div class="notification-box container mt-3">
+ <!--このif文逆じゃね？-->
+ <% if @notification.nil? %>
  <% @notifications.each do |n| %>
+ <!--case文でlose,follow,commentで分けよう-->
  <% if n.action == "lose" %>
  <div class="notification-item">
  <%= attachment_image_tag n.visitor, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
@@ -7,5 +10,9 @@
  <div class="ago-time">コメントを送る <%= n.how_long_ago %></div>
  </div>
  <% end %>
+ <% end %>
+ 
+ <% else %>
+ <p>通知はありません</p>
  <% end %>
 </div>

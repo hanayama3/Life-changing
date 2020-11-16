@@ -24,15 +24,17 @@ class UsersController < ApplicationController
   
 def mission
  @user = User.find_by(id: params[:id])
+ @post = @user.posts.new
 end
 
 def complete
 @user = User.find_by(id: params[:id])
+@post = @user.posts.new(post_params)
+@post.save!
 before_level = @user.level
-habit_id = (complete_params).values.flatten.compact.reject(&:empty?)
-unless habit_id.empty?
-@habit = Habit.find(habit_id)
-@habit.each do |h|
+ unless complete_params.empty?
+  @habit = Habit.find(complete_params)
+  @habit.each do |h|
   h.update_attributes(complete: h.complete += 1)
   @user.update_attributes(level: @user.level += 1)
   flash[:notice] = "達成！"
@@ -45,7 +47,11 @@ end
 private
 
 def complete_params
-  params.require(:user).permit(habit_ids: [])
+  params.require(:user).permit(habit_ids: []).values.flatten.compact.reject(&:empty?)
+end
+
+def post_params
+  params.require(:user).permit(:content, :private)
 end
 
 end

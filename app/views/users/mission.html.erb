@@ -10,6 +10,12 @@
 <% end %>
 <% end %>
 </div>
+<div class="post-content">
+ <%= f.label :content %>
+ <%= f.text_area :content %>
+ <%= f.label "非公開" %>
+ <%= f.check_box :private %>
+</div>
 <%= f.submit "送信",class: "btn btn-primary m-5"%>
 <% end %>
 </div>

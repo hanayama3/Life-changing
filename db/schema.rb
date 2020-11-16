@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_034424) do
+ActiveRecord::Schema.define(version: 2020_11_16_075858) do
 
   create_table "habits", force: :cascade do |t|
     t.string "task"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_034424) do
     t.boolean "checked", default: false, null: false
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.boolean "private", default: false, null: false
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -67,4 +76,5 @@ ActiveRecord::Schema.define(version: 2020_11_16_034424) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end
