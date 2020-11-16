@@ -9,17 +9,14 @@ def time_out?(user)
   user.habits.each do |habit|
   if habit.end_time < Date.current
    habit.end_time = Date.current.since(1.weeks)
-  
    if habit.complete < habit.frequency
-    user.level -= 5
-    user.save!
-    habit.complete = 0
-    habit.save!
-    user.level_change(before_level)
+    user.update_attributes(level: user.level -= 5)
+    habit.update_attributes(complete: 0)
+    user.record(before_level)
     flash[:notice] = "失望したよ お前には"
    else
-   habit.complete = 0
-   habit.save!
+   habit.update_attributes(complete: 0)
+   flash[:notice] = "道切り開くもの　勇者よ"
    end
    
   end

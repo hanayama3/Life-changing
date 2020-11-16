@@ -33,11 +33,9 @@ habit_id = (complete_params).values.flatten.compact.reject(&:empty?)
 unless habit_id.empty?
 @habit = Habit.find(habit_id)
 @habit.each do |h|
-  h.complete += 1
+  h.update_attributes(complete: h.complete += 1)
+  @user.update_attributes(level: @user.level += 1)
   flash[:notice] = "達成！"
-  h.save!
-  @user.level += 1
-  @user.save!
 end
 end
 @user.record(before_level)
