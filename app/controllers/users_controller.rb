@@ -1,38 +1,38 @@
 class UsersController < ApplicationController
+  # include NotLogged
+  before_action :set_user, only: [:show,:following,:followers,:mission, :complete]
+  before_action :redirect_root
   
   def index
     @users = User.all
   end
   
   def show
-    @user = User.find(params[:id])
   end
   
   def following
     @title = "フォロー"
-    @user = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
   
   def followers
     @title = "フォロワー"
-    @user = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
   end
   
 def mission
- @user = User.find(params[:id])
  @post = @user.posts.new
 end
 
 def complete
-@user = User.find(params[:id])
-if (post_params)
+unless (post_params).nil?
 @post = @user.posts.new(post_params)
+flash[:notice] = "投稿しました"
 @post.save!
 end
+
 before_level = @user.level
  unless complete_params.empty?
   @habit = Habit.find(complete_params)
@@ -48,12 +48,27 @@ end
 
 private
 
+def set_user
+  @user = User.find(params[:id])
+end
+
 def complete_params
   params.require(:user).permit(habit_ids: []).values.flatten.compact.reject(&:empty?)
 end
 
 def post_params
+  unless params[:user][:content].empty?
   params.require(:user).permit(:content, :private)
+else
+  return nil
+  end
+end
+
+def redirect_root
+  if current_user.nil?
+  flash[:notice] = "ログインしてください"
+  redirect_to root_path
+end
 end
 
 end

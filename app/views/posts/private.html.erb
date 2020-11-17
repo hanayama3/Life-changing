@@ -1,11 +1,18 @@
-<div class="private">
+<div class="private container">
+    <div class="shadow">
     <h5>非公開</h5>
+    </div>
     <% @private_post.each do |private_post|%>
-    <div class="private-item">
+    <div class="post-content">
+    <div class="post-item private-mode">
     <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
-     <%= private_post.user.name %>
-     <%= private_post.content %>
+    <div class="user-name">
+     <p><%= private_post.user.name %></p>
+     <p><%= degree(private_post.user.level)%></p>
+     </div>
+      <l class="pl-4"><%= private_post.content %></l>
       <div class="ago-time"><%= private_post.how_long_ago %></div>
+      </div>
       </div>
     <% end %>
 </div>

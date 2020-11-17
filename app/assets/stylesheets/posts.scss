@@ -3,7 +3,6 @@
  padding-top: 18px;
 .post-item {
  border-bottom: solid 1px #EEE;
- padding: 8px;
  // background: skyblue;
  .icon {
  width: 80px;
@@ -26,21 +25,19 @@
 
 .private {
  background-color: #222;
- h5 {
-  padding: 16px;
+ .shadow {
+  text-align: center;
+  padding: 16px 0px;
+  background: white;
+  opacity: 0.8;
   color: white;
- }
- .icon {
- width: 80px;
- height: 80px;
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
- display: inline-block;
+  h5 {
+   font-size: 19px;
+   color: black;
+  
   }
- .private-item {
- border-bottom: solid 1px white;
- padding: 8px;
+ }
+ .private-mode {
  color: white;
  }
  }

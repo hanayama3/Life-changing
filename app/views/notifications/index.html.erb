@@ -1,5 +1,6 @@
 <div class="notification-box container mt-3">
- <% if @notification %>
+ <!--逆じゃないのか？　なんだ？-->
+ <% unless @notification %>
  <% @notifications.each do |n| %>
  <!--case文でlose,follow,commentで分けよう-->
  <% if n.action == "lose" %>
