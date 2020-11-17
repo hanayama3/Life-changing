@@ -1,0 +1,11 @@
+<div class="private">
+    <h5>非公開</h5>
+    <% @private_post.each do |private_post|%>
+    <div class="private-item">
+    <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
+     <%= private_post.user.name %>
+     <%= private_post.content %>
+      <div class="ago-time"><%= private_post.how_long_ago %></div>
+      </div>
+    <% end %>
+</div>

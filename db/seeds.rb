@@ -1,5 +1,5 @@
 User.create!(
-name:  "hanayama",
+name:  "銀次郎",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
 profile: "Rails余裕",
@@ -7,9 +7,9 @@ level: 10
 )
 
 Post.create!(
-content: "転職できる気しかしない",
-private: true,
-user_id: 1
+content: "プログラミング楽しい",
+user_id: 1,
+private: true
 )
 
 10.times do |n|
@@ -22,15 +22,26 @@ user_id: 1
 end
 
 10.times do |n|
-name = Faker::Name.name
 email = Faker::Internet.email
 password = "password"
+name = Faker::Name.name
 level = 0
+# image_id = Faker::Avatar.image
 User.create!(
 email: email,
 password: password,
 name: name,
-level: level
+level: level,
+# image_id: image_id
+)
+end
+
+10.times do |n|
+ content = Faker::Lorem.sentence(word_count: 5)
+ user_id = rand(10)
+ Post.create!(
+ content: content,
+ user_id: user_id
 )
 end
 
@@ -39,7 +50,6 @@ task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩","早寝早
 frequency = rand(1..7)
 user_id = n+1
 complete = 0
-start_time = Time.current
 end_time = Time.current.since(1.days)
 Habit.create!(
 task: task.sample,

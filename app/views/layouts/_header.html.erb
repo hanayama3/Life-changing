@@ -11,6 +11,7 @@
 <ul>
   <li><%= link_to "習慣の登録", new_habit_path %></li>
   <li><%= link_to "ユーザー一覧", users_path %></li>
+  <li><%= link_to "投稿を見る", posts_path %></li>
   <% if unchecked.any? %>
   <li><%= link_to "通知", notifications_path %><i class="fa fa-bell-o bell"></i> </li>
   <% else %>

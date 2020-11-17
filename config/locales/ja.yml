@@ -7,9 +7,11 @@ ja:
     password: パスワード
     password_confirmation: 確認用パスワード
     remember_me: パスワードを記憶
-    habit:
+    image_id: 画像
+    habit: 習慣
     task: タスク
     frequency: 回数
+    content: 投稿
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

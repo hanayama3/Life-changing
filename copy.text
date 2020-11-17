@@ -1,21 +1,3 @@
-<%= f.fields_for :posts do |b| %>
- <%= b.label :content %>
- <%= b.text_field :content %>
- <%= b.label "非公開" %>
- <%= b.check_box :private %>
-<% end %>
-
-@post = @user.posts.new(params[posts_attributes: [:content,:private]])
-
-<%= f.fields_for :posts do |b| %>
- <%= b.label :content %>
- <%= b.text_field :content %>
- <%= b.label "非公開" %>
- <%= b.check_box :private %>
- 
- <div class="post-content">
- <%= f.label :content %>
- <%= f.text_field :content %>
- <%= f.label "非公開" %>
- <%= f.check_box :private %>
-</div>
+ content = Faker::Dessert.variety
+ private = [true,false].sample
+ user_id = rand(10)

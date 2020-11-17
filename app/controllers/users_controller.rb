@@ -23,14 +23,16 @@ class UsersController < ApplicationController
   end
   
 def mission
- @user = User.find_by(id: params[:id])
+ @user = User.find(params[:id])
  @post = @user.posts.new
 end
 
 def complete
-@user = User.find_by(id: params[:id])
+@user = User.find(params[:id])
+if (post_params)
 @post = @user.posts.new(post_params)
 @post.save!
+end
 before_level = @user.level
  unless complete_params.empty?
   @habit = Habit.find(complete_params)

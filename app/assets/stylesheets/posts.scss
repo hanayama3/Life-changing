@@ -1,3 +1,40 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// index
+.post-content {
+ padding-top: 18px;
+
+.icon {
+ width: 80px;
+ height: 80px;
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+ display: inline-block;
+}
+.post-item {
+ border-bottom: solid 1px #EEE;
+ padding: 8px;
+}
+}
+
+// private
+
+.private {
+ background-color: #222;
+ h5 {
+  padding: 16px;
+  color: white;
+ }
+ .icon {
+ width: 80px;
+ height: 80px;
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+ display: inline-block;
+  }
+ .private-item {
+ border-bottom: solid 1px white;
+ padding: 8px;
+ color: white;
+ }
+ }
