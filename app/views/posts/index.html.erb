@@ -3,8 +3,11 @@
      <div class="post-content">
      <div class="post-item">
      <%= attachment_image_tag post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
-     <%= link_to post.user.name, post.user, class: "pl-3" %>
-     <%= post.content %>
+     <div class="user-name">
+     <p><%= link_to post.user.name, post.user %></p>
+     <p>称号 <%= degree(post.user.level) %></p>
+     </div>
+     <i class="pl-4"><%= post.content %></i>
       <div class="ago-time">コメントを送る <%= post.how_long_ago %></div>
      </div>
      </div>

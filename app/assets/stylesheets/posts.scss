@@ -1,18 +1,24 @@
 // index
 .post-content {
  padding-top: 18px;
-
-.icon {
+.post-item {
+ border-bottom: solid 1px #EEE;
+ padding: 8px;
+ // background: skyblue;
+ .icon {
  width: 80px;
  height: 80px;
  border: solid 1px black;
  border-radius: 58px;
  object-fit: cover;
- display: inline-block;
+ // display: inline-block;
 }
-.post-item {
- border-bottom: solid 1px #EEE;
- padding: 8px;
+.user-name {
+ // background: white;
+ display: inline-block;
+ vertical-align : middle;
+ padding: 11px;
+}
 }
 }
 
