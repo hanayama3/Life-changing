@@ -13,10 +13,12 @@
  // display: inline-block;
 }
 .user-name {
- // background: white;
  display: inline-block;
  vertical-align : middle;
  padding: 11px;
+ p {
+ margin: 0px;
+ }
 }
 }
 }

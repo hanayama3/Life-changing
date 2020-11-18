@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # include NotLogged
+  include LoginUser
   before_action :set_user, only: [:show,:following,:followers,:mission, :complete]
   before_action :redirect_root
   
@@ -33,7 +33,7 @@ flash[:notice] = "投稿しました"
 @post.save!
 end
 
-before_level = @user.level
+ before_level = @user.level
  unless complete_params.empty?
   @habit = Habit.find(complete_params)
   @habit.each do |h|
@@ -62,13 +62,6 @@ def post_params
 else
   return nil
   end
-end
-
-def redirect_root
-  if current_user.nil?
-  flash[:notice] = "ログインしてください"
-  redirect_to root_path
-end
 end
 
 end

@@ -25,7 +25,9 @@ class User < ApplicationRecord
          
  attachment :image
  
+# MAX_HABITS_LENGTH = 5
  validates :name, presence: true
+# validates :habits, length: {maximum: MAX_HABITS_LENGTH}
  
   def follow(other_user)
     following << other_user

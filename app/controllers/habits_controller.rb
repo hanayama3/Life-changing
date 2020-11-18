@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-# include NotLogged
+include LoginUser
 
 before_action :set_habit, only: [:edit, :update, :destroy]
 before_action :redirect_root
@@ -42,13 +42,6 @@ end
 
 def habit_params
 params.require(:habit).permit(:task, :frequency, :user_id)
-end
-
-def redirect_root
-  if current_user.nil?
-  flash[:notice] = "ログインしてください"
-  redirect_to root_path
-end
 end
 
 end

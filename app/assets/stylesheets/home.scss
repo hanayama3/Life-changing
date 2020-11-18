@@ -21,6 +21,18 @@ border-bottom: double;
 .user-name {
  font-size: 18px;
  color: #555;
+ .mini-icon {
+ width: 36px;
+ height: 36px;
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+ display: inline-block;
+  }
+ strong {
+   display: block;
+   padding: 11px 2px;
+ }
 }
 .habit-list-item {
 color: #2d8fdd;

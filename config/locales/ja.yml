@@ -12,6 +12,7 @@ ja:
     task: タスク
     frequency: 回数
     content: 投稿
+    private: 非公開
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
