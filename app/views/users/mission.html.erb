@@ -5,9 +5,11 @@
 <div class="form-box pt-3">
  <div class="form-item">
 <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
+<div class="check">
 <%= b.label do %>
-<%= b.check_box %>
 <%= b.text %>
+<%= b.check_box %>
+</div>
 <% end %>
 <% end %>
 </div>

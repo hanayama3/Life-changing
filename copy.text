@@ -1,3 +1,0 @@
- content = Faker::Dessert.variety
- private = [true,false].sample
- user_id = rand(10)
