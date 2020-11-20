@@ -309,7 +309,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.1.1)
-  bootstrap-sass (= 3.3.6)
+  bootstrap-sass
   byebug
   capybara (>= 2.15)
   chartkick

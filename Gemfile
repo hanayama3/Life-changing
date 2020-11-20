@@ -26,7 +26,8 @@ gem 'faker'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem "chartkick"
-gem 'bootstrap-sass', '3.3.6'
+gem 'bootstrap-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
