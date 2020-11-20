@@ -6,19 +6,26 @@
 <ul>
   <li><%= link_to "ログイン", user_session_path %></li>
   <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
+  <li><%= link_to "使い方", "#" %></li>
 </ul>
 <% else %>
 <ul>
   <li><%= link_to "習慣の登録", new_habit_path %></li>
-  <li><%= link_to "ユーザー一覧", users_path %></li>
-  <li><%= link_to "投稿を見る", posts_path %></li>
   <% if unchecked.any? %>
   <li><%= link_to "通知", notifications_path %><i class="fa fa-bell-o bell"></i> </li>
   <% else %>
    <li><%= link_to "通知", notifications_path %></li>
   <% end %>
-  <li><%= link_to "マイページ", current_user %></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  ユーザー
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+ <li><%= link_to "ユーザー一覧", users_path %></li>
+ <li><%= link_to "投稿を見る", posts_path %></li>
+ <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+</div>
 </ul>
 </div>
 </div>
