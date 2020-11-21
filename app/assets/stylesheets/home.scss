@@ -1,9 +1,9 @@
+$font-color: #444;
+
 // ログイン中ホーム
 .login-index {
   background-image: image-url('habit.jpeg');
   background-size: cover;
-  text-align: left;
-  height: 765px;
   
 .index-content {
 display: inline-block;
@@ -45,26 +45,6 @@ padding: 0.5em;
 .not-habit {
 font-size: 17px;
 }
-}
-}
-}
-
-// ログインする前のフォーム
-.not_login-index {
-margin-top: 38px;
-text-align: center;
-.about {
-margin-top: 16px;
-color: #555;
-font-size: 15px;
-}
-
-.concept {
-margin-top: 73px;
-padding: 25px;
-border: solid 1px gray;
-p {
-color: #555;
 }
 }
 }
@@ -119,3 +99,54 @@ cursor: pointer;
 }
 }
 
+// ログインする前のフォーム
+.not-login-index {
+text-align: center;
+color: $font-color;
+// background-image: image-url('star.jpeg');
+// background-size: cover;
+.not-login-box1 {
+ padding: 16px 21px;
+ .not-login-content1 {
+   opacity: 0.8;
+   margin: 26px;
+   padding: 8px;
+   background: white;
+   box-shadow: 0 5px 3px 0 rgba(0, 0, 0, .5);
+   h3 {
+     color: #FF1A6F;
+   }
+    p {
+   margin: 3px;
+ }
+ }
+}
+
+ .not-login-box2 {
+  padding: 20px;
+  opacity: 0.8;
+  .not-login-content2 {
+  margin: 26px;
+  padding: 24px 0px;
+  display: flex;
+  justify-content: center;
+  .not-login-list-box {
+    background: white;
+   margin: 10px;
+   padding: 10px;
+   display: inline-block;
+   width: 25%;
+   box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+   border-radius: 13px;
+   h5 {
+     color: #FF1A6F;
+     padding: 13px;
+   }
+  }
+  }
+ }
+ .user-link {
+  padding-bottom: 36px;
+ }
+ 
+}

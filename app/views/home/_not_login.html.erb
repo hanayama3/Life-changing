@@ -1,14 +1,43 @@
-<div class="container not_login-index">
- <h3>Habit is powerとは</h3>
- <p class="about">勉強、ランニング、筋トレなど様々な習慣を継続させたい人が仲間と共有し<br>習慣を強制化させるサービスです。</p>
- <div class="concept">
-    <div class="box1">
-        <h5 class="pb-3">特徴</h5>
-        <p><i class="fa fa-check-square "></i> 実行した習慣をグラフ化してビジュアル化</p>
-        <p><i class="fa fa-check-square "></i> 有言実行した分だけlevelが上がり称号を得る</p>
-        <p><i class="fa fa-check-square "></i> 一緒に頑張れる仲間を作れる</p>
-        <p><i class="fa fa-check-square "></i> 実行しなかった時仲間に通知される屈辱</p>
+<div class="container-lg not-login-index">
+    
+<section class="not-login-box1">
+ <div class="not-login-content1">
+ <h3 class="pb-3">Habit is powerとは</h3>
+ <h5 class="pb-1">あなたの人生を左右するのは間違いなく日々の<b>習慣</b>です</h5>
+ <p>習慣を継続させるために必要なのは意思などではなく自分の行動を制御する<b>仕組み</b>です</p>
+ <p>Habit is powerはあなたの習慣を継続させるお手伝いをするWEBサービスです</p>
+ </div>
+ </section>
+ 
+ <section class="not-login-box2">
+ <div class="not-login-content2">
+    <div class="not-login-list-box">
+        <h5>特徴</h5>
+        <p>達成するほどレベルが上がり称号が付く</p>
+        <p>自分のレベルをグラフで可視化</p>
+        <p>目標を持つ仲間を作れる</p>
+        <p>週の目標に達しなかった時仲間に通知を送られる</p>
+    </div>
+     <div class="not-login-list-box">
+        <h5>おすすめな人</h5>
+        <p>今まで何度も決めた事を出来ず挫折した人</p>
+        <p>自己肯定感の低い人</p>
+        <p>成し遂げたい事がある人</p>
+        <p>積み重ねる事が好きな人</p>
+    </div>
+     <div class="not-login-list-box">
+        <h5>開発者の習慣</h5>
+        <p>朝起きてすぐ筋トレ</p>
+        <p>筋トレの後野菜1日これ一本</p>
+        <p>週3日のランニング</p>
+        <p>寝る前の読書</p>
     </div>
  </div>
-     <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-primary mt-5" %>
+ </section>
+ 
+ <section class="user-link">
+     <%= link_to "ユーザー登録", new_user_registration_path, class: "btn mx-1" %>
+     <%= link_to "ログイン", user_session_path , class: "btn mx-1"%>
+ </section>
+     
 </div>

@@ -1,31 +1,25 @@
-<div class="container mt-3">
-<h4 class="mb-5">ログイン</h4>
-
+<div class="container form-box">
+<div class="form-content">
+<h4>ログイン</h4>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="input-box">
+ <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレスを入力してください", class: "input"%>
+ </div>
 
-   <div class="form-box pt-3">
-  <div class="from-item">
-    <%= f.label :email, class: "label"%> <br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレスを入力してください", class: "form"%>
-  </div>
-
-  <div class="form-item">
-    <%= f.label :password, class: "label"%><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください", class: "form"%>
+  <div class="input-box">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください", class: "input"%>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="form-item">
-      <%= f.check_box :remember_me %>
+    <div class="pt-3">
       <%= f.label :remember_me %>
+      <%= f.check_box :remember_me %>
     </div>
   <% end %>
-  
-    <%= f.submit "ログイン", class: "btn btn-primary m-5" %>
-
+    <%= f.submit "ログイン", class: "btn m-3" %>
 <% end %>
+<div class="text-left">
+<%= link_to "パスワードを忘れた方", new_user_password_url, class: "text-danger" %>
 </div>
-<div class="mt-3">
-<%= link_to "パスワードを忘れた方", new_user_password_url, class: "link" %>
 </div>
 </div>

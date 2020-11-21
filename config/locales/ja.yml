@@ -6,7 +6,7 @@ ja:
     email: メールアドレス
     password: パスワード
     password_confirmation: 確認用パスワード
-    remember_me: パスワードを記憶
+    remember_me: ログイン状態を維持する
     image_id: 画像
     habit: 習慣
     task: タスク

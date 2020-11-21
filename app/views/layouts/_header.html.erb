@@ -1,7 +1,6 @@
-<header>
-<nav class="navbar navbar-expand-lg navber-light bg-light">
-<div class="container-fluid">
-<h3 class="navber-brand"><%= link_to "Habit is power", root_url %></h3>
+<header class="container-fluid">
+<nav class="header-nav">
+<div class="title"><%= link_to "Habit is power", root_url %></div>
 <% unless user_signed_in? %>
 <ul>
   <li><%= link_to "ログイン", user_session_path %></li>
@@ -30,7 +29,6 @@
   </ul>
 
 </ul>
-</div>
 </div>
 </nav>
 <% end %>

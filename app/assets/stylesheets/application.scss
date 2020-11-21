@@ -16,16 +16,78 @@
  @import 'bootstrap';
  @import 'font-awesome';
  
+ html,body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // background: rgb(242,242,242);
+  background-image: image-url('background.jpeg');
+  background-size: cover;
+ }
+ // リスト
  ul {
  margin: 0px;
  list-style: none;
  li {
+ font-size: 15px;
  padding: 5px;
  display: inline-block;
+ border-right: solid 1px white;
+ padding: 0px 6px;
+ }
+ .dropdown-menu {
+  background: black;
+  opacity: 0.8;
+  text-align: left;
+  li {
+   border: none;
+  }
  }
  }
  
- .alert {
+ // リンク
+  a {
+  color: white;
+  &:hover {
+   color: #FF1A6F;
+  }
+ }
+ 
+ 
+ 
+ // ヘッダー
+ header {
+  background: black;
+  opacity: 0.8;
+  height: 39px;
+  .header-nav {
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   height: 100%;
+   .title {
+    font-size: 20px;
+    padding-left: 12px;
+   }
+  .bell {
+  color: #FFFF00;
+ }
+  }
+ }
+ 
+ footer {
+ background: black;
+ opacity: 0.9;
+ height: 100%;
+ text-align: center;
+ color: white;
+ margin-top: auto;
+ }
+
+// その他
+.alert {
  margin: 0px;
  text-align: center;
  line-height: 8px;
@@ -37,15 +99,13 @@
  }
  
  .btn {
-box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
- }
+   box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+   background: #FF1A6F;
+   color: white;
+  &:hover {
+   color: white;
+   opacity: 0.8;
+  }
+  }
+
  
- // ヘッダー
- 
- .bell {
-  font-size: 13px;
-  position: absolute;
-  padding-right: 6px;
-  padding-top: 8px;
-  color: #0000EE;
- }
