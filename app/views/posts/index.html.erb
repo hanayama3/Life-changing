@@ -1,18 +1,23 @@
-<div class="container">
-    <% @posts.each do |post| %>
-     <div class="post-content">
-     <div class="post-item">
-     <%= attachment_image_tag post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
-     <div class="user-name">
-     <p><%= link_to post.user.name, post.user %></p>
-     <strong>称号 <%= degree(post.user.level) %></strong>
-     <% if current_user == post.user %>
-     <p class="mt-2"><%= link_to "削除", post_path(post), method: :delete, data: { confirm: 'この投稿を削除しますか？'} %></p>
-     <% end %>
-     </div>
-     <i class="pl-4"><%= post.content %></i>
-      <div class="ago-time">コメントを送る <%= post.how_long_ago %></div>
-     </div>
-     </div>
-    <% end %>
+<div class="container post-users">
+<% @posts.each do |post| %>
+<div class="post-items-box">
+<div class="post-items">
+ <div class="post-user">
+<%= attachment_image_tag post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
+<div class="pl-4">
+<%= link_to post.user.name, post.user %>
+<div>称号 <%= degree(post.user.level) %></div>
+<% if current_user == post.user %>
+<p><%= link_to "削除", post_path(post), method: :delete, data: { confirm: 'この投稿を削除しますか？'} %></p>
+<% end %>
+</div>
+</div>
+
+<div class="post-content">
+<%= post.content %>
+</div>
+</div>
+<div class="ago-time">コメントを送る <%= post.how_long_ago %></div>
+</div>
+<% end %>
 </div>

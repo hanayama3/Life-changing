@@ -1,6 +1,1 @@
-<div class="container mt-3">
-<h4 class="mb-5"><%= @habit.task %></h4>
-
 <%= render 'form' %>
-<%= link_to "ギブアップ", habit_path(@habit), method: :delete, data: { confirm: 'この習慣を辞めますか？'}, class: "btn btn-danger give_up" %>
-</div>

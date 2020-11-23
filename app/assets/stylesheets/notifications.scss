@@ -1,16 +1,9 @@
 .notification-box {
  border: solid 2px #DDD;
+ background: white;
  .notification-item {
   border-bottom: solid 1px #EEE;
   padding: 8px;
- .mini-icon {
- width: 36px;
- height: 36px;
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
- display: inline-block;
-  }
  }
   .lose {
    color: #BB0000;
@@ -21,7 +14,4 @@
    }
   }
  }
- .ago-time {
-  font-size: 13px;
-  text-align: right;
- }
+ 

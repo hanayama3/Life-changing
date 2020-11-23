@@ -1,36 +1,19 @@
-// .form-box {
-// line-height: 33px;
-// text-align: center;
-// box-shadow: 0px 0px 2px gray;
-// .form-item {
-// padding: 10px;
-// }
-// .label {
-// display: block;
-// margin: 0px;
-// }
-// .form {
-// width: 66%;
-// }
-// }
+ @import '_colors.scss';
 
-// show
-
+.show-page {
+ background: white;
+ padding: 0px 13px;
 .show-content {
  display: flex;
  padding: 13px;
 .user-relation {
   font-size: 14px;
-  color: #555;
  }
 }
 
-.user-image {
- width: 96px;
- height: 96px;
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
+table {
+ margin: 36px 0px 10px;
+}
 }
 
 .plofile {
@@ -45,20 +28,4 @@
  display: block;
 }
 
-// mission
-
-.complete-box {
-margin: 13px;
-// background-color: skyblue;
-.complete-content {
- display: block;
- margin: 18px;
-}
-}
-.complete {
- padding: 7px;
- color: skyblue;
-}
-// .check {
-// color: skyblue;
-// }
+ 

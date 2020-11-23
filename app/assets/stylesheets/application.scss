@@ -15,51 +15,23 @@
  */
  @import 'bootstrap';
  @import 'font-awesome';
+ @import '_colors.scss';
  
  html,body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  // background: rgb(242,242,242);
-  background-image: image-url('background.jpeg');
-  background-size: cover;
- }
- // リスト
- ul {
- margin: 0px;
- list-style: none;
- li {
- font-size: 15px;
- padding: 5px;
- display: inline-block;
- border-right: solid 1px white;
- padding: 0px 6px;
- }
- .dropdown-menu {
-  background: black;
-  opacity: 0.8;
-  text-align: left;
-  li {
-   border: none;
-  }
- }
+  background: rgb(248,248,248);
+  // background-image: image-url('background.jpeg');
+  // background-size: cover;
  }
  
- // リンク
-  a {
-  color: white;
-  &:hover {
-   color: #FF1A6F;
-  }
- }
- 
- 
- 
- // ヘッダー
+  // ヘッダー
  header {
+  padding: 4px 0px;
   background: black;
   opacity: 0.8;
-  height: 39px;
+  height: 100%;
   .header-nav {
    position: relative;
    display: flex;
@@ -75,18 +47,46 @@
   color: #FFFF00;
  }
   }
+  a {
+  color: white;
+ &:hover {
+ color: $accent-color;
+  }
+ }
  }
  
- footer {
+  footer {
  background: black;
- opacity: 0.9;
- height: 100%;
+ opacity: 0.8;
+ height: 39px;
  text-align: center;
  color: white;
  margin-top: auto;
  }
 
-// その他
+ // リスト
+ ul {
+ margin: 0px;
+ list-style: none;
+ li {
+ font-size: 15px;
+ padding: 5px;
+ display: inline-block;
+ border-right: solid 1px white;
+ padding: 0px 6px;
+ }
+ .dropdown-menu {
+  background: black;
+  opacity: 0.9px;
+  text-align: left;
+  li {
+   border: none;
+  }
+ }
+ }
+
+ 
+
 .alert {
  margin: 0px;
  text-align: center;
@@ -97,15 +97,53 @@
  color: red;
  display: block;
  }
- 
- .btn {
+
+.btn {
+   margin: 16px;
    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
-   background: #FF1A6F;
+   background: $accent-color;
    color: white;
   &:hover {
    color: white;
    opacity: 0.8;
   }
   }
+  
+  .delete-btn {
+ background: darken($accent-color, 13%);
+ color: white;
+ cursor: pointer;
+ padding: 6px;
+ border: 1px solid transparent;
+ box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+  &:hover {
+   color: white;
+   opacity: 0.8;
+  }
+}
 
+ .icon {
+ width: 80px;
+ height: 80px;
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+}
+
+ .mini-icon {
+ width: 46px;
+ height: 46px;
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+ display: inline-block;
+ }
+
+a {
+@include box-a-color;
+}
  
+.ago-time {
+  font-size: 13px;
+  text-align: right;
+ }

@@ -1,24 +1,21 @@
-<div class="complete-box pt-5">
+<div class="container complete-box">
 <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
-<h4><%= @user.name %></h4>
-<p class="pt-3">習慣</p>
-<div class="form-box pt-3">
- <div class="form-item">
+<div class="complete-content">
 <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
-<div class="check">
 <%= b.label do %>
 <%= b.text %>
 <%= b.check_box %>
-</div>
 <% end %>
 <% end %>
-</div>
-<div class="form-item">
- <%= f.label :content, class: "label"%>
+<div class="input-text-box">
  <%= f.text_area :content, placeholder: "空でもOK", size: "40x7"%>
- <%= f.label :private, class: "label"%>
+ <div class="pt-3">
+ <%= f.label :private %>
  <%= f.check_box :private %>
+ </div>
 </div>
-<%= f.submit "送信",class: "btn btn-primary m-5"%>
+<%= f.submit "送信",class: "btn"%>
 <% end %>
+</div>
+
 </div>

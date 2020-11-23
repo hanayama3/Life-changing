@@ -6,6 +6,7 @@ before_action :redirect_root
 
 def new
 @habit = current_user.habits.new
+@title = "習慣の登録"
 end
 
 def create
@@ -20,6 +21,7 @@ end
 end
 
 def edit
+  @title = "習慣の編集"
 end
 
 def update

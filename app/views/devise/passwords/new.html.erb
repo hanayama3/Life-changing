@@ -1,16 +1,13 @@
-<div class="container mt-3">
-<h4 class="mb-5">パスワードを忘れた方</h4>
+<div class="container form-box">
+<div class="form-content">
+<h4>パスワードを忘れた方</h4>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-　<div class="form-box pt-3">
-  <div class="form-item">
-    <%= f.label :email, class: "lavel" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください", class: "form"%>
+  <div class="input-box">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください", class: "input"%>
   </div>
-
-<%= f.submit "送信", class: "btn btn-primary m-5" %>
+<%= f.submit "送信", class: "btn" %>
 <% end %>
 </div>
-
 </div>

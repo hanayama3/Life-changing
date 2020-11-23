@@ -1,11 +1,22 @@
-.form-box {
+@import '_colors.scss';
+
+@mixin form-box {
 text-align: center;
-padding: 68px 13px;
-.form-content {
- padding: 28px;
+padding: 112px 13px;
+color: $font-color;
+}
+
+@mixin form-content {
+ padding: 16px;
  background: white;
  opacity: 0.8;
- color: #444;
+ border-radius: 6px;
+}
+
+.form-box {
+ @include form-box;
+.form-content {
+ @include form-content;
  h4 {
  text-align: left;
  padding-top: 11px;
@@ -20,3 +31,17 @@ padding: 68px 13px;
  }
 }
 }
+
+.complete-box {
+ @include form-box;
+ .complete-content {
+ @include form-content;
+  label {
+  padding: 0px 8px;
+  }
+ }
+ .input-text-box {
+  padding-top: 46px;
+ }
+}
+

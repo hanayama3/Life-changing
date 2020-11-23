@@ -1,0 +1,9 @@
+$font-color: #444;
+$accent-color:  #FF1A6F;
+
+@mixin box-a-color {
+ color: $font-color;
+ &:hover {
+ color: $accent-color;
+  }
+}
