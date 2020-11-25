@@ -1,4 +1,4 @@
- <% if @notifications %>
+ <% unless @notifications.empty? %>
  <div class="notification-box container mt-3">
  <% @notifications.each do |n| %>
  <!--case文でlose,follow,commentで分けよう-->
@@ -10,10 +10,9 @@
  </div>
  <% end %>
  <% end %>
- 
  <% else %>
- <p>通知はありません</p>
+ <div class="text-center mt-3">通知はありません</div>
  <% end %>
-</div>
+ </div>
 
 <%= paginate @notifications %>

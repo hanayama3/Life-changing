@@ -35,7 +35,7 @@ def degree(level)
   return "赤子"
   end
   if num < 0
-   return "1000年に1人の怠け者"
+   return "怠惰"
   end
 end
 

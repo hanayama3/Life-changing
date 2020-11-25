@@ -13,7 +13,11 @@
   </div>
   
   <div class="input-box">
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください", class: "input"%>
+    <%= f.text_area :profile, autocomplete: "profile",placeholder: "自己紹介(空でもOK)", class: "profile-input"%>
+  </div>
+  
+  <div class="input-box">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください",class: "input"%>
   </div>
 
   <div class="input-box">

@@ -13,7 +13,9 @@
 </div>
 
 <% if @user.habits.blank? %>
+<div class="habit-list-item">
 <div class="not-habit"><%= link_to "習慣の登録", new_habit_path %></div>
+</div>
 <% else %>
 <div class="habit-list-item">
 <% @user.habits.each do |habit| %>

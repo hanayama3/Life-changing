@@ -1,4 +1,5 @@
-<div class="container post-users">
+<% unless @private_posts.empty? %>
+ <div class="container post-users">
   <% @private_posts.each do |private_post|%>
      <div class="private-box">
       <div class="private-item">
@@ -8,6 +9,11 @@
       </div>
        </div>
     <% end %>
- </div>
- 
  <%= paginate @private_posts %>
+ </div>
+ <% else %>
+ <div class="no-item">
+ <p>非公開の投稿はありません</p>
+ <%= link_to "記録する", mission_user_path(@user) %>
+ </div>
+ <% end %>
