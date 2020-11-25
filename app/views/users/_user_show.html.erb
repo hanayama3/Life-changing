@@ -4,7 +4,7 @@
 <%= attachment_image_tag @user, :image, fallback: "no-image.jpeg", class: "icon" %>
 <div class="pl-4">
 <h5><%= @user.name %></h5>
-<div>称号 <%= degree(@user.level) %></div>
+Lv. <%= @user.level %>
 
 <div class="user-relation pt-2">
 <%= link_to "フォロー", following_user_path(@user) %>

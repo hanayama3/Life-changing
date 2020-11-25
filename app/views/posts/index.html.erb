@@ -6,7 +6,7 @@
 <%= attachment_image_tag post.user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
 <div class="pl-4">
 <%= link_to post.user.name, post.user %>
-<div>称号 <%= degree(post.user.level) %></div>
+<div>Lv. <%= post.user.level %></div>
 <% if current_user == post.user %>
 <%= link_to "削除", post_path(post), method: :delete, data: { confirm: 'この投稿を削除しますか？'} %>
 <% end %>

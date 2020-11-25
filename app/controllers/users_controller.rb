@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :redirect_root
   
   def index
-    @users = User.all.page(params[:page]).per(12)
+    @users = User.order(level: "desc").page(params[:page]).per(12)
   end
   
   def show
