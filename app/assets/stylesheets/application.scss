@@ -17,6 +17,12 @@
  @import 'font-awesome';
  @import '_colors.scss';
  
+ @mixin icon {
+ border: solid 1px black;
+ border-radius: 58px;
+ object-fit: cover;
+ }
+ 
  html,body {
   display: flex;
   flex-direction: column;
@@ -125,18 +131,20 @@
  .icon {
  width: 80px;
  height: 80px;
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
+ @include icon;
+}
+
+.normal-icon {
+ @include icon;
+ width: 60px;
+ height: 60px;
 }
 
  .mini-icon {
  width: 46px;
  height: 46px;
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
  display: inline-block;
+ @include icon;
  }
 
 a {
@@ -147,3 +155,22 @@ a {
   font-size: 13px;
   text-align: right;
  }
+ 
+ .pagination {
+  padding: 8px;
+  .active {
+   .page-link {
+    background: black;
+    opacity: 0.8;
+    border: none;
+    &:hover {
+     opacity: 0.6;
+     color: white;
+    }
+   }
+  }
+  .page-link {
+   color: $font-color;
+  }
+  }
+ 

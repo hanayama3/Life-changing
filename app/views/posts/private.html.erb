@@ -1,11 +1,13 @@
 <div class="container post-users">
-  <% @private_post.each do |private_post|%>
-     <div class="private-box p-3">
+  <% @private_posts.each do |private_post|%>
+     <div class="private-box">
       <div class="private-item">
-    <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "icon"%>
+    <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
       <l class="pl-4"><%= private_post.content %></l>
       <div class="ago-time"><%= private_post.how_long_ago %></div>
       </div>
        </div>
     <% end %>
  </div>
+ 
+ <%= paginate @private_posts %>
