@@ -91,17 +91,31 @@
  }
  }
 
- 
-
-.alert {
+.flash {
  margin: 0px;
+ padding: 12px;
  text-align: center;
- line-height: 8px;
+ line-height: 6px;
+ }
+ 
+ .flash-warning {
+  background: #DD0000;
+  color: white;
+ }
+ 
+ .flash-success {
+  background: #136FFF;
+  color: white;
+ }
+ 
+ .flash-error {
+  background: #DD0000;
+  color: white;
  }
  
  .error_messages {
  color: red;
- display: block;
+ padding-top: 6px;
  }
 
 .btn {

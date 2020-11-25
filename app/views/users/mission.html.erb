@@ -8,7 +8,8 @@
 <% end %>
 <% end %>
 <div class="input-text-box">
- <%= f.text_area :content, placeholder: "空でもOK", size: "40x7"%>
+ <%= render 'layouts/error_messages', model: @post %>
+ <%= f.text_area :content, placeholder: '投稿は80文字以内&#13;&#10;空文字でもOK'.html_safe, size: "40x7"%>
  <div class="pt-3">
  <%= f.label :private %>
  <%= f.check_box :private %>

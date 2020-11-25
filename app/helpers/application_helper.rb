@@ -1,6 +1,6 @@
 module ApplicationHelper
     
-def bootstrap_alert(key)
+def flash_color(key)
  case key
  when "alert"
    "warning"

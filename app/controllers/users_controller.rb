@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include LoginUser
   before_action :set_user, only: [:show,:following,:followers,:mission, :complete]
+  before_action :post_validates, only: [:complete]
   before_action :redirect_root
   
   def index
@@ -27,12 +28,6 @@ def mission
 end
 
 def complete
-unless (post_params).nil?
-@post = @user.posts.new(post_params)
-flash[:notice] = "投稿しました"
-@post.save!
-end
-
  before_level = @user.level
  unless complete_params.empty?
   @habit = Habit.find(complete_params)
@@ -62,6 +57,17 @@ def post_params
 else
   return nil
   end
+end
+
+def post_validates
+unless (post_params).nil?
+@post = @user.posts.new(post_params)
+if @post.save
+flash[:notice] = "投稿しました"
+else 
+  render "mission"
+end
+end
 end
 
 end

@@ -1,7 +1,7 @@
 ja:
   activerecord:
   attributes:
-    user:
+    user: ユーザー
     name: 名前
     email: メールアドレス
     password: パスワード
@@ -13,6 +13,7 @@ ja:
     frequency: 回数
     content: 投稿
     private: 非公開
+    current_password: 確認用パスワード
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -23,7 +24,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: を入力しなさいよ
+      blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
       equal_to: は%{count}にしてください
