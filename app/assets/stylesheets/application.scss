@@ -116,15 +116,17 @@
   }
   
   .delete-btn {
- background: darken($accent-color, 13%);
+ background: $destroy-btn-color;
  color: white;
  cursor: pointer;
  padding: 6px;
  border: 1px solid transparent;
  box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+ border-radius: 6px;
   &:hover {
    color: white;
-   opacity: 0.8;
+   opacity: 0.9;
+   text-decoration: none;
   }
 }
 

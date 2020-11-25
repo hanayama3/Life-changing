@@ -1,16 +1,23 @@
+ @import '_colors.scss';
+
 .notification-box {
  border: solid 2px #DDD;
  background: white;
+ padding-bottom: 12px;
  .notification-item {
-  border-bottom: solid 1px #EEE;
-  padding: 8px;
+  border: solid 1px #EEE;
+  padding: 4px;
  }
   .lose {
-   color: #BB0000;
+   color: $destroy-btn-color;
    padding-left: 7px;
    display: inline-block;
    span {
     font-size: 19px;
    }
   }
+ .all-delete {
+ text-align: right;
+ padding: 6px 0px 12px;
+ }
  }

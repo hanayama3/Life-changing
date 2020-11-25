@@ -19,7 +19,8 @@
 <% end %>
 <% if @title == "習慣の編集" %>
 <div class="text-left mb-3">
-<%= link_to "ギブアップ", habit_path(@habit), method: :delete, data: { confirm: 'この習慣を辞めますか？'}, class: "delete-btn" %>
+<%= link_to "ギブアップ", habit_path(@habit), method: :delete,
+data: { confirm: 'この習慣を辞めますか？'}, class: "delete-btn" %>
 </div>
 <% end %>
 </div>

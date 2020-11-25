@@ -1,5 +1,9 @@
  <% unless @notifications.empty? %>
  <div class="notification-box container mt-3">
+ <div class="all-delete">
+ <%= link_to "通知全件削除", notification_path(current_user),
+ data: { confirm: "通知を全件削除しますか？" }, method: :delete, class: "delete-btn"%>
+ </div>
  <% @notifications.each do |n| %>
  <!--case文でlose,follow,commentで分けよう-->
  <% if n.action == "lose" %>
