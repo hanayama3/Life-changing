@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include LoginUser
-  before_action :set_user, only: [:show,:following,:followers,:mission, :complete]
+  before_action :set_user, except: [:index]
   before_action :post_validates, only: [:complete]
   before_action :redirect_root
   
@@ -31,9 +31,9 @@ def complete
  before_level = @user.level
  unless complete_params.empty?
   @habit = Habit.find(complete_params)
-  @habit.each do |h|
-  h.update_attributes(complete: h.complete += 1)
-  @user.update_attributes(level: @user.level += 1)
+  @habit.each do |habit|
+  habit.update(complete: habit.complete += 1)
+  @user.update(level: @user.level += 1)
  end
  if flash[:notice].nil?
     flash[:notice] = "達成！"

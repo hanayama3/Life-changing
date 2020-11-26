@@ -1,0 +1,26 @@
+
+[1mFrom:[0m /home/ubuntu/environment/Life-changing/app/helpers/home_helper.rb:17 HomeHelper#time_out?:
+
+     [1;34m3[0m: [32mdef[0m [1;34mtime_out?[0m(user)
+     [1;34m4[0m:  end_time = user.habits.map(&[33m:end_time[0m)
+     [1;34m5[0m:  complete = user.habits.map(&[33m:complete[0m)
+     [1;34m6[0m:  frequency = user.habits.map(&[33m:frequency[0m)
+     [1;34m7[0m:  before_level = user.level
+     [1;34m8[0m:  
+     [1;34m9[0m:   user.habits.each [32mdo[0m |habit|
+    [1;34m10[0m:   [32mif[0m habit.end_time < [1;34;4mDate[0m.current
+    [1;34m11[0m:    habit.end_time = [1;34;4mDate[0m.current.since([1;34m1[0m.weeks)
+    [1;34m12[0m:    [32mif[0m habit.complete < habit.frequency
+    [1;34m13[0m:     user.update_attributes([35mlevel[0m: user.level -= [1;34m5[0m)
+    [1;34m14[0m:     habit.update_attributes([35mcomplete[0m: [1;34m0[0m)
+    [1;34m15[0m:     user.record(before_level)
+    [1;34m16[0m:     flash[[33m:alert[0m] = [31m[1;31m"[0m[31mLvが#{before_level}[0m[31mから#{user.level}[0m[31mになりました[1;31m"[0m[31m[0m
+ => [1;34m17[0m:     binding.pry
+    [1;34m18[0m:    [32melse[0m
+    [1;34m19[0m:    habit.update_attributes([35mcomplete[0m: [1;34m0[0m)
+    [1;34m20[0m:    [32mend[0m
+    [1;34m21[0m:   [32mend[0m
+    [1;34m22[0m:   
+    [1;34m23[0m:  [32mend[0m
+    [1;34m24[0m: [32mend[0m
+

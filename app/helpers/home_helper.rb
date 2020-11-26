@@ -5,22 +5,18 @@ def time_out?(user)
  complete = user.habits.map(&:complete)
  frequency = user.habits.map(&:frequency)
  before_level = user.level
- 
   user.habits.each do |habit|
   if habit.end_time < Date.current
    habit.end_time = Date.current.since(1.weeks)
    if habit.complete < habit.frequency
-    user.update_attributes(level: user.level -= 5)
-    habit.update_attributes(complete: 0)
+    user.update(level: user.level -= 5)
+    habit.update(complete: 0)
     user.record(before_level)
-    flash[:notice] = "失望したよ お前には"
+    flash[:alert] = "Lvが#{before_level}から#{user.level}になりました"
    else
-   habit.update_attributes(complete: 0)
-   flash[:notice] = "道切り開くもの　勇者よ"
+   habit.update(complete: 0)
    end
-   
   end
-  
  end
 end
 
