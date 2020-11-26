@@ -3,7 +3,7 @@ name:  "銀次郎",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
 profile: "Rails余裕",
-level: 10
+level: 100
 )
 
 Post.create!(
@@ -26,13 +26,11 @@ email = Faker::Internet.email
 password = "password"
 name = Faker::Name.name
 level = 0
-# image_id = Faker::Avatar.image
 User.create!(
 email: email,
 password: password,
 name: name,
 level: level,
-# image_id: image_id
 )
 end
 
