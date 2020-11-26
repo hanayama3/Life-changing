@@ -34,8 +34,12 @@ def complete
   @habit.each do |h|
   h.update_attributes(complete: h.complete += 1)
   @user.update_attributes(level: @user.level += 1)
-  flash[:notice] = "達成！"
-end
+ end
+ if flash[:notice].nil?
+    flash[:notice] = "達成！"
+  else
+    flash[:notice] << "達成！"
+  end
 end
 @user.record(before_level)
 redirect_to @user
@@ -63,7 +67,7 @@ def post_validates
 unless (post_params).nil?
 @post = @user.posts.new(post_params)
 if @post.save
-flash[:notice] = "投稿しました"
+flash[:notice] = ["投稿しました"]
 else 
   render "mission"
 end

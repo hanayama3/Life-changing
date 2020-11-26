@@ -1,9 +1,10 @@
 <div class="container mt-5">
 <table class="table table-light">
-  <tr><th>名前</th><th>Lv.</th></tr>
+  <tr><th>名前</th><th>Lv.</th><th>登録日</th></tr>
    <% @users.each do |user| %>
   <tr><td> <%= link_to user.name, "/users/#{user.id}" %></td>
-  <td><%= user.level %></td></tr>
+  <td><%= user.level %></td>
+  <td><%= user.created_at.strftime("%y/%m/%d") %></td></tr>
   <% end %>
   </table>
 </div>

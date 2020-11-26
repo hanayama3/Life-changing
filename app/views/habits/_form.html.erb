@@ -8,7 +8,7 @@
 </div>
 
 <div class="input-box">
-<%= f.number_field :frequency, in: 1..7, placeholder: "回数(週)", class: "input pl-1" %>
+<%= f.number_field :frequency, in: 1..7, placeholder: "回数(週)", class: "input-number" %>
 </div>
 
 <%= f.hidden_field :user_id, value: current_user.id %>

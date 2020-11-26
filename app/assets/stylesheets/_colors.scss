@@ -1,6 +1,8 @@
 $font-color: #444;
 $accent-color:  #FF1A6F;
 $destroy-btn-color:  #BB0000;
+$flash-sccess: #00FFFF;
+$flash-warning-error: #BB0000;
 
 @mixin box-a-color {
  color: $font-color;

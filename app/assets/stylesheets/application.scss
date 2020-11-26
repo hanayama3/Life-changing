@@ -93,23 +93,24 @@
 
 .flash {
  margin: 0px;
- padding: 12px;
+ padding: 10px;
  text-align: center;
- line-height: 6px;
+ line-height: 3px;
+ font-size: 14px;
  }
  
  .flash-warning {
-  background: #DD0000;
+  background: $flash-warning-error;
   color: white;
  }
  
  .flash-success {
-  background: #136FFF;
+  background: darken($flash-sccess, 10%);
   color: white;
  }
  
  .flash-error {
-  background: #DD0000;
+  background: $flash-warning-error;
   color: white;
  }
  
