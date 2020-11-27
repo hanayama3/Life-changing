@@ -1,4 +1,13 @@
 // index
+// .release-box {
+//  // background: white;
+//   background-image: image-url('sky.jpeg');
+//   background-size: cover;
+//   min-height: 100vh;
+//   color: white;
+//   a {
+//    color: white;
+//   }
 .post-users {
  padding-top: 18px;
  .post-items-box {
@@ -19,17 +28,20 @@
  }
 }
 }
+// }
 
 // private
 
 .private-box {
  background: black;
- opacity: 0.8;
  color: white;
- padding: 2px;
- .private-item {
-  border-bottom: solid 1px;
- }
+ min-height: 100vh;
+  a {
+   color: white;
+  }
+  .private-content {
+  color: black;
+  }
 }
 
 .no-item {

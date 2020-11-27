@@ -12,7 +12,8 @@
 .login-index {
   background-image: image-url('habit.jpeg');
   background-size: cover;
-  height: 867px;
+  // height: 867px;
+   min-height: 100vh;
 .index-content {
 display: inline-block;
 background: white;

@@ -24,7 +24,7 @@ resources :users, :only => [:index, :show] do
 resources :habits, :only => [:new, :create, :edit, :update, :destroy]
 resources :relationships, :only => [:create, :destroy]
 resources :notifications, :only => [:index,:destroy]
-resources :posts, :only => [:index, :destroy] do
+resources :posts, :only => [:index, :new, :create, :destroy] do
   member do
     get :private
   end

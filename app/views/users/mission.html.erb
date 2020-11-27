@@ -1,20 +1,12 @@
-<div class="container complete-box">
+<div class="container form-box">
 <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
-<div class="complete-content">
+ <div class="form-content">
 <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
 <%= b.label do %>
 <%= b.text %>
 <%= b.check_box %>
 <% end %>
 <% end %>
-<div class="input-text-box">
- <%= render 'layouts/error_messages', model: @post %>
- <%= f.text_area :content, placeholder: '投稿は80文字以内&#13;&#10;空文字でもOK'.html_safe, size: "40x7"%>
- <div class="pt-3">
- <%= f.label :private %>
- <%= f.check_box :private %>
- </div>
-</div>
 <%= f.submit "送信",class: "btn"%>
 <% end %>
 </div>

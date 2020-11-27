@@ -1,19 +1,32 @@
-<% unless @private_posts.empty? %>
+ <div class="private-box">
  <div class="container post-users">
+<% unless @private_posts.empty? %>
   <% @private_posts.each do |private_post|%>
-     <div class="private-box">
-      <div class="private-item">
-    <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
-      <l class="pl-4"><%= private_post.content %></l>
-      <div class="ago-time"><%= private_post.how_long_ago %></div>
+    <div class="post-items-box">
+     <div class="post-items">
+       <div class="post-user private">
+      <%= attachment_image_tag private_post.user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
+      <div class="pl-4">
+      <%= link_to private_post.user.name, private_post.user %>
+      <div>Lv. <%= private_post.user.level %></div>
       </div>
+      </div>
+      
+      <div class="post-content private-content"><%= private_post.content %></div>
+      </div>
+      <div class="ago-time">
+      <%= link_to "削除", post_path(private_post), method: :delete, data: { confirm: 'この投稿を削除しますか？'} %>
+      <%=  private_post.how_long_ago %>
        </div>
+      </div>
     <% end %>
- <%= paginate @private_posts %>
- </div>
+      </div>
+     <%= paginate @private_posts %>
+
  <% else %>
  <div class="no-item">
  <p>非公開の投稿はありません</p>
- <%= link_to "記録する", mission_user_path(@user) %>
+ <%= link_to "投稿する", new_post_path %>
  </div>
  <% end %>
+ </div>

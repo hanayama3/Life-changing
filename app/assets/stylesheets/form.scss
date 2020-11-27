@@ -40,16 +40,3 @@ color: $font-color;
 }
 }
 
-.complete-box {
- @include form-box;
- .complete-content {
- @include form-content;
-  label {
-  padding: 0px 8px;
-  }
- }
- .input-text-box {
-  padding-top: 46px;
- }
-}
-

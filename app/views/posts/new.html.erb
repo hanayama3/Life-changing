@@ -1,0 +1,17 @@
+<div class="container form-box">
+<div class="form-content">
+<h4>投稿画面</h4>
+<%= form_with(model: @post, local: true ) do |f| %>
+<div class="input-text-box">
+ <%= render 'layouts/error_messages', model: f.object %>
+ <%= f.text_area :content, placeholder: '投稿は80文字以内&#13;&#10;空文字でもOK'.html_safe, size: "40x7"%>
+ <div class="pt-3">
+ <%= f.label :private %>
+ <%= f.check_box :private %>
+ <%= f.hidden_field :user_id, :value => current_user.id %>
+ </div>
+ <%= f.submit "送信",class: "btn"%>
+ <% end %>
+</div>
+</div>
+</div>
