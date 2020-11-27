@@ -1,3 +1,5 @@
+ @import '_colors.scss';
+
 // index
 // .release-box {
 //  // background: white;
@@ -8,8 +10,10 @@
 //   a {
 //    color: white;
 //   }
+
 .post-users {
  padding-top: 18px;
+ background: white;
  .post-items-box {
   border-bottom: solid 1px;
  .post-items {
@@ -24,9 +28,10 @@
    width: 80%;
   .post-content {
    display: inline-block;
-   background: white;
+   box-shadow: 0px 0px 2px;
+   margin: 6px;
    padding: 12px;
-   border-radius: 26px;
+   border-radius: 40px;
   }
   }
  }
@@ -37,11 +42,11 @@
 // private
 
 .private-box {
- background: black;
- color: white;
+ // background: black;
+ color: $font-color;
  min-height: 100vh;
   a {
-   color: white;
+   color: $font-color;
   }
   .private-content {
   color: black;

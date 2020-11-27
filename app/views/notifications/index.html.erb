@@ -9,7 +9,7 @@
  <% if n.action == "lose" %>
  <div class="notification-item">
  <%= attachment_image_tag n.visitor, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
- <div class="lose"><span><%= n.visitor.name %></span>さんがへこたれました</div>
+ <div class="lose"><strong><%= link_to n.visitor.name, n.visitor %></strong>さんがへこたれました</div>
  <div class="ago-time">コメントを送る <%= n.how_long_ago %></div>
  </div>
  <% end %>

@@ -28,12 +28,11 @@ border-bottom: double;
 }
 .user-content {
   display: flex;
-.user {
-  display: flex;
-  flex-direction: column;
-  margin-left: 12px;
-  margin-bottom: 16px;
+  padding-bottom: 12px;
+.user-box {
+  margin-left: 16px;
 }
+
 }
 .habit-list-item {
 border-left: solid 3px $accent-color;

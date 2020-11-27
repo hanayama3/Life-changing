@@ -1,14 +1,17 @@
 <div class="container form-box">
 <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
  <div class="form-content">
+ <h4>記録</h4>
+ <div class="input-box">
 <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
 <%= b.label do %>
 <%= b.text %>
 <%= b.check_box %>
 <% end %>
 <% end %>
+</div>
 <%= f.submit "送信",class: "btn"%>
+
 <% end %>
 </div>
-
 </div>

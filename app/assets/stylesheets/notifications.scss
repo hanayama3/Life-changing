@@ -7,14 +7,14 @@
  .notification-item {
   border: solid 1px #EEE;
   padding: 4px;
+  a {
+   color: red;
+  }
  }
   .lose {
-   color: $destroy-btn-color;
+   color: $font-color;
    padding-left: 7px;
    display: inline-block;
-   span {
-    font-size: 19px;
-   }
   }
  .all-delete {
  text-align: right;

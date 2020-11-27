@@ -21,9 +21,7 @@
        </div>
       </div>
     <% end %>
-      </div>
-     <%= paginate @private_posts %>
-
+     </div>
  <% else %>
  <div class="no-item">
  <p>非公開の投稿はありません</p>
@@ -31,3 +29,4 @@
  </div>
  <% end %>
  </div>
+  <%= paginate @private_posts %>

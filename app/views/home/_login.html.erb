@@ -2,14 +2,15 @@
 <% time_out?(@user) %>
 <div class="container-lg login-index">
 <div class="index-content">
-<h5 class="mt-2 mb-5">継続は力なり<i class="fa fa-flag "></i></h5>
+<h5 class="mt-2 mb-5">今日始めなかったものが<br>明日終わることはない<i class="fa fa-flag "></i></h5>
 
 <div class="user-content">
-<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
-<div class="user">
-<%= link_to @user.name, @user %>
-Lv. <%= @user.level %>
+<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
+<div class="user-box">
+<div><%= link_to @user.name, @user %></div>
+<div>Lv. <%= @user.level %></div>
 </div>
+
 </div>
 
 <% if @user.habits.blank? %>

@@ -6,14 +6,20 @@
 <h5><%= link_to @user.name, @user %></h5>
 Lv. <%= @user.level %>
 <div class="user-relation pt-2">
-<%= link_to "フォロー", following_user_path(@user) %>
+<a href="<%= following_user_path(@user) %>">
+フォロー
 <strong id="following">
 <%= @user.following.count %>
 </strong>
-<%= link_to "フォロワー", followers_user_path(@user) %>
+</a>
+
+<a href="<%= followers_user_path(@user)%>">
+フォロワー
 <strong id="followers">
 <%= @user.followers.count %>
 </strong>
+</a>
+
 </div>
 </div>
 </div>

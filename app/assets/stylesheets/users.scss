@@ -21,27 +21,30 @@
  margin: 12px 12px;
  padding: 12px 24px;
  border-radius: 22px;
- box-shadow: 0px 0px 1px;
+ box-shadow: 0px 0px 2px;
  width: 60%
 }
 }
 
 .title-box {
+  margin-top: 12px;
   background: black;
   opacity: 0.8;
  h5 {
   color: white;
   padding: 6px 0px 6px 12px;
+  margin: 0px;
  }
 }
 
 table {
-margin: 12px 0px 10px;
+margin: 0px;
 background: white;
 }
 
 .chart {
 background: white;
+padding: 12px;
 margin: 12px 0px;
 }
 
