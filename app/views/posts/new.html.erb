@@ -4,7 +4,7 @@
 <%= form_with(model: @post, local: true ) do |f| %>
 <div class="input-text-box">
  <%= render 'layouts/error_messages', model: f.object %>
- <%= f.text_area :content, placeholder: '投稿は80文字以内&#13;&#10;空文字でもOK'.html_safe, size: "40x7"%>
+ <%= f.text_area :content, placeholder: '120文字以内', size: "40x7"%>
  <div class="pt-3">
  <%= f.label :private %>
  <%= f.check_box :private %>

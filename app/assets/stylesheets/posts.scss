@@ -20,10 +20,14 @@
    width: 240px;
    display: flex;
   }
+  .post-content-box {
+   width: 80%;
   .post-content {
+   display: inline-block;
    background: white;
-   padding: 8px;
+   padding: 12px;
    border-radius: 26px;
+  }
   }
  }
 }

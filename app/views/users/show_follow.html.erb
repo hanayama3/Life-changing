@@ -2,13 +2,15 @@
 <%= render 'user_show' %>
 <p><%= link_to "習慣一覧", @user, class: "pl-4"%></p>
  
-<h5 class="mt-5"><%= @title %></h5>
-<table class="table table-light">
-  <tr><th>名前</th><th>称号</th></tr>
+<div class="relation-box">
+<h5><%= @title %></h5>
+ </div>
+<table class="table table-striped">
+  <tr><th>名前</th><th>Lv.</th><th>登録日</th></tr>
    <% @users.each do |user| %>
   <tr><td> <%= link_to user.name, "/users/#{user.id}" %></td>
-  <td><%= degree(user.level) %></td></tr>
+  <td><%= user.level %></td>
+   <td><%= user.created_at.strftime("%y/%m/%d") %></td></tr>
   <% end %>
   </table>
-  
  </div>

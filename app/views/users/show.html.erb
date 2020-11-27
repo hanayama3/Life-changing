@@ -7,11 +7,11 @@
 <%= link_to "非公開投稿", private_post_path(@user), class: "pl-3" %>
 <% end %>
 <% unless @user.profile.blank? %>
-<div class="plofile">
-<%= @user.profile %>
+<div class="plofile-box">
+<div class="profile"><%= @user.profile %></div>
 </div>
 <% end %>
-<table class="table table-light">
+<table class="table table-striped">
 <tr><th>項目</th><th>週</th><th>回数(週)</th><th>終了日時</th></tr>
 <% @user.habits.each do |habit| %>
 <tr>
@@ -25,7 +25,7 @@
 </tr>
 <% end %>
  </table>
-<div class="m-3">
+<div class="mt-5 mb-3">
 <%= line_chart @user.records.pluck(:date, :level) %>
 </div>
 </div>

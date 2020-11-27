@@ -3,6 +3,7 @@
 .show-page {
  background: white;
  padding: 0px 13px;
+ min-height: 90vh;
 .show-content {
  display: flex;
  padding: 13px;
@@ -10,16 +11,29 @@
   font-size: 14px;
  }
 }
-
-table {
+.relation-box {
+  background: black;
+  opacity: 0.8;
+ h5 {
+  color: white;
+  padding: 6px;
+ }
+}
+ .table {
  margin: 36px 0px 10px;
 }
 }
 
-.plofile {
- margin: 20px;
- padding: 10px;
- border: solid 1px black;
+.plofile-box {
+ text-align: left;
+ margin-top: 12px;
+ padding: 6px 12px;
+ border-radius: 22px;
+ box-shadow: 0px 0px 1px;
+ width: 80%;
+ .profile {
+ 
+ }
 }
 
 // show_follow

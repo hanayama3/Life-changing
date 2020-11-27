@@ -11,8 +11,9 @@
       <div>Lv. <%= private_post.user.level %></div>
       </div>
       </div>
-      
+      <div class="post-content-box">
       <div class="post-content private-content"><%= private_post.content %></div>
+      </div>
       </div>
       <div class="ago-time">
       <%= link_to "削除", post_path(private_post), method: :delete, data: { confirm: 'この投稿を削除しますか？'} %>

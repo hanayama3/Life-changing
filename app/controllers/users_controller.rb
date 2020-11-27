@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include LoginUser
   before_action :set_user, except: [:index]
   before_action :redirect_root
+  before_action :habit_ids_nil?, only: [:complete]
   
   def index
     @users = User.order(level: "desc").page(params[:page]).per(12)
@@ -41,6 +42,13 @@ private
 
 def set_user
   @user = User.find(params[:id])
+end
+
+def habit_ids_nil?
+  if params[:user][:habit_ids].join.empty?
+  flash[:notice] = "チェックを入れてください"
+   redirect_to request.referer
+  end
 end
 
 def complete_params
