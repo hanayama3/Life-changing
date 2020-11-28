@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :habit_ids_nil?, only: [:complete]
   
   def index
-    @users = User.order(level: "desc").page(params[:page]).per(12)
+    @users = User.select("id,name,level,created_at").order(level: "desc").limit(10)
   end
   
   def show

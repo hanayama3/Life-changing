@@ -4,7 +4,7 @@
 <%= form_with(model: @habit, local: true) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
 <div class="input-box">
-<%= f.text_field :task,placeholder: "習慣を入力してください", class: "input"%>
+<%= f.text_field :task,placeholder: "習慣", class: "input"%>
 </div>
 
 <div class="input-box">

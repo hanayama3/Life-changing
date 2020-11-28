@@ -2,6 +2,7 @@ class HabitsController < ApplicationController
 include LoginUser
 
 before_action :set_habit, only: [:edit, :update, :destroy]
+before_action :ensure_current_user, only: [:edit, :update]
 before_action :redirect_root
 
 def new
@@ -40,6 +41,13 @@ private
 
 def set_habit
   @habit = Habit.find(params[:id])
+end
+
+def ensure_current_user
+  unless current_user == @habit.user
+     flash[:alert] = "このページにはアクセスできません"
+    redirect_to root_url
+  end
 end
 
 def habit_params

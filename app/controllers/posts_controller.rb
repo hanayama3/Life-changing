@@ -22,7 +22,12 @@ class PostsController < ApplicationController
   
   def private
     @user = User.find(params[:id])
+    unless @user == current_user
+    flash[:alert] = "他のユーザーの非公開投稿は見れません"
+    redirect_to root_url
+    else
     @private_posts = @user.posts.where(private: true).page(params[:page]).per(9)
+  end
   end
   
    def destroy
@@ -38,5 +43,5 @@ class PostsController < ApplicationController
  def post_params
      params.require(:post).permit(:content, :private, :user_id)
  end
-  
+
 end

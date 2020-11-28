@@ -1,5 +1,7 @@
  @import '_colors.scss';
 
+// show
+
 .show-page {
  padding: 0px 13px;
  min-height: 90vh;
@@ -47,11 +49,25 @@ background: white;
 padding: 12px;
 margin: 12px 0px;
 }
-
-
 }
 
+// index
 
+.ranking {
+ background: white;
+ padding: 36px;
+ border: solid 2px #DDD;
+.best1 {
+color: rgb(219,180,0);
+}
+.best2 {
+ color: rgb(174,179,181);
+}
 
+.best3 {
+ color: rgb(186,110,64);
+}
+
+}
 
  
