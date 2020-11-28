@@ -2,7 +2,7 @@
  
  @mixin content-box {
   background: white;
-  opacity: 0.9;
+  opacity: 0.8;
   margin: 26px;
   padding: 8px;
   box-shadow: 0 5px 3px 0 rgba(0, 0, 0, .5);
@@ -28,7 +28,7 @@ border-bottom: double;
 }
 .user-content {
   display: flex;
-  padding-bottom: 12px;
+  padding: 6px 0px 24px 0px;
 .user-box {
   margin-left: 16px;
 }
@@ -38,7 +38,7 @@ border-bottom: double;
 border-left: solid 3px $accent-color;
 margin-bottom: 3px;
 line-height: 1.5;
-padding: 0.5em;
+padding: 16px 8px;
 .habit-show {
 margin: 7px 0px;
 cursor: pointer;
@@ -100,10 +100,12 @@ padding: 15px 0px;
 
 // ログインする前のフォーム
 .not-login-index {
+background-image: image-url('home.jpeg');
+background-size: cover;
 text-align: center;
 color: $font-color;
 .not-login-box1 {
- padding: 16px 21px;
+ padding: 12px 16px;
  .not-login-content1 {
    @include content-box;
    h3 {
@@ -117,7 +119,6 @@ color: $font-color;
 
  .not-login-box2 {
   padding: 20px;
-  opacity: 0.8;
   .not-login-content2 {
   margin: 26px;
   padding: 24px 0px;

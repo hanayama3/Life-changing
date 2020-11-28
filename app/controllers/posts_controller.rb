@@ -3,8 +3,16 @@ class PostsController < ApplicationController
    before_action :redirect_root
    
   def index
-    @posts = Post.where(private: false).page(params[:page]).per(9)
+    @title = "みんなの投稿"
+    @posts = Post.where(private: false).page(params[:page]).per(8)
   end
+  
+   def follow_users
+     @title = "フォロー中のユーザー"
+     @user = User.find(params[:id])
+     @posts = Post.where(private: false).where(user_id: [@user.id, *@user.following_ids]).page(params[:page]).per(8)
+  end
+  
   
   def new
     @post = Post.new
@@ -19,6 +27,8 @@ class PostsController < ApplicationController
      render "new"
   end
   end
+  
+ 
   
   def private
     @user = User.find(params[:id])

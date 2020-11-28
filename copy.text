@@ -119,3 +119,5 @@ end
 
 # following.each { |followed| user.follow(followed) }
 # followers.each { |follower| follower.follow(user) }
+
+@posts = @user.following.map{ |f| f.posts.where(private: false)}

@@ -55,8 +55,9 @@ margin: 12px 0px;
 
 .ranking {
  background: white;
- padding: 36px;
- border: solid 2px #DDD;
+ table {
+ border: solid 2px $border-color;
+ }
 .best1 {
 color: rgb(219,180,0);
 }

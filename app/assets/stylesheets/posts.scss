@@ -11,15 +11,21 @@
 //    color: white;
 //   }
 
-@mixin post-user {
- 
-}
-
 .post-users {
  margin-top: 26px;
  padding-top: 6px;
  background: white;
- border: solid 2px #DDD;
+ border: solid 2px $border-color;
+ color: $font-color;
+ .change-box {
+  display: flex;
+  justify-content: space-between;
+ .change-btn {
+  font-size: 14px;
+  padding: 6px;
+  display: inline-block;
+ }
+ }
  .post-items-box {
   border-bottom: solid 1px #EEE;
   padding-top: 3px;

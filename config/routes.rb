@@ -27,6 +27,7 @@ resources :notifications, :only => [:index,:destroy]
 resources :posts, :only => [:index, :new, :create, :destroy] do
   member do
     get :private
+    get :follow_users
   end
 end
 end
