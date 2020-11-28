@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      habit: 習慣
+      post: 投稿
+      record: 記録
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        profile: プロフィール
+        name: 名前
+        image_id: 画像
+        level: レベル
+        remember_me: ログインを記憶
+        current_password: 現在のパスワード
+        password_confirmation: 確認用パスワード
+      habit:
+        task: 習慣
+        frequency: 回数
+        end_time: 終了時間
+        complete: 達成
+      post:
+        content: 投稿文
+        private: 非公開
+        
