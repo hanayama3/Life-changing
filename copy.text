@@ -1,123 +1,87 @@
-ja:
-  activerecord:
-  errors:
-      messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
-  attributes:
-    user:
-      name: 名前
-      email: メールアドレス
-      password: パスワード
-      password_confirmation: 確認用パスワード
-      remember_me: ログイン状態を維持する
-      image_id: 画像
-    habit: 習慣
-      task: タスク
-      frequency: 回数
-      content: 投稿
-      private: 非公開
-      current_password: 確認用パスワード
-      
-      パート２
-      
-      ja:
-  activerecord:
-    models:
-      user: ユーザー
-      habit: 習慣
-      post: 投稿
-      record: 記録
-    attributes:
-      user:
-        email: メールアドレス
-        password: パスワード
-        profile: プロフィール
-        name: 名前
-        image_id: 画像
-        level: レベル
-        remember_me: ログインを記憶
-        current_password: 現在のパスワード
-      habit:
-        task: 習慣
-        frequency: 回数
-        end_time: 終了時間
-        complete: 達成
-      post:
-        content: 投稿文
-        private: 非公開
-        
-        
-        User.create!(
-name:  "花山",
-email: "hanayamabmw@icloud.com",
-password: "hanayama",
-profile: "花山薫です",
-level: 100
-)
+<div class="container-lg not-login-index">
+    
+<section class="not-login-box1">
+ <div class="not-login-content1">
+ <h3 class="pb-3">Habit is powerとは</h3>
+ <h5 class="pb-1">あなたの人生を左右するのは間違いなく日々の<b>習慣</b>です</h5>
+ <p>習慣を継続させるために必要なのは意思などではなく自分の行動を制御する<b>仕組み</b>です</p>
+ <p>Habit is powerはあなたの習慣を継続させるお手伝いをするWEBサービスです</p>
+ </div>
+ </section>
+ 
+ <section class="not-login-box2">
+ <div class="not-login-content2">
+    <div class="not-login-list-box">
+        <h5>特徴</h5>
+        <p>週の目標を立て達成するほどレベルが上がっていく</p>
+        <p>自分のレベルをグラフで可視化</p>
+        <p>目標を持つ仲間を作れる</p>
+        <p>週の目標に達しなかった時レベルが下がり仲間に通知を送られる</p>
+    </div>
+     <div class="not-login-list-box">
+        <h5>おすすめな人</h5>
+        <p>今まで何度も決めた事を出来ず挫折した人</p>
+        <p>自己肯定感の低い人</p>
+        <p>成し遂げたい事がある人</p>
+        <p>積み重ねる事が好きな人</p>
+    </div>
+     <div class="not-login-list-box">
+        <h5>開発者の習慣</h5>
+        <p>朝起きてすぐ筋トレ</p>
+        <p>筋トレの後野菜1日これ一本</p>
+        <p>プログラミングの勉強</p>
+        <p>就寝前に読書</p>
+        <p>週3日のランニング</p>
+    </div>
+ </div>
+ </section>
+ 
+ <section class="user-link">
+     <%= link_to "ユーザー登録", new_user_registration_path, class: "btn mx-1" %>
+     <%= link_to "ログイン", user_session_path , class: "btn mx-1"%>
+ </section>
+     
+</div>
 
-Post.create!(
-content: "プログラミング楽しい",
-user_id: 1,
-private: true
-)
+.not-login-index {
+background-image: image-url('home.jpeg');
+background-size: cover;
+text-align: center;
+color: $font-color;
+.not-login-box1 {
+padding: 12px 16px;
+.not-login-content1 {
+  @include content-box;
+  h3 {
+    color: $accent-color;
+  }
+    p {
+  margin: 3px;
+}
+}
+}
 
-10.times do |n|
-date = Date.current.ago(10.days)
-Record.create!(
-level: rand(10),
-date: date.since(n.days),
-user_id: 1
-)
-end
-
-10.times do |n|
-email = Faker::Internet.email
-password = "password"
-name = Faker::Name.name
-level = 0
-User.create!(
-email: email,
-password: password,
-name: name,
-level: level
-)
-end
-
-# user_idがおかしい
-
-10.times do |n|
- content = Faker::Lorem.sentence(word_count: 5)
- user_id = 1
- Post.create!(
- content: content,
- user_id: user_id
-)
-end
-
-# 5.times do |n|
-# task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩","早寝早起き","片付け","日記","ランニング"]
-# frequency = rand(1..7)
-# complete = 0
-# end_time = Time.current.since(1.days)
-# user_id = n + 1
-# Habit.create!(
-# task: task.sample,
-# frequency: frequency,
-# complete: complete,
-# end_time: end_time,
-# user_id: user_id
-# )
-# end
-
-# users = User.all
-# user  = users.first
-# following = users[2..8]
-# followers = users[3..6]
-
-# following.each { |followed| user.follow(followed) }
-# followers.each { |follower| follower.follow(user) }
-
-@posts = @user.following.map{ |f| f.posts.where(private: false)}
+.not-login-box2 {
+  padding: 20px;
+  .not-login-content2 {
+  margin: 26px;
+  padding: 24px 0px;
+  display: flex;
+  justify-content: center;
+  .not-login-list-box {
+  @include content-box;
+  display: inline-block;
+  width: 25%;
+  border-radius: 13px;
+  h5 {
+    color: $accent-color;
+    padding: 13px;
+  }
+  }
+  }
+}
+.user-link {
+  padding-bottom: 36px;
+}
+ 
+}

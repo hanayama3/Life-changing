@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "login", to: "users/sessions#new"
   post "login", to: "users/sessions#create"
   get "sign_out", to: "users/sessions#destroy"
+  post 'guest_sign_in', to: 'users/sessions#new_guest'
 end
 
 resources :users, :only => [:index, :show] do

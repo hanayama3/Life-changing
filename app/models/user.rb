@@ -42,6 +42,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
+  def self.guest
+      find_or_create_by!(name: "ゲスト", email: 'guest@gmail.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+  
  def record(before_level)
   after_level = self.level
   date = Date.current

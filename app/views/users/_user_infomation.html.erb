@@ -30,7 +30,7 @@ Lv. <%= @user.level %>
 
 <%= render 'follow_form' %>
 
-<% unless @user.profile.empty? %>
+<% unless @user.profile.nil? %>
 <div class="plofile-box">
 <%= @user.profile %>
 </div>

@@ -1,11 +1,11 @@
 <% @user ||= current_user %>
 <% time_out?(@user) %>
 <div class="container-lg login-index">
+  
 <div class="index-content">
-<h5 class="mt-2 mb-5">今日始めなかったものが<br>明日終わることはない<i class="fa fa-flag "></i></h5>
 
 <div class="user-content">
-<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "normal-icon"%>
+<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "icon"%>
 <div class="user-box">
 <div><%= link_to @user.name, @user %></div>
 <div>Lv. <%= @user.level %></div>
@@ -40,9 +40,11 @@
 <% end %>
 </div>
 <% end %>
-<div class="mt-3 mb-3">
+<div class="mt-5">
 <%= link_to "記録する", mission_user_path(@user) %>
 <%= link_to "投稿する", new_post_path %>
 </div>
+
 </div>
+
 </div>
