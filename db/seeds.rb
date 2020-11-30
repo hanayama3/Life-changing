@@ -2,8 +2,7 @@ User.create!(
 name:  "花山",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
-profile: "花山薫です",
-level: 100
+level: 10
 )
 
 Post.create!(

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root to: "home#index"
+  get "explain", to: "home#explain"
+  
   get "habits", to: "habits#new"
   
   devise_for :users, :controllers => {
