@@ -1,10 +1,10 @@
 <div class="container form-box">
 <div class="form-content">
 <h4><%= @title %></h4>
-<%= form_with(model: @habit, local: true) do |f| %>
+<%= form_with(model: @habit,local: true) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
 <div class="input-box">
-<%= f.text_field :task,placeholder: "習慣", class: "input"%>
+<%= f.text_field :task,placeholder: "タスク", class: "input"%>
 </div>
 
 <div class="input-box">

@@ -17,7 +17,7 @@ ja:
         current_password: 現在のパスワード
         password_confirmation: 確認用パスワード
       habit:
-        task: 習慣
+        task: タスク
         frequency: 回数
         end_time: 終了時間
         complete: 達成
