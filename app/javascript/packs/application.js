@@ -13,6 +13,7 @@ require("chart.js");
 require("check.js");
 require("modal.js");
 require("flash.js");
+require("video.js");
 
 
 

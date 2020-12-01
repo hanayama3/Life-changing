@@ -128,11 +128,22 @@ line-height: 46px;
 }
 
 .about-box {
+min-height: 100vh;
 background: white;
 padding: 30px;
 text-align: center;
+p {
+color: $font-color;
+cursor: pointer;
+&:hover {
+color: $accent-color;
+}
+}
+.video {
+display: none;
 .video-content {
 width: 80%;
 padding: 22px;
+}
 }
 }
