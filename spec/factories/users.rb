@@ -4,5 +4,6 @@ FactoryBot.define do
         name  {"加藤"}
         password {"password"}
         password_confirmation {"password"}
+        level { 0 }
     end
 end
