@@ -1,23 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-#  let(:user) { User.create(email: "kato@gmail.com", name: "加藤",
-#  password: "password", password_confirmation: "password") }
- 
-#  let(:other_user) { User.create(email: "tanaka@gmail.com", name: "田中",
-#  password: "password", password_confirmation: "password") }
- 
- user = FactoryBot.create(:user)
- 
- describe 'association' do
+let(:user) { create(:user) }
+let(:other_user) { create(:user, email: "tanaka@gmail.com",name: "田中")}
+
+describe '関連テーブル削除テスト' do
  it 'userを削除するとuserのpostが削除される' do
- user.posts.create(content: "RSpec")
- expect{ user.destroy }.to change{ Post.count }.by(-1) 
+     user.posts.create(content: "RSpec")
+     expect{ user.destroy }.to change{ Post.count }.by(-1) 
  end
  it 'userを削除するとuserのhabitが削除される' do
      user.habits.create(task: "筋トレ", frequency: 3)
      expect{ user.destroy }.to change{ Habit.count }.by(-1)
-end
+ end
  it 'userを削除するとuserのrecordが削除される' do
      user.records.create(level: 10, date: Date.current)
      expect{ user.destroy }.to change{ Record.count }.by(-1)

@@ -112,10 +112,16 @@ GEM
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
     devise-i18n-views (0.3.7)
+    diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
@@ -244,6 +250,23 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.4)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-rails (4.0.1)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.9)
+      rspec-expectations (~> 3.9)
+      rspec-mocks (~> 3.9)
+      rspec-support (~> 3.9)
+    rspec-support (3.10.0)
     ruby-graphviz (1.2.5)
       rexml
     ruby2_keywords (0.0.2)
@@ -331,6 +354,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  factory_bot_rails
   faker
   font-awesome-rails
   jbuilder (~> 2.7)
@@ -346,6 +370,7 @@ DEPENDENCIES
   rails-i18n
   refile!
   refile-mini_magick
+  rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
   spring
