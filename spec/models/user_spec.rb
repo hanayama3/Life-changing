@@ -41,18 +41,21 @@ end
 describe '#record' do
   context 'userのlevelが上がった場合' do
   it 'recordモデルが生成される' do
-      expect{user.record(1)}.to change{ Record.count }.by(1)
+      user.level += 1
+      expect{user.record(0)}.to change{ Record.count }.by(1)
   end
   end
   context 'userのlevelが下がった場合でfollowerがいない場合' do
   it 'recordモデルが生成される' do
-      expect{user.record(-1)}.to change{ Record.count }.by(1)
+      user.level -= 1
+      expect{user.record(0)}.to change{ Record.count }.by(1)
   end
   end
   context 'userのlevelが下がった場合でfollowersがいる場合' do
   it 'recordモデルとnotificationモデルが生成される' do
       user.passive_relationships.create(follower_id: other_user.id)
-      expect{user.record(-1)}.to change{ Record.count }.by(1)
+      user.level -= 1
+      expect{user.record(0)}.to change{ Record.count }.by(1)
       .and change{ Notification.count }.by(1)
   end
   end

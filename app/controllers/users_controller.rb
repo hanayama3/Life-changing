@@ -27,7 +27,7 @@ def mission
 end
 
 def complete
- before_level = @user.level
+  before_level = @user.level
   @habit = Habit.find(complete_params)
   @habit.each do |habit|
   habit.update(complete: habit.complete += 1)
