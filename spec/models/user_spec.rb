@@ -28,12 +28,12 @@ describe '関連テーブル削除テスト' do
  end
  
 describe 'バリデーション' do
-  it 'userのprofileが80字以上の場合' do
-      user.profile = "a" * 81
+  it 'userのnameが空の場合保存できない' do
+      user.name = ""
       expect(user).to_not be_valid
   end
-  it 'userのnameが空の場合' do
-      user.name = ""
+  it 'userのprofileが80字以上の場合保存できない' do
+      user.profile = "a" * 81
       expect(user).to_not be_valid
   end
 end
@@ -49,14 +49,13 @@ describe '#record' do
       expect{user.record(-1)}.to change{ Record.count }.by(1)
   end
   end
-  # context 'userのlevelが下がった時でfollowerがいる場合' do
-  # it 'recordモデルとnotificationモデルが生成される' do
-  #     #Relationshipテーブルは作成できてる
-  #     Relationship.create(follower_id: other_user.id, followed_id: user.id)
-  #     # binding.pry
-  #     expect{user.record(-1)}.to change{ Record.count }.by(1).and change{ Notification.count }.by(1)
-  # end
-  # end
+  context 'userのlevelが下がった場合でfollowersがいる場合' do
+  it 'recordモデルとnotificationモデルが生成される' do
+      user.passive_relationships.create(follower_id: other_user.id)
+      expect{user.record(-1)}.to change{ Record.count }.by(1)
+      .and change{ Notification.count }.by(1)
+  end
+  end
   
 end
 

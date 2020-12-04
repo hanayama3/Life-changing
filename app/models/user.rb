@@ -47,16 +47,16 @@ class User < ApplicationRecord
   end
   
  def record(before_level)
-  after_level = self.level
-  date = Date.current
-  if before_level < after_level
-    self.records.create(level: after_level,date: date)
-  elsif before_level > after_level
-    self.records.create(level: after_level,date: date)
-    self.followers.each do |f|
-      Notification.create(visitor_id: self.id,visited_id: f.id, action: "lose")
-  end
+     after_level = self.level
+     date = Date.current
+     self.records.create(level: after_level,date: date)
+     if before_level > after_level && self.followers
+     binding.pry
+     self.followers.each do |f|
+     Notification.create(visitor_id: self.id,visited_id: f.id, action: "lose")
+ end
 end
+
 end
 
 end
