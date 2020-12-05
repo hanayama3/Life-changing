@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 let(:user) { create(:user) }
-let(:other_user) { create(:user, email: "tanaka@gmail.com",name: "田中")}
-
+let(:other_user) { create(:other_user) }
+ 
 describe '関連テーブル削除テスト' do
  it 'userを削除するとuserのpostテーブルも削除される' do
      user.posts.create(content: "RSpec")
