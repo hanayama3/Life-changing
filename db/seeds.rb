@@ -8,7 +8,7 @@ level: 10
 Post.create!(
 content: "プログラミング楽しい",
 user_id: 1,
-private: true
+private_content: true
 )
 
 10.times do |n|
