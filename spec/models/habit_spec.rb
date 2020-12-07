@@ -18,9 +18,7 @@ RSpec.describe Habit, type: :model do
         expect(build(:habit, task: "ランニング", user: user).save).to be_falsey
     end
     it 'userはhabitモデルを6つ以上持てない' do
-        6.times do |n|
-         user.habits.create(task: "ランニング#{n}", frequency: 3)
-        end
+        habits = create_list(:habit, 6, user: user)
         expect(build(:habit, task: "筋トレ", user: user).save).to be_falsey
     end
     it "frequencyがnilの場合は保存できない" do
