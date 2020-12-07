@@ -23,5 +23,5 @@ ja:
         complete: 達成
       post:
         content: 投稿文
-        private: 非公開
+        private_content: 非公開
         

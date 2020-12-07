@@ -59,7 +59,6 @@ describe '#record' do
       .and change{ Notification.count }.by(1)
   end
   end
-  
 end
 
 end

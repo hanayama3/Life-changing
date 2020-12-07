@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_075858) do
+ActiveRecord::Schema.define(version: 2020_12_07_045750) do
 
   create_table "habits", force: :cascade do |t|
     t.string "task"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_075858) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
-    t.boolean "private", default: false, null: false
+    t.boolean "private_content", default: false, null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

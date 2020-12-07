@@ -30,7 +30,7 @@ resources :relationships, :only => [:create, :destroy]
 resources :notifications, :only => [:index,:destroy]
 resources :posts, :only => [:index, :new, :create, :destroy] do
   member do
-    get :private
+    get :private_content
     get :follow_users
   end
 end

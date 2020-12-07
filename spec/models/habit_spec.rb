@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Habit, type: :model do
   let(:user){ create(:user) }
-  let(:otehr_user) { create(:otehr_user) }
   let(:habit)  { create(:habit) }
-  # given!(:habits) { 6.time.collect { |n| create(:habit, task: "ランニング#{n}")}}
 
 
   describe 'バリデーション' do
@@ -21,7 +19,10 @@ RSpec.describe Habit, type: :model do
         expect(build(:habit, task: "ランニング", user: user).save).to be_falsey
     end
     xit 'userはhabitモデルを6つ以上持てない' do
-       
+        habits = create_list(:habit, 6, user: user)
+        habits << create(:habit, task: "筋トレ", user: user)
+        binding.pry
+        # expect(build(:habit, task: "筋トレ", user: user).save).to be_falsey
     end
     it "frequencyがnilの場合は保存できない" do
         habit.frequency = nil

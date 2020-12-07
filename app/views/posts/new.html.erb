@@ -6,8 +6,8 @@
  <%= render 'layouts/error_messages', model: f.object %>
  <%= f.text_area :content, placeholder: '120文字以内', size: "40x7"%>
  <div class="pt-3">
- <%= f.label :private %>
- <%= f.check_box :private %>
+ <%= f.label :private_content %>
+ <%= f.check_box :private_content %>
  <%= f.hidden_field :user_id, :value => current_user.id %>
  </div>
  <%= f.submit "送信",class: "btn"%>

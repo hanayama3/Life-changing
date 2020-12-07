@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :habit do
-    task {"ランニング"}
+    sequence(:task) { |n| "ランニング#{n}"}
     frequency { 3 }
     user
   end

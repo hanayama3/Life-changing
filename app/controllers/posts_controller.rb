@@ -4,13 +4,13 @@ class PostsController < ApplicationController
    
   def index
     @title = "みんなの投稿"
-    @posts = Post.where(private: false).page(params[:page]).per(8)
+    @posts = Post.where(private_content: false).page(params[:page]).per(8)
   end
   
    def follow_users
      @title = "フォロー中のユーザー"
      @user = User.find(params[:id])
-     @posts = Post.where(private: false).where(user_id: [@user.id, *@user.following_ids]).page(params[:page]).per(8)
+     @posts = Post.where(private_content: false).where(user_id: [@user.id, *@user.following_ids]).page(params[:page]).per(8)
   end
   
   
@@ -30,13 +30,13 @@ class PostsController < ApplicationController
   
  
   
-  def private
+  def private_content
     @user = User.find(params[:id])
-    unless @user == current_user
-    flash[:alert] = "他のユーザーの非公開投稿は見れません"
-    redirect_to root_url
+    if @user == current_user
+     @private_posts = @user.posts.where(private_content: true).page(params[:page]).per(9)
     else
-    @private_posts = @user.posts.where(private: true).page(params[:page]).per(9)
+     flash[:alert] = "他のユーザーの非公開投稿は見れません"
+    redirect_to root_url
   end
   end
   
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
  private
  
  def post_params
-     params.require(:post).permit(:content, :private, :user_id)
+     params.require(:post).permit(:content, :private_content, :user_id)
  end
 
 end

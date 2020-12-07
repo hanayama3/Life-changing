@@ -9,7 +9,7 @@ validate :user_habits_size_validate
 def user_habits_size_validate
     if self.user && self.user.habits.size >=  HABIT_MAX
         errors.add(:task,"は#{HABIT_MAX}つまでしか登録出来ません")
-   end
+    end
 end
 
 end
