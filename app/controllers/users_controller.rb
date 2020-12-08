@@ -34,8 +34,8 @@ def complete
   @user.update(level: @user.level += 1)
   flash[:notice] = "達成！"
 end
-@user.record(before_level)
-redirect_to @user
+  @user.record(before_level)
+  redirect_to @user
 end
 
 private

@@ -3,5 +3,5 @@ class HomeController < ApplicationController
   end
   
   def explain
-end
+  end
 end
