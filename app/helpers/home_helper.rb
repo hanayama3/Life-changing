@@ -1,9 +1,6 @@
 module HomeHelper
     
 def time_out?(user)
- end_time = user.habits.map(&:end_time)
- complete = user.habits.map(&:complete)
- frequency = user.habits.map(&:frequency)
  before_level = user.level
   user.habits.each do |habit|
   if habit.end_time < Date.current
