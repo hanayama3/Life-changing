@@ -48,7 +48,8 @@
 </div>
 
 </div>
-
+<% if @message %>
 <script type="text/javascript">
-     toastr.success("hello")
+     toastr.error("<%= @message %>")
  </script>
+ <% end %>

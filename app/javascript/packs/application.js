@@ -20,7 +20,7 @@ window.toastr = toastr
 
 toastr.options = {
 "closeButton": true,
-"positionClass": "toast-bottom-right"
+"timeOut": "5000"
 }
 
 

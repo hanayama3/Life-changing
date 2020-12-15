@@ -9,7 +9,7 @@ def time_out?(user)
     user.update(level: user.level -= 5)
     habit.update(complete: 0)
     user.record(before_level)
-    flash[:alert] = "Lvが#{before_level}から#{user.level}になりました"
+    @message = "Lvが#{before_level}から#{user.level}になりました"
    else
    habit.update(complete: 0)
    end
