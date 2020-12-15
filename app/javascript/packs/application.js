@@ -14,7 +14,14 @@ require("check.js");
 require("modal.js");
 require("flash.js");
 require("video.js");
+import './src/application.scss'
+import toastr from 'toastr'
+window.toastr = toastr
 
+toastr.options = {
+"closeButton": true,
+"positionClass": "toast-bottom-right"
+}
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

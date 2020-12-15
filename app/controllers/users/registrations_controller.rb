@@ -7,8 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def check_guest
     if resource.email == 'guest@gmail.com'
-    flash[:alert] = "ゲストユーザーは変更、削除はできません"
-    redirect_to root_path
+    redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
   end
 end
   # GET /resource/sign_up

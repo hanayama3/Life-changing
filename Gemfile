@@ -29,7 +29,6 @@ gem 'rails-i18n'
 gem "chartkick"
 gem 'bootstrap-sass', '3.3.6'
 gem 'kaminari'
-gem 'toastr-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
