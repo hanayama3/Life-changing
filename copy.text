@@ -1,47 +1,28 @@
-FactoryBot.define do
-  factory :habit do
-    task {"ランニング"}
-    frequency { 3 }
-    user
-  end
-  factory :habit2, class: Habit do
-    task {"ランニング"}
-    frequency { 2 }
-    user
-  end
+90.times do |n|
+date = Date.current.ago(10.days)
+user_id = case n
+when 0..10
+  2
+when 10..20
+  3
+when 20..30
+  4
+when 30..40
+  5
+when 40..50
+  6
+when 50..60
+  7
+when 60..70
+  8
+when 70..80
+  9
+when 80..90
+  10
 end
-
-
-require 'rails_helper'
-
-RSpec.describe Habit, type: :model do
-  let(:habit)  { create(:habit) }
-  let(:habit2) { create(:habit2) }
-  
-  describe 'バリデーション' do
-    it 'taskが空の場合は保存できない' do
-      habit.task = ""
-      expect(habit).to_not be_valid
-    end
-    it 'taskが12文字以上の場合保存できない' do
-      habit.task = "a" * 13
-      expect(habit).to_not be_valid
-    end
-    xit 'userは同じtaskカラムを持つhabitモデルを保存できない' do
-        expect(habit.save).to be_truthy
-        expect(habit2.save).to be_falsey
-    end
-    xit 'userはhabitモデルを6つ以上持てない' do
-      
-    end
-    it "frequencyがnilの場合は保存できない" do
-      habit.frequency = nil
-      expect(habit).to_not be_valid
-    end
-  end
+Record.create!(
+level: rand(15),
+date: date.since(n.days),
+user_id: user_id
+)
 end
-
-通ったテスト
- expect(habit).to be_valid
-        habit2 = Habit.create(task: "ランニング", frequency: 1, user_id: habit.user.id)
-        expect(habit2).to_not be_valid

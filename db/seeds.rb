@@ -1,20 +1,36 @@
 User.create!(
-name:  "花山",
+name:  "ぎん",
 email: "hanayamabmw@icloud.com",
 password: "hanayama",
-level: 10
+level: 30
 )
+
+%w(筋トレ ランニング 朝に野菜ジュース).each do |task|
+Habit.create!(
+task: task,
+frequency: 7,
+complete: rand(1..3),
+end_time: Time.current.since(7.days),
+user_id: 1
+)
+end
+
 
 Post.create!(
 content: "プログラミング楽しい",
 user_id: 1,
-private_content: true
+private_content: false
 )
 
 10.times do |n|
 date = Date.current.ago(10.days)
+if n == 9
+level = 30
+else
+level = n + rand(4)
+end
 Record.create!(
-level: rand(10),
+level: level,
 date: date.since(n.days),
 user_id: 1
 )
@@ -24,7 +40,7 @@ end
 email = Faker::Internet.email
 password = "password"
 name = Faker::Name.name
-level = rand(1..30)
+level = rand(1..15)
 User.create!(
 email: email,
 password: password,
@@ -33,17 +49,20 @@ level: level
 )
 end
 
+10.times do |u|
+date = Date.current.ago(10.days)
+user_id = 2 + u
 10.times do |n|
- content = Faker::Lorem.sentence(word_count: 5)
- user_id = rand(1..9)
- Post.create!(
- content: content,
- user_id: user_id
+Record.create!(
+level: n + rand(3),
+date: date.since(n.days),
+user_id: user_id
 )
+end
 end
 
 10.times do |n|
-task = ["勉強", "筋トレ", "瞑想", "断食", "ヨガ", "散歩","早寝早起き","片付け","日記","ランニング"]
+task = ["勉強", "瞑想", "断食", "ヨガ", "散歩","早寝早起き","片付け","日記","親孝行"]
 frequency = rand(1..7)
 complete = rand(1..3)
 end_time = Time.current.since(1.days)
