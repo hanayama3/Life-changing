@@ -14,8 +14,7 @@ def create
   @habit = Habit.new(habit_params)
   @habit.end_time = Date.current.since(1.weeks)
  if @habit.save
-  flash[:notice] = "習慣を登録しました"
-  redirect_to @habit.user
+  redirect_to @habit.user, notice: "習慣を登録しました"
  else
   render 'new'
 end
@@ -27,14 +26,12 @@ end
 
 def update
   @habit.update(habit_params)
-  flash[:notice] = "習慣を変更しました"
-  redirect_to @habit.user
+  redirect_to @habit.user, notice: "習慣を変更しました"
 end
 
 def destroy
   @habit.destroy
-  flash[:alert] = "習慣を削除しました"
-  redirect_to @habit.user
+  redirect_to @habit.user, alert: "習慣を削除しました"
 end
 
 private

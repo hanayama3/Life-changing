@@ -1,28 +1,20 @@
-90.times do |n|
-date = Date.current.ago(10.days)
-user_id = case n
-when 0..10
-  2
-when 10..20
-  3
-when 20..30
-  4
-when 30..40
-  5
-when 40..50
-  6
-when 50..60
-  7
-when 60..70
-  8
-when 70..80
-  9
-when 80..90
-  10
+module HomeHelper
+    
+def time_out?(user)
+ before_level = user.level
+  user.habits.each do |habit|
+  if habit.end_time < Date.current
+   habit.end_time = Date.current.since(1.weeks)
+   if habit.complete < habit.frequency
+    user.update(level: user.level -= 5)
+    habit.update(complete: 0)
+    user.record(before_level)
+    @message = "Lvが#{before_level}から#{user.level}になりフォロワーに通知を送信しました"
+   else
+   habit.update(complete: 0)
+   end
+  end
+ end
 end
-Record.create!(
-level: rand(15),
-date: date.since(n.days),
-user_id: user_id
-)
+
 end

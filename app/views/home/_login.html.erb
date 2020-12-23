@@ -51,5 +51,8 @@
 <% if @message %>
 <script type="text/javascript">
      toastr.error("<%= @message %>")
+     <% @tasks.each do |task| %>
+     toastr.error("<%= task + "を実行できませんでした" %>")
+     <% end %>
  </script>
  <% end %>

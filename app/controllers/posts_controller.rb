@@ -14,8 +14,7 @@ class PostsController < ApplicationController
   def create
      @post = Post.new(post_params)
       if @post.save
-        flash[:notice] = "投稿しました"
-        redirect_to posts_path
+        redirect_to posts_path, notice: "投稿しました"
       else
         render "new"
   end
@@ -24,8 +23,7 @@ class PostsController < ApplicationController
   def destroy
      @post = Post.find(params[:id])
      @post.destroy
-     flash[:notice] = "投稿を削除しました"
-     redirect_to posts_path
+     redirect_to posts_path, alert: "投稿を削除しました"
   end
   
   def follow_users
@@ -39,8 +37,7 @@ class PostsController < ApplicationController
     if @user == current_user
      @private_posts = @user.posts.where(private_content: true).page(params[:page]).per(9)
     else
-     flash[:alert] = "他のユーザーの非公開投稿は見れません"
-     redirect_to root_url
+     redirect_to root_url, alert: "他のユーザーの非公開投稿は見れません"
   end
   end
   
