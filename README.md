@@ -51,7 +51,7 @@ https://morning-stream-52789.herokuapp.com/
  * ログイン機能
  * ログアウト機能
  * プロフィール表示、編集、削除機能
- * 習慣を達成するたびにLevelが上がってく機能
+ * 習慣を達成するたびにLevelが上がる機能
  * 習慣を達成出来なかった時にLevelが下がる機能
  * 達成度で上下するLevelを可視化出来るチャート機能
  * Levelの上位10人を見れるランキング機能
@@ -82,6 +82,7 @@ https://morning-stream-52789.herokuapp.com/
 **その他**
 
  * ゲストユーザー機能(編集不可ロジック組み込み)
+ * ページネーション機能(kaminariを使用)
  * 習慣の経過をモダールウィンドウで確認できる機能(jQuery)
  * チェックボックスにチェックを入れた時の✔︎をアイコン化(jQuery)
  * flashメッセージの時間指定(jQuery)
@@ -110,7 +111,8 @@ https://morning-stream-52789.herokuapp.com/
 
 5. 自分が目標の回数を実行できなかった時はlevelが下がり、フォロワーに通知がいきます
 
-![25E8A6E2-5A30-4704-8940-3555842CC4CC_1_105_c](https://user-images.githubusercontent.com/67776222/102443503-40096280-406a-11eb-91ca-0d3d2674763c.jpeg)
+![8B8DA15D-2216-4C45-AB7F-EDC74D969A86_1_201_a](https://user-images.githubusercontent.com/67776222/103125257-d9212480-46cd-11eb-9764-f796a73617ab.jpeg)
+
 
 
 # 課題
