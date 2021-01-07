@@ -27,7 +27,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem "chartkick"
-# gem 'bootstrap-sass', '3.3.6'
 gem 'kaminari'
 
 # Use Redis adapter to run Action Cable in production
