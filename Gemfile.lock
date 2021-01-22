@@ -72,6 +72,7 @@ GEM
     autoprefixer-rails (10.0.1.0)
       execjs
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     better_errors (2.8.3)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -129,6 +130,7 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (6.1.0)
@@ -367,6 +369,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt_pbkdf
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
@@ -382,6 +385,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  ed25519
   factory_bot_rails
   faker
   font-awesome-rails
