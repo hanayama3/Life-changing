@@ -27,8 +27,8 @@ set :ssh_options, auth_methods: ['publickey'],
 
 
 # gitの管理外のファイルもデプロイするための記述？
-append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+#append :linked_files, "config/master.key"
+#append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :keep_releases, 5
 
