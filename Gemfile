@@ -41,11 +41,15 @@ gem 'kaminari'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'sqlite3', '1.4.1'
+  gem 'pg', '1.1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -69,9 +73,9 @@ group :test do
   gem 'webdrivers'
 end
 
-group :production do
-gem 'pg', '1.1.4'
-end
+#group :production do
+#gem 'pg', '1.1.4'
+#end
 
 group :production, :staging do
   gem 'unicorn', '5.4.1'
