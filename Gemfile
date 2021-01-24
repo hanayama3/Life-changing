@@ -28,6 +28,7 @@ gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem "chartkick"
 gem 'kaminari'
+gem 'pg', '1.1.4'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -41,7 +42,6 @@ gem 'kaminari'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'pg', '1.1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem "factory_bot_rails"
@@ -75,10 +75,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-
-#group :production do
-#gem 'pg', '1.1.4'
-#end
 
 group :production, :staging do
   gem 'unicorn', '5.4.1'
