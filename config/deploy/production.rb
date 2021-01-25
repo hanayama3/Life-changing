@@ -1,6 +1,5 @@
 set :rails_env, 'production'
 
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -14,12 +13,12 @@ server "52.196.77.54", user: "hanayama", roles: %w{app db web}, my_property: :my
 
 # 本番環境でしかunicornは使ってないからproduction.rbに記述？
 # プロセス番号を記載したファイルの場所
- # set :unicorn_pid, -> { "/var/rails/Life-changing/current/tmp/pids/unicorn.pid" }
- set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" } #{shared_path} 本番サーバー /var/rails/shared
+ set :unicorn_pid, -> { "/var/rails/shared/tmp/pids/unicorn.pid" }
+ # set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" } #{shared_path} 本番サーバー /var/rails/sharedを参照 
 
 # Unicornの設定ファイルの場所
-# set :unicorn_config_path, -> { "/var/rails/Life-changing/config/unicorn.conf.rb" }
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.conf.rb" }  #{current_path} 本番サーバー /var/rails/currentを参照
+set :unicorn_config_path, -> { "/var/rails/Life-changing/config/unicorn.conf.rb" }
+# set :unicorn_config_path, -> { "#{current_path}/config/unicorn.conf.rb" }  #{current_path} 本番サーバー /var/rails/currentを参照
 
 
 # role-based syntax
