@@ -5,6 +5,10 @@ set :rails_env, 'production'
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
+# どの公開鍵を利用してデプロイするか
+set :ssh_options, auth_methods: ['publickey'],
+            keys: ['~/.ssh/hanayama_key_rsa']  #記述の仕方がおかしい？
+
 #EC2が2台構成の場合は2つ記述すれば2台にデプロイできる？
 # roles my_property　ってなんだ？
 server "52.196.77.54", user: "hanayama", roles: %w{app db web}, my_property: :my_value
@@ -13,7 +17,7 @@ server "52.196.77.54", user: "hanayama", roles: %w{app db web}, my_property: :my
 
 # 本番環境でしかunicornは使ってないからproduction.rbに記述？
 # プロセス番号を記載したファイルの場所
- set :unicorn_pid, -> { "/var/rails/shared/tmp/pids/unicorn.pid" }
+set :unicorn_pid, -> { "/var/rails/shared/tmp/pids/unicorn.pid" }
  # set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" } #{shared_path} 本番サーバー /var/rails/sharedを参照 
 
 # Unicornの設定ファイルの場所

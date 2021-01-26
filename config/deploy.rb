@@ -12,12 +12,10 @@ set :rbenv_ruby, '2.6.3'
 
 set :deploy_to, "/var/rails/Life-changing"  # deploy先のディレクトリ
 
-# どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/hanayama_key_rsa']  #hanayama_key_rsa.pub?
+# set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # gitの管理外のファイルもデプロイするための記述？
-# append :linked_files, "config/master.key"  #パスがおかしくてエラーになる
+append :linked_files, "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :keep_releases, 5
@@ -30,4 +28,4 @@ namespace :deploy do
   end
 end
 
-#デプロイと同時にcd:migrateなどをするにはここに追加で記述する必要がある？
+#デプロイと同時にdb:migrateなどをするにはここに追加で記述する必要がある？
