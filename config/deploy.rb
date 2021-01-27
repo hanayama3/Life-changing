@@ -15,8 +15,9 @@ set :deploy_to, "/var/rails/Life-changing"  # deploy先のディレクトリ
 # set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # gitの管理外のファイルもデプロイするための記述？
+# 多分/var/rails/Life-changing/ 以下を指してる
 append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "shared/log", "shared/tmp/pids", "shared/tmp/cache", "shared/tmp/sockets", "shared/public/system"
 
 set :keep_releases, 5
 
@@ -27,5 +28,3 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
-
-#デプロイと同時にdb:migrateなどをするにはここに追加で記述する必要がある？
