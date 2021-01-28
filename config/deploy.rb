@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:hanayama3/Life-changing.git"  #どのリポジト
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3'
 
-set :deploy_to, "/var/rails/Life-changing"  # deploy先のディレクトリ
+set :deploy_to, "/var/rails/Life-changing/current"  # deploy先のディレクトリ
 
 # set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
