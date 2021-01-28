@@ -17,7 +17,7 @@ set :deploy_to, "/var/rails/Life-changing"  # deploy先のディレクトリ
 # gitの管理外のファイルもデプロイするための記述？
 # 多分/var/rails/Life-changing/ 以下を指してる
 append :linked_files, "config/master.key"
-append :linked_dirs, "shared/log", "shared/tmp/pids", "shared/tmp/cache", "shared/tmp/sockets", "shared/public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :keep_releases, 5
 
