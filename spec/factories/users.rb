@@ -13,9 +13,4 @@ FactoryBot.define do
         password_confirmation {"password"}
         level { 0 }
     end
-    # factory :habit, class: Habit do
-    #     sequence(:task) { |n| "ランニング#{n}"}
-    #     frequency { 3 }
-    #     user
-    # end
 end
