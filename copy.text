@@ -1,20 +1,80 @@
-module HomeHelper
-    
-def time_out?(user)
- before_level = user.level
-  user.habits.each do |habit|
-  if habit.end_time < Date.current
-   habit.end_time = Date.current.since(1.weeks)
-   if habit.complete < habit.frequency
-    user.update(level: user.level -= 5)
-    habit.update(complete: 0)
-    user.record(before_level)
-    @message = "Lvが#{before_level}から#{user.level}になりフォロワーに通知を送信しました"
-   else
-   habit.update(complete: 0)
-   end
-  end
- end
-end
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-end
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['2.6', '2.7', '3.0']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+    # uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Run tests
+      run: bundle exec rake
+
+DBの設定必要？
+services:
+      postgres:
+        image: postgres:12 #バージョンどっちだ？
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: Life-changing_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432  #EC2インスタンスを指定する？
+
+name: RSpec #Githubリポジトリの[Actions]タブに表示されるワークフローの名前
+
+on: [push] # ワークフローを自動的にトリガーするイベント #デフォでmasterになってる？
+
+jobs:  # このファイルで実行されるジョブをグループ化(仮想環境の新しいインスタンスで実行される)
+  test:
+    runs-on: ubuntu-latest #ジョブを実行する仮想マシン
+
+    steps:  #ジョブが実行する処理の集合
+    - uses: actions/checkout@v2
+    - name: Setup docker
+      shell: bash #シェルスクリプトで環境を作る
+      run: |
+      docker-compose run web yarn install  --check-files
+      docker-compose run web yarn upgrade
+      # イメージのビルド
+      docker-compose build
+      # データベースの作成
+      docker-compose run web rails db:create
+      env:
+        RAILS_ENV: test
+      
+    - name: Run RSpec
+      shell: bash #RSpecテストを走らせる
+      run: |
+      docker-compose run web bundle exec rspec
+      env:
+        RAILS_ENV: test
