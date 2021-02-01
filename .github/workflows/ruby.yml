@@ -39,10 +39,6 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
       uses: actions/setup-node@v1
       with:
         node-version: '12'
-    - name: webpacker install
-      run: |
-        rails webpacker:install
-        bundle exec rails webpacker:compile
 
     - name: db migrate
       run: |
