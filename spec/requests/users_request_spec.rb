@@ -34,7 +34,7 @@ describe 'POST #create' do
     end
     it 'createが成功する事' do
       expect do
-      post user_registration_path, params: { user: user_params }
+        post user_registration_path, params: { user: user_params }
       end.to change(User, :count).by(1)
     end
     it 'リダイレクトされること' do
