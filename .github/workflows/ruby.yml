@@ -10,34 +10,40 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
     services:
       postgres:
         image: postgres:12
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          # POSTGRES_DB: Life-changing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 5432:5432
-
-    steps:  #ジョブが実行する処理の集合
-    - uses: actions/checkout@v1  #チェックアウト？
-    - name: Setup up Ruby 2.6
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6.3
-    - name: bundle install
-      run: |
-        gem install bundler
-        bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
-    - name: db migrate
-      run: |
-        bundle exec rails db:migrate RAILS_ENV=test
-
-    - name: Run RSpec
+    container:
+      image: ruby:2.6.3
       env:
         RAILS_ENV: test
+        POSTGRES_HOST: postgres
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
+
+    steps:  #ジョブが実行する処理の集合
+    - name: checkout
+    - uses: actions/checkout@v1  #チェックアウト？
+    - name: bundler set up
+      run: |
+        gem install bundler
+        bundle install
+    - name: install node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    - name: db migrate
+      run: |
+        bundle exec rails db:migrate
+
+    - name: Run RSpec
       run: |
         bundle exec rspec
