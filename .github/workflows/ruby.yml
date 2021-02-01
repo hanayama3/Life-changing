@@ -30,11 +30,12 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
 
     steps:  #ジョブが実行する処理の集合
     - name: checkout
-      uses: actions/checkout@v1  #チェックアウト？
+      uses: actions/checkout@v1
     - name: bundler set up
       run: |
         gem install bundler
         bundle install
+        brew install yarn
     - name: install node
       uses: actions/setup-node@v1
       with:
