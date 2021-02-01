@@ -10,7 +10,7 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
     steps:  #ジョブが実行する処理の集合
     - uses: actions/checkout@v1  #チェックアウト？
     - name: Setup up Ruby 2.6
-    - uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6.3
     - name: Run RSpec
