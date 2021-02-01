@@ -28,9 +28,9 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6.3
-    -name: db migrate
-     run: |
-       bundle exec rails db:migrate RAILS_ENV=test
+    - name: db migrate
+      run: |
+        bundle exec rails db:migrate RAILS_ENV=test
 
     - name: Run RSpec
       env:
