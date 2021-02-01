@@ -13,7 +13,7 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: Life-changing_test
+          # POSTGRES_DB: Life-changing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -32,7 +32,6 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
     - name: Run RSpec
       env:
         RAILS_ENV: test
-        DATABASE_URL: postgresql://postgres@localhost:5432/postgres?encoding=unicode&pool=5&timeout=5000
       run: |
         gem install bundler
         bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
