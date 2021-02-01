@@ -42,6 +42,7 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
 
     - name: db migrate
       run: |
+        bundle exec rails db:create
         bundle exec rails db:migrate
 
     - name: Run RSpec
