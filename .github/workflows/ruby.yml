@@ -1,19 +1,50 @@
 name: Ruby #Githubリポジトリの[Actions]タブに表示されるワークフローの名前
 
-on: [push] # ワークフローを自動的にトリガーするイベント #デフォでmasterになってる？
+on: [push] # ワークフローを自動的にトリガーするイベント
 
 jobs:  # このファイルで実行されるジョブをグループ化(仮想環境の新しいインスタンスで実行される)
   run_spec:
+    name: Run spec
     runs-on: ubuntu-latest #ジョブを実行する仮想マシン
+    
+    services:
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    container:
+      image: ruby:2.6.3
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: postgres
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
 
     steps:  #ジョブが実行する処理の集合
-    - uses: actions/checkout@v1  #チェックアウト？
-    - name: Setup up Ruby 2.6
-      uses: actions/setup-ruby@v1 #rubyの実行環境をインストール？
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: bundler set up
+      run: |
+        gem install bundler
+        bundle install
+    - name: install node
+      uses: actions/setup-node@v1
       with:
-        ruby-version: 2.6.3
+        node-version: '12'
+
+    - name: db migrate
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+
     - name: Run RSpec
       run: |
-      gem install bundler
-        bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
         bundle exec rspec
