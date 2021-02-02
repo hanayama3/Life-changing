@@ -7,6 +7,7 @@
 default: &default     #共通部分にアンカーで名前をつける
   adapter: postgresql
   encoding: unicode
+  host: db            #追加
   username: postgres  #追加
   password: password  #追加(docker-compose.ymlのPOSTGRES_PASSWORDで指定した値)
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -15,7 +16,6 @@ default: &default     #共通部分にアンカーで名前をつける
 development:         #ここでdefaultとして呼び出し、スッキリ書ける
   <<: *default
   database: Life-changing_development
-  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,7 +23,6 @@ development:         #ここでdefaultとして呼び出し、スッキリ書け
 test:
   <<: *default
   database: Life-changing_test
-  host: postgres
 
 production:
   <<: *default

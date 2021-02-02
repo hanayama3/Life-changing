@@ -20,13 +20,13 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-    container:
-      image: ruby:2.6.3
-      env:
-        RAILS_ENV: test
-        POSTGRES_HOST: postgres
-        RAILS_DATABASE_USER: postgres
-        RAILS_DATABASE_PASSWORD: password
+      container:
+        image: ruby:2.6.3
+        env:
+          RAILS_ENV: test
+          POSTGRES_HOST: postgres
+          RAILS_DATABASE_USER: postgres
+          RAILS_DATABASE_PASSWORD: password
 
     steps:  #ジョブが実行する処理の集合
     - name: checkout
