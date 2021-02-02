@@ -1,12 +1,12 @@
-name: Ruby
+name: Ruby #Githubリポジトリの[Actions]タブに表示されるワークフローの名前
 
-on: [push]
+on: [push] # ワークフローを自動的にトリガーするイベント
 
-jobs:
-  test:
-
-    runs-on: ubuntu-latest
-
+jobs:  # このファイルで実行されるジョブをグループ化(仮想環境の新しいインスタンスで実行される)
+  run_spec:
+    name: Run spec
+    runs-on: ubuntu-latest #ジョブを実行する仮想マシン
+    
     services:
       postgres:
         image: postgres:12
@@ -15,37 +15,36 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    container:
+      image: ruby:2.6.3
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: postgres
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
 
-    steps:
-    - uses: actions/checkout@v1
-
-    - name: Set up Ruby 2.6
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6.3
-
-    - name: install bundler2
-      run: gem install bundler
-
-    - name: Install dependent libralies
-      run: sudo apt-get install libpq-dev
-
-    - name: Bundle install
-      run: bundle install --jobs 4 --retry 3
-    - name: Setup Database
+    steps:  #ジョブが実行する処理の集合
+    - name: checkout
+      uses: actions/checkout@v1
+    - name: bundler set up
       run: |
-        cp config/database.yml.github-actions config/database.yml
-        bundle exec rake db:create
-        bundle exec rake db:schema:load
-      env:
-        RAILS_ENV: test
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: password
+        gem install bundler
+        bundle install
+    - name: install node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
 
-    - name: Run rspec
-      run: COVERAGE=true bundle exec rspec  --require rails_helper
-      env:
-        RAILS_ENV: test
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: password
+    - name: db migrate
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+
+    - name: Run RSpec
+      run: |
+        bundle exec rspec
