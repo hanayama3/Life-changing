@@ -47,4 +47,4 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
 
     - name: Run RSpec
       run: |
-        bundle exec rspec
+        docker-compose exec web rspec
