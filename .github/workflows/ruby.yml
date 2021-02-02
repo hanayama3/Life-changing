@@ -47,5 +47,5 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
 
     - name: Run RSpec
       run: |
-        ../
+        cd /Users/kuzeginjirou/portfolio/Life-changing
         bundle exec rspec
