@@ -15,7 +15,6 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: Life-changing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -35,10 +34,11 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
         yarn install
       env:
         RAILS_ENV: test
-        
+
     - name: setup DB
       run: |
-        bundle exec rails db:schema:load
+        bundle exec rails db:create
+        bundle exec rails db:migrate
 
     - name: Run RSpec
       run: |
