@@ -24,7 +24,7 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
       image: ruby:2.6.3
       env:
         RAILS_ENV: test
-        POSTGRES_HOST: postgres
+        POSTGRES_HOST: db
         RAILS_DATABASE_USER: postgres
         RAILS_DATABASE_PASSWORD: password
 
