@@ -50,9 +50,11 @@ jobs:
       run: |
         cp config/database.github-actions.yml config/database.yml
         bundle exec rails db:test:prepare
-    - name: Prepare manifest.json
+    - name: Prepare webpacker
       run: |
-        cp public/packs-test/manifest.json /__w/Life-changing/Life-changing/public/packs-test/manifest.json
+        rm -rf bin/webpack*
+        rails webpacker:install
+        bundle exec rails webpacker:compile
     - name: Run RSpec
       run: |
         TZ=Asiz/Tokyo bundle exec rspec -f d
