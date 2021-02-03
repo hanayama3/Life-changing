@@ -52,4 +52,4 @@ jobs:
         bundle exec rails db:test:prepare
     - name: Run RSpec
       run: |
-        run: TZ=Asiz/Tokyo bundle exec rspec -f d
+        bundle exec rspec
