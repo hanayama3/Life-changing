@@ -50,7 +50,7 @@ jobs:
       run: |
         rm -rf bin/webpack*
         rails webpacker:install
-        bundle exec rails webpacker:compile 
+        bundle exec rails webpacker:compile
     - name: Run RSpec
       run: |
         TZ=Asiz/Tokyo bundle exec rspec -f d
@@ -66,4 +66,4 @@ jobs:
     - uses: miloserdow/capistrano-deploy@master
       with:
         target: production_postgres
-        deploy_key: ${{ secrets.aws_git_rsa.pub }}
+        deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }} #githubに登録した秘密鍵
