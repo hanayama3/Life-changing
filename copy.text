@@ -1,80 +1,50 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+name: Ruby #Githubリポジトリの[Actions]タブに表示されるワークフローの名前
 
-name: Ruby
+on: [push] # ワークフローを自動的にトリガーするイベント
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  test:
-
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: ['2.6', '2.7', '3.0']
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
-      run: bundle exec rake
-
-DBの設定必要？
-services:
+jobs:  # このファイルで実行されるジョブをグループ化(仮想環境の新しいインスタンスで実行される)
+  run_spec:
+    name: Run spec
+    runs-on: ubuntu-latest #ジョブを実行する仮想マシン
+    
+    services:
       postgres:
-        image: postgres:12 #バージョンどっちだ？
+        image: postgres:12
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: Life-changing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 5432:5432  #EC2インスタンスを指定する？
-
-name: RSpec #Githubリポジトリの[Actions]タブに表示されるワークフローの名前
-
-on: [push] # ワークフローを自動的にトリガーするイベント #デフォでmasterになってる？
-
-jobs:  # このファイルで実行されるジョブをグループ化(仮想環境の新しいインスタンスで実行される)
-  test:
-    runs-on: ubuntu-latest #ジョブを実行する仮想マシン
+    container:
+      image: ruby:2.6.3
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: db
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
 
     steps:  #ジョブが実行する処理の集合
-    - uses: actions/checkout@v2
-    - name: Setup docker
-      shell: bash #シェルスクリプトで環境を作る
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: bundler set up
       run: |
-      docker-compose run web yarn install  --check-files
-      docker-compose run web yarn upgrade
-      # イメージのビルド
-      docker-compose build
-      # データベースの作成
-      docker-compose run web rails db:create
-      env:
-        RAILS_ENV: test
-      
+        gem install bundler
+        bundle install
+    - name: install node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    - name: db migrate
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+
     - name: Run RSpec
-      shell: bash #RSpecテストを走らせる
       run: |
-      docker-compose run web bundle exec rspec
-      env:
-        RAILS_ENV: test
+        bundle exec rspec

@@ -7,9 +7,9 @@
 default: &default     #共通部分にアンカーで名前をつける
   adapter: postgresql
   encoding: unicode
-  host: db            #追加
-  username: postgres  #追加
-  password: password  #追加(docker-compose.ymlのPOSTGRES_PASSWORDで指定した値)
+  host: db
+  username: postgres
+  password: password  #(docker-compose.ymlのPOSTGRES_PASSWORDで指定した値)
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 

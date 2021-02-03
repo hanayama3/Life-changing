@@ -13,8 +13,8 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
+          POSTGRES_DATABASE: Life-changing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -24,27 +24,34 @@ jobs:  # このファイルで実行されるジョブをグループ化(仮想�
       image: ruby:2.6.3
       env:
         RAILS_ENV: test
-        POSTGRES_HOST: db
-        RAILS_DATABASE_USER: postgres
-        RAILS_DATABASE_PASSWORD: password
+        # POSTGRES_HOST: db
+        # RAILS_DATABASE_USER: postgres
+        # RAILS_DATABASE_PASSWORD: password
 
     steps:  #ジョブが実行する処理の集合
     - name: checkout
       uses: actions/checkout@v2
-    - name: bundler set up
+    - name: update library
+      run: |
+        apt-get update
+    - name: install node
+      run: |
+        curl -sL https://deb.nodesource.com/setup_12.x | bash -
+        apt-get install -y nodejs
+    - name: install yarn
+      run: |
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+        apt-get update
+        apt-get install -y yarn
+    - name: Prepare bundler
       run: |
         gem install bundler
-        bundle install
-    - name: install node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-
-    - name: db migrate
+        bundle install --jobs 4 --retry 3
+    - name: Prepare database
       run: |
-        bundle exec rails db:create
-        bundle exec rails db:migrate
-
+        cp config/database.github-actions.yml config/database.yml
+        bundle exec rails db:test:prepare
     - name: Run RSpec
       run: |
-        docker-compose exec web rspec
+        run: TZ=Asiz/Tokyo bundle exec rspec -f d
