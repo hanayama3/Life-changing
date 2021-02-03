@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     services:
-      postgres:
+      db:
         image: postgres:12
         ports:
           - 5432:5432
@@ -24,8 +24,7 @@ jobs:
         RAILS_ENV: test
 
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     - name: update library
       run: |
         apt-get update
@@ -45,7 +44,7 @@ jobs:
         bundle install --jobs 4 --retry 3
     - name: Prepare database
       run: |
-        cp config/database.yml config/database.github-actions.yml
+        cp config/database.github-actions.yml config/database.yml
         bundle exec rails db:test:prepare
     - name: Run RSpec
       run: |
