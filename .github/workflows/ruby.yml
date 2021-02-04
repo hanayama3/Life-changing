@@ -55,7 +55,7 @@ jobs:
       run: |
         TZ=Asiz/Tokyo bundle exec rspec -f d
   deploy:
-    needs: run_spec  #run_specが通れば実行？
+    needs: run_spec
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
