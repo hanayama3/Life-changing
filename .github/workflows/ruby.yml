@@ -63,7 +63,10 @@ jobs:
       with:
         ruby-version: 2.6.3
         bundler-cache: true
-    - uses: miloserdow/capistrano-deploy@master
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.1.1
       with:
-        target: production_postgres
         deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }} #githubに登録した秘密鍵
+    - name: Deploy Production
+      run: |
+        bundle exec cap production deploy
