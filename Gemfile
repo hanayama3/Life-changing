@@ -46,13 +46,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'pry-rails'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -65,7 +58,13 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "rails-erd"
-  gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
