@@ -7,26 +7,24 @@ RSpec.describe "Users", type: :request do
   let(:invalid_user_params) { attributes_for(:user, name: "")}
   
   describe 'GET #index' do
-
-  context 'ログイン済み' do
-  before { sign_in user }
-  before { get '/users'}
-    it 'リクエストが成功する事' do
-      expect(response.status).to eq 200
+    context 'ログイン済み' do
+    before { sign_in user }
+    before { get '/users'}
+      it 'リクエストが成功する事' do
+        expect(response.status).to eq 200
+      end
+      it 'ユーザー名が表示されてる事' do
+        expect(response.body).to include(user.name)
+      end
     end
-    it 'ユーザー名が表示されてる事' do
-      expect(response.body).to include(user.name)
+    context 'ログインしてない場合' do
+      it 'rootにリダイレクトされる' do
+        get '/users'
+        is_expected.to redirect_to root_url
+      end
     end
   end
-  context 'ログインしてない場合' do
-    it 'rootにリダイレクトされる' do
-      get '/users'
-      is_expected.to redirect_to root_url
-    end
-  end
-end
-
-describe 'POST #create' do
+ describe 'POST #create' do
   context 'パラメータが妥当な場合' do
     it 'リクエストが成功すること' do
       post user_registration_path, params: { user: user_params }
@@ -57,7 +55,7 @@ describe 'POST #create' do
       expect(response.body).to include '名前を入力してください'
     end
   end
-end
+ end
   
   describe 'GET #edit' do
     subject { get edit_user_registration_path }
@@ -126,5 +124,4 @@ end
       end
     end
   end
-  
-  end
+end
