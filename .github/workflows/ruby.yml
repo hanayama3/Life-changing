@@ -66,4 +66,4 @@ jobs:
     - uses: miloserdow/capistrano-deploy@master
       with:
         target: production
-        deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }} #githubに登録した秘密鍵
+        deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }} #githubに登録した暗号化した秘密鍵のpassword
