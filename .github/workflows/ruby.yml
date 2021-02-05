@@ -47,7 +47,7 @@ jobs:
       run: |
         cp config/database.github-actions.yml config/database.yml
         bundle exec rails db:test:prepare
-    - name: Prepare webpacker #なんで生成されない？
+    - name: Prepare webpacker
       run: |
         rm -rf bin/webpack*
         rails webpacker:install
