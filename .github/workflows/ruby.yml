@@ -39,6 +39,7 @@ jobs:
         echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
         apt-get update
         apt-get install -y yarn
+        yarn install
     - name: Prepare bundler
       run: |
         gem install bundler
