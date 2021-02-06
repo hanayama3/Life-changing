@@ -2,15 +2,15 @@
 
 lock "~> 3.15.0"  # capostranoのバージョン
 
-set :application, "Life-changing"  #デプロイするアプリケーション名
-set :repo_url, "git@github.com:hanayama3/Life-changing.git"
+set :application, "Habit-is-power"  #デプロイするアプリケーション名
+set :repo_url, "git@github.com:hanayama3/Habit-is-power.git"
 
 # set :branch, 'master' deployするブランチ デフォルトがmasterなのでコメントアウト
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3'
 
-set :deploy_to, "/var/rails/Life-changing"  # deploy先のディレクトリ
+set :deploy_to, "/var/rails/Habit-is-power"  # deploy先のディレクトリ
 
 # set :linked_files, fetch(:linked_files, []).push("config/master.key")
 

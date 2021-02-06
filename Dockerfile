@@ -5,12 +5,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 
-RUN mkdir /Life-changing
-WORKDIR /Life-changing                    
-COPY Gemfile /Life-changing/Gemfile
-COPY Gemfile.lock /Life-changing/Gemfile.lock
+RUN mkdir /Habit-is-power
+WORKDIR /Habit-is-power                    
+COPY Gemfile /Habit-is-power/Gemfile
+COPY Gemfile.lock /Habit-is-power/Gemfile.lock
 RUN bundle install
-COPY . /Life-changing
+COPY . /Habit-is-power
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

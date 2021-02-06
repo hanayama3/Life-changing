@@ -15,11 +15,11 @@ server "52.196.77.54", user: "hanayama", roles: %w{app db web}, my_property: :my
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 # プロセス番号を記載したファイルの場所
- set :unicorn_pid, -> { "/var/rails/Life-changing/shared/tmp/pids/unicorn.pid" } #参照しに行く
+ set :unicorn_pid, -> { "/var/rails/Habit-is-power/shared/tmp/pids/unicorn.pid" } #参照しに行く
  # set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" } #{shared_path} 本番サーバー /var/rails/sharedを参照 
 
 # Unicornの設定ファイルの場所
-set :unicorn_config_path, -> { "/var/rails/Life-changing/current/config/unicorn.conf.rb" } #参照しに行く
+set :unicorn_config_path, -> { "/var/rails/Habit-is-power/current/config/unicorn.conf.rb" } #参照しに行く
 # set :unicorn_config_path, -> { "#{current_path}/config/unicorn.conf.rb" }
 
 # role-based syntax

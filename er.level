@@ -1,5 +1,5 @@
 
-[1mFrom:[0m /home/ubuntu/environment/Life-changing/app/helpers/home_helper.rb:17 HomeHelper#time_out?:
+[1mFrom:[0m /home/ubuntu/environment/Habit-is-power/app/helpers/home_helper.rb:17 HomeHelper#time_out?:
 
      [1;34m3[0m: [32mdef[0m [1;34mtime_out?[0m(user)
      [1;34m4[0m:  end_time = user.habits.map(&[33m:end_time[0m)

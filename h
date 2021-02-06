@@ -1,5 +1,5 @@
 
-[1mFrom:[0m /home/ubuntu/environment/Life-changing/app/controllers/users_controller.rb:42 UsersController#complete:
+[1mFrom:[0m /home/ubuntu/environment/Habit-is-power/app/controllers/users_controller.rb:42 UsersController#complete:
 
     [1;34m30[0m: [32mdef[0m [1;34mcomplete[0m
     [1;34m31[0m:  before_level = @user.level

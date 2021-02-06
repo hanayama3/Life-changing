@@ -17,7 +17,7 @@ jobs:
           - 5432:5432
         env:
           POSTGRES_PASSWORD: password
-          POSTGRES_DATABASE: Life-changing_test
+          POSTGRES_DATABASE: Habit-is-power_test
 
     container:
       image: ruby:2.6.3

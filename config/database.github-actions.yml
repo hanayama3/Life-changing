@@ -3,5 +3,5 @@ test:
   encoding: unicode
   username: postgres
   password: password
-  database: Life-changing_test
+  database: Habit-is-power_test
   host:     db
