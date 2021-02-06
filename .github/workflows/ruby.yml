@@ -49,8 +49,6 @@ jobs:
         bundle exec rails db:test:prepare
     - name: Prepare webpacker
       run: |
-        rm -rf bin/webpack*
-        rails webpacker:install
         bundle exec rails webpacker:compile
     - name: Run RSpec
       run: |
