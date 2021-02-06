@@ -7,7 +7,7 @@ RSpec.describe "Habits", type: :request do
   let(:invalid_habit_params) { attributes_for(:habit, task: "")}
 
   describe 'ログイン済み' do
-  before { sign_in habit.user }
+    before { sign_in habit.user }
     context "get #new" do
     before { get new_habit_path }
       it 'リクエストが成功する' do
@@ -27,7 +27,7 @@ RSpec.describe "Habits", type: :request do
         post habits_path, params: { habit: habit_params }
         end.to change(Habit, :count).by(1)
       end
-      xit 'habit.userのshoeページへリダイレクトされる' do
+      xit 'habit.userのshowページへリダイレクトされる' do
         post habits_path, params: { habit: habit_params }
         expect(response).to redirect_to user_path(habit.user)
       end
@@ -39,8 +39,6 @@ RSpec.describe "Habits", type: :request do
       end
       it "タイトルが正しく表示されてる" do
         expect(response.body).to include("習慣の編集")
-      end
-      it "" do
       end
     end
   end
