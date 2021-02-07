@@ -95,7 +95,7 @@ RSpec.describe "Users", type: :request do
         post user_registration_path, params: { user: invalid_user_params }
         end.to_not change(User, :count)
     end
-    it 'エラーが表示されること' do
+    it 'エラーメッセージが表示されること' do
       post user_registration_path, params: { user: invalid_user_params }
       expect(response.body).to include '名前を入力してください'
     end
@@ -116,7 +116,7 @@ end
       end
     end
   end
-  describe '#update' do #これじゃバリデーションじゃね
+  describe '#update' do #修正 パラメーターを送り更新されてるかテストしたい
     before { sign_in user }
     context 'パラメーターが妥当な場合' do      
       xit '正常に更新される' do
@@ -198,7 +198,7 @@ end
       end
     end
   end
-  describe '#complete' do
+  describe '#complete' do #修正 パラメーターを送り更新されてるかテスト
     before { sign_in user }
     context 'パラメーターが妥当な場合' do
       xit 'ユーザーの詳細ページにリダイレクトされる' do
