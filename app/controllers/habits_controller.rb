@@ -26,7 +26,11 @@ end
 
 def update
   @habit.update(habit_params)
+  if @habit.save
   redirect_to @habit.user, notice: "習慣を変更しました"
+  else
+  render 'edit'
+  end
 end
 
 def destroy
