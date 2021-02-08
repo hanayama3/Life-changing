@@ -83,7 +83,7 @@ RSpec.describe "Habits", type: :request do
       end
     end
   end
-  describe '#update' do #修正 updateできてない
+  describe '#update' do
     describe 'ログイン済み' do
       before { sign_in habit.user }
       context 'パラメーターが妥当な場合' do
@@ -117,7 +117,7 @@ RSpec.describe "Habits", type: :request do
     end
   end
   describe '#destory' do
-  subject { delete "/habits/#{habit.id}", params: { habit: habit_params } }
+    subject { delete "/habits/#{habit.id}", params: { habit: habit_params } }
     context 'ログイン済み' do
       before { sign_in habit.user }
       it '正常に削除されること' do
