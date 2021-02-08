@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   
   root to: "home#index"
   get "explain", to: "home#explain"
-  
   get "habits", to: "habits#new"
-  
   devise_for :users, :controllers => {
   :registrations => 'users/registrations',
   :sessions => 'users/sessions'
@@ -23,7 +21,7 @@ resources :users, :only => [:index, :show] do
     get  :mission
     patch :complete
   end
-  end
+end
 
 resources :habits, :only => [:new, :create, :edit, :update, :destroy]
 resources :relationships, :only => [:create, :destroy]

@@ -83,15 +83,12 @@ RSpec.describe "Habits", type: :request do
       end
     end
   end
-  describe '#update' do #修正 updateされた事になってるのかこれ？
+  describe '#update' do #修正 updateできてない
     describe 'ログイン済み' do
       before { sign_in habit.user }
       context 'パラメーターが妥当な場合' do
       subject { habit_params = {task: '筋トレ', frequency: 3}
       patch "/habits/#{habit.id}", params: { habit: habit_params } }
-        it 'リクエストが成功する事' do
-          expect(subject).to eq 302
-        end
         it '正常に更新されてる事' do
           subject
           expect(habit.reload.task).to eq '筋トレ'
