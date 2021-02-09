@@ -32,16 +32,17 @@ https://www.habitispower.com/
 # 使用技術
 
 * HTML
-* CSS/Sass/Bootstrap
+* CSS/Scss/Bootstrap
 * JavaScript/jQuery/Ajax
 * Ruby 2.6.3p62
 * Ruby on Rails 6.0.3.4
 * RSpec(テストフレームワーク)
-* Docker Docker-compose(開発環境)
+* Docker docker-compose(開発環境)
 * AWS/本番環境 (IAM,VPC,EC2,RDS,EIP,Route53,AMI,capistrano)
 * Nginx(Webサーバー)
 * Unicorn(APサーバー)
 * PostgreSQL(DB)
+* github actions(CI/CD)
 * Git/GitHub
 * vim
 
