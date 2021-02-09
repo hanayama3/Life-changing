@@ -242,6 +242,7 @@ RSpec.describe "Users", type: :request do
     before { sign_in user }
     context 'パラメーターが妥当な場合' do
       xit 'ユーザーの詳細ページにリダイレクトされる' do
+        binding.pry
       end
     end
   end
