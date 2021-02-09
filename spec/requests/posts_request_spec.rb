@@ -136,19 +136,17 @@ RSpec.describe "Posts", type: :request do
           expect(response.body).to include "非公開の投稿はありません"
         end 
       end
-      context '非公開投稿がある場合' do  #Postモデルが作成されてない?
-        before { Post.create!(private_post_params) }
-        xit '非公開投稿が表示されている' do
+      context '非公開投稿がある場合' do
+        before { new_post.user.posts.create(private_post_params) }
+        it '非公開投稿が表示されている' do
           subject
-          binding.pry
           expect(response.body).to include '非公開投稿だよ'
         end
       end
       context '他人の非公開投稿を見ようとした場合' do #200が返ってきてる
-        xit 'rootにリダイレクトされる' do
-          binding.pry
-          before { get "/posts/#{other_user.id}/private_content" }
-          is_expected.to redirect_to root_url
+        subject { get "/posts/#{other_user.id}/private_content" }
+        it 'rootにリダイレクトされる' do
+          expect(subject).to redirect_to root_url
         end
       end
     end
