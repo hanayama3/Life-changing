@@ -1,21 +1,21 @@
 <div class="container form-box">
- <% unless @user.habits.empty? %>
- <div class="form-content">
-<%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
- <h4>記録</h4>
- <div class="input-box">
-<%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
-<%= b.label do %>
-<%= b.text %>
-<%= b.check_box %>
-<% end %>
-<% end %>
-</div>
-<%= f.submit "記録",class: "btn"%>
-</div>
-<% end %>
-<% else %>
-<p>現在登録されている習慣はありません</p>
-<%= link_to "習慣の登録", new_habit_path %>
-<% end %>
-</div>
+  <% unless @user.habits.empty? %>
+    <div class="form-content">
+      <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
+    <h4>記録</h4>
+      <div class="input-box">
+        <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
+          <%= b.label do %>
+          <%= b.text %>
+          <%= b.check_box %>
+        <% end %>
+      <% end %>
+      </div>
+        <%= f.submit "記録",class: "btn"%>
+    </div>
+    <% end %>
+  <% else %>
+    <p>現在登録されている習慣はありません</p>
+    <%= link_to "習慣の登録", new_habit_path %>
+  <% end %>
+</div> 

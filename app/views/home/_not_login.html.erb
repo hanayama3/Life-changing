@@ -1,15 +1,14 @@
 <div class="container-lg not-login-home">
-<div class="main-box">
-<div class="about">
-<h3>Decide which mountain to climb</h3>
-</div>
- <section class="user-link">
+  <div class="main-box">
+    <div class="about">
+    <h3>Decide which mountain to climb</h3>
+    </div>
+   <section class="user-link">
      <%= link_to "ユーザー登録", new_user_registration_path, class: "btn mx-1" %>
      <%= link_to "ログイン", user_session_path,class: "btn mx-1"%>
- </section>
- <section class="try">
-  <%= link_to "ゲストログイン", guest_sign_in_path,method: :post, class: "btn"%>
- </section>
-</div>
-
+   </section>
+   <section class="try">
+     <%= link_to "ゲストログイン", guest_sign_in_path,method: :post, class: "btn" %>
+   </section>
+  </div>
 </div>

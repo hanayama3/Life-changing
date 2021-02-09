@@ -6,8 +6,8 @@ $flash-warning-error: #BB0000;
 $border-color:  #DDD;
 
 @mixin box-a-color {
- color: $font-color;
- &:hover {
- color: $accent-color;
+  color: $font-color;
+  &:hover {
+    color: $accent-color;
   }
 }

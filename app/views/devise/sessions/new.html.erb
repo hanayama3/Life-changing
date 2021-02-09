@@ -1,22 +1,20 @@
 <div class="container form-box">
-<div class="form-content">
-<h4>ログイン</h4>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="input-box">
- <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス*", class: "input"%>
- </div>
-
-  <div class="input-box">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード*", class: "input"%>
+  <div class="form-content">
+  <h4>ログイン</h4>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-box">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス*", class: "input"%>
+      </div>
+      <div class="input-box">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード*", class: "input"%>
+      </div>
+      <% if devise_mapping.rememberable? %>
+      <div class="pt-3">
+        <%= f.label :remember_me %>
+        <%= f.check_box :remember_me %>
+      </div>
+      <% end %>
+        <%= f.submit "ログイン", class: "btn" %>
+    <% end %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="pt-3">
-      <%= f.label :remember_me %>
-      <%= f.check_box :remember_me %>
-    </div>
-  <% end %>
-    <%= f.submit "ログイン", class: "btn" %>
-<% end %>
-</div>
 </div>

@@ -23,37 +23,36 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
-def mission
-end
-
-def complete
-  before_level = @user.level
-  @habit = Habit.find(complete_params)
-  @habit.each do |habit|
-  habit.update(complete: habit.complete += 1)
-  @user.update(level: @user.level += 1)
-  flash[:notice] = "達成！"
-end
-  @user.record(before_level)
-  redirect_to @user
-end
-
-private
-
-def set_user
-  @user = User.find(params[:id])
-end
-
-def habit_ids_nil?
-  if params[:user][:habit_ids].join.empty?
-  flash[:notice] = "チェックを入れてください"
-   redirect_to request.referer
+  def mission
   end
-end
 
-def complete_params
-  params.require(:user).permit(habit_ids: []).values.flatten.compact.reject(&:empty?)
-end
+  def complete
+    before_level = @user.level
+    @habit = Habit.find(complete_params)
+    @habit.each do |habit|
+      habit.update(complete: habit.complete += 1)
+      @user.update(level: @user.level += 1)
+      flash[:notice] = "達成！"
+    end
+    @user.record(before_level)
+    redirect_to @user
+  end
 
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def habit_ids_nil?
+    if params[:user][:habit_ids].join.empty?
+      flash[:notice] = "チェックを入れてください"
+      redirect_to request.referer
+    end
+  end
+
+  def complete_params
+    params.require(:user).permit(habit_ids: []).values.flatten.compact.reject(&:empty?)
+  end
 end
 

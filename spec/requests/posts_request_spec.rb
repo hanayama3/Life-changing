@@ -115,6 +115,10 @@ RSpec.describe "Posts", type: :request do
       it 'リクエストが成功する事' do
         expect(subject).to eq 200
       end
+      it 'タイトルが正しく表示されてる事' do
+        subject
+        expect(response.body).to include "フォロー中のユーザー"
+      end
     end
     context 'ログインしてない場合' do
       it 'rootにリダイレクトされる' do

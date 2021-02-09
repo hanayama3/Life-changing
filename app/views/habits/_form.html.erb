@@ -1,26 +1,22 @@
 <div class="container form-box">
-<div class="form-content">
-<h4><%= @title %></h4>
-<%= form_with(model: @habit,local: true) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-<div class="input-box">
-<%= f.text_field :task,placeholder: "タスク", class: "input"%>
-</div>
-
-<div class="input-box">
-<%= f.number_field :frequency, in: 1..7, placeholder: "回数(週)", class: "input-number" %>
-</div>
-
-<%= f.hidden_field :user_id, value: current_user.id %>
-
-<%= f.submit "登録", class: "btn" %>
-
-<% end %>
-<% if @title == "習慣の編集" %>
-<div class="text-left mb-3">
-<%= link_to "ギブアップ", habit_path(@habit), method: :delete,
-data: { confirm: 'この習慣を辞めますか？'}, class: "delete-btn" %>
-</div>
-<% end %>
-</div>
+  <div class="form-content">
+    <h4><%= @title %></h4>
+    <%= form_with(model: @habit,local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="input-box">
+        <%= f.text_field :task,placeholder: "タスク", class: "input"%>
+      </div>
+      <div class="input-box">
+        <%= f.number_field :frequency, in: 1..7, placeholder: "回数(週)", class: "input-number" %>
+      </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit "登録", class: "btn" %>
+    <% end %>
+    <% if @title == "習慣の編集" %>
+      <div class="text-left mb-3">
+        <%= link_to "ギブアップ", habit_path(@habit), method: :delete,
+        data: { confirm: 'この習慣を辞めますか？'}, class: "delete-btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>

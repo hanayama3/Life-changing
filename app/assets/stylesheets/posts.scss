@@ -1,106 +1,80 @@
  @import '_colors.scss';
 
-// index
-// .release-box {
-//  // background: white;
-//   background-image: image-url('sky.jpeg');
-//   background-size: cover;
-//   min-height: 100vh;
-//   color: white;
-//   a {
-//    color: white;
-//   }
-
 .post-users {
- margin-top: 26px;
- padding-top: 6px;
- background: white;
- border: solid 2px $border-color;
- color: $font-color;
- .change-box {
+  margin-top: 26px;
+  padding-top: 6px;
+  background: white;
+  border: solid 2px $border-color;
+  color: $font-color;
+.change-box {
   display: flex;
   justify-content: space-between;
- .change-btn {
+.change-btn {
   font-size: 14px;
   padding: 6px;
   display: inline-block;
  }
  }
- .post-items-box {
+.post-items-box {
   border-bottom: solid 1px #EEE;
   padding-top: 3px;
- .post-items {
+.post-items {
   font-size: 14px;
   display: flex;
   align-items: center;
-  .post-user {
-   width: 240px;
-   display: flex;
-  }
-  .post-content-box {
-   width: 80%;
-  .post-content {
-   display: inline-block;
-   box-shadow: 0px 0px 2px;
-   margin: 6px;
-   padding: 12px;
-   border-radius: 40px;
-  }
-  }
- }
+.post-user {
+  width: 240px;
+  display: flex;
+}
+.post-content-box {
+  width: 80%;
+.post-content {
+  display: inline-block;
+  box-shadow: 0px 0px 2px;
+  margin: 6px;
+  padding: 12px;
+  border-radius: 40px;
 }
 }
-// }
-
-// private
-
-// .private-box {
-//  // background: black;
-//  color: $font-color;
-//  min-height: 100vh;
-//   a {
-//    color: $font-color;
-//   }
-//   .private-content {
-//   color: black;
-//   }
-// }
+}
+}
+}
 
 .private-post-users {
- margin-top: 26px;
- padding-top: 6px;
- border: solid 2px white;
- background: $font-color;
- color: white;
- a {
+  margin-top: 26px;
+  padding-top: 6px;
+  border: solid 2px white;
+  background: $font-color;
   color: white;
- }
- .post-items-box {
+  a {
+    color: white;
+  }
+.post-items-box {
   border-bottom: solid 1px #AAA;
   padding-top: 3px;
- .post-items {
+.post-items {
   font-size: 14px;
   display: flex;
   align-items: center;
-  .post-user {
-   width: 240px;
-   display: flex;
-  }
-  .post-content-box {
-   width: 80%;
-  .post-content {
-   display: inline-block;
-   box-shadow: 0px 0px 2px;
-   margin: 6px;
-   padding: 12px;
-   border-radius: 40px;
-  }
-  }
- }
+.post-user {
+  width: 240px;
+  display: flex;
+}
+.post-content-box {
+  width: 80%;
+.post-content {
+  display: inline-block;
+  box-shadow: 0px 0px 2px;
+  margin: 6px;
+  padding: 12px;
+  border-radius: 40px;
+}
+}
+}
 }
 }
 
 .no-item {
- padding-top: 18px;
- text-align: center;
+  padding-top: 18px;
+  text-align: center;
 }

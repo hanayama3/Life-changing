@@ -1,58 +1,51 @@
 <% @user ||= current_user %>
 <% time_out?(@user) %>
-<div class="container-lg login-index">
-  
-<div class="index-content">
+  <div class="container-lg login-index">  
+    <div class="index-content">
+      <div class="user-content">
+        <%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "icon"%>
+        <div class="user-box">
+          <div><%= link_to @user.name, @user %></div>
+          <div>Lv. <%= @user.level %></div>
+        </div>
+      </div>
 
-<div class="user-content">
-<%= attachment_image_tag @user, :image, fallback: "no-image.jpeg",class: "icon"%>
-<div class="user-box">
-<div><%= link_to @user.name, @user %></div>
-<div>Lv. <%= @user.level %></div>
+    <% if @user.habits.blank? %>
+      <div class="habit-list-item">
+        <div class="not-habit"><%= link_to "習慣の登録", new_habit_path %></div>
+      </div>
+    <% else %>
+      <div class="habit-list-item">
+        <% @user.habits.each do |habit| %>
+        <div data-option="<%= habit.id %> "class="habit-show"><%= habit.task %></div>
+          <div class="habit-modal habit-id<%= habit.id %>">
+            <div class="modal-box">
+              <p class="pb-4 modal-task">習慣 <%= habit.task %></p>
+                <div class="modal-item">
+                  <p>週 <%= habit.frequency %>回</p>
+                  <p>達成(週) <%= habit.complete %>回</p>
+                  <p>終了日時 <%= habit.end_time %>日</p>
+                </div>
+              <div class="close-modal">
+              <i class="fa fa-2x fa-times"></i>
+        </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+  <% end %>
+  <div class="mt-5">
+    <%= link_to "記録する", mission_user_path(@user) %>
+    <%= link_to "投稿する", new_post_path %>
+  </div>
 </div>
-
-</div>
-
-<% if @user.habits.blank? %>
-<div class="habit-list-item">
-<div class="not-habit"><%= link_to "習慣の登録", new_habit_path %></div>
-</div>
-<% else %>
-<div class="habit-list-item">
-<% @user.habits.each do |habit| %>
-<div data-option="<%= habit.id %> "class="habit-show"><%= habit.task %></div>
-
-<div class="habit-modal habit-id<%= habit.id %>">
-  
-<div class="modal-box">
- <p class="pb-4 modal-task">習慣 <%= habit.task %></p>
- <div class="modal-item">
- <p>週 <%= habit.frequency %>回</p>
- <p>達成(週) <%= habit.complete %>回</p>
- <p>終了日時 <%= habit.end_time %>日</p>
- </div>
-<div class="close-modal">
-  <i class="fa fa-2x fa-times"></i>
-</div>
-</div>
-
-</div>
-<% end %>
-</div>
-<% end %>
-<div class="mt-5">
-<%= link_to "記録する", mission_user_path(@user) %>
-<%= link_to "投稿する", new_post_path %>
 </div>
 
-</div>
-
-</div>
 <% if @message %>
-<script type="text/javascript">
+  <script type="text/javascript">
      toastr.error("<%= @message %>")
      <% @tasks.each do |task| %>
      toastr.error("<%= task + "を実行できませんでした" %>")
      <% end %>
- </script>
- <% end %>
+   </script>
+<% end %>

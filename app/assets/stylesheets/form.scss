@@ -1,47 +1,47 @@
 @import '_colors.scss';
 
 @mixin form-box {
-text-align: center;
-padding: 112px 13px;
-color: $font-color;
+  text-align: center;
+  padding: 112px 13px;
+  color: $font-color;
 }
 
 @mixin form-content {
- padding: 16px;
- background: white;
- opacity: 0.8;
- border-radius: 6px;
- border: solid 2px $border-color;
+  padding: 16px;
+  background: white;
+  opacity: 0.8;
+  border-radius: 6px;
+  border: solid 2px $border-color;
 }
 
 .form-box {
- @include form-box;
+  @include form-box;
 .form-content {
- @include form-content;
- h4 {
- text-align: left;
- padding-top: 11px;
- color: #FF1A6F;
- }
- .input-box {
+  @include form-content;
+h4 {
+  text-align: left;
+  padding-top: 11px;
+  color: #FF1A6F;
+}
+.input-box {
   padding: 22px;
-  .input {
-   width: 66%;
-   height: 43px;
-   padding-left: 6px;
-  }
- .input-number {
-   width: 20%;
-   height: 43px;
-  }
- .profile-input {
-   width: 66%;
-   height: 86px;
- }
- }
+.input {
+  width: 66%;
+  height: 43px;
+  padding-left: 6px;
+}
+.input-number {
+  width: 20%;
+  height: 43px;
+}
+.profile-input {
+  width: 66%;
+  height: 86px;
+}
+}
 }
 label {
-padding: 6px;
+  padding: 6px;
 }
 }
 

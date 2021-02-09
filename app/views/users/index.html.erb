@@ -1,13 +1,15 @@
 <div class="container mt-5">
-<div class="ranking">
-<table class="table table-hover">
-  <tr><th>ランキング</th><th>名前</th><th>Lv.</th><th>登録日</th></tr>
-   <% @users.each_with_index do |user,i| %>
-  <tr><td class="best<%= i + 1 %>"><%= i + 1 %>位</td>
-  <td><%= link_to user.name, user %></td>
-  <td><%= user.level %></td>
-  <td><%= user.created_at.strftime("%y/%m/%d") %></td></tr>
-  <% end %>
-  </table>
+  <div class="ranking">
+    <table class="table table-hover">
+      <tr><th>ランキング</th><th>名前</th><th>Lv.</th><th>登録日</th></tr>
+      <% @users.each_with_index do |user,i| %>
+        <tr>
+          <td class="best<%= i + 1 %>"><%= i + 1 %>位</td>
+          <td><%= link_to user.name, user %></td>
+          <td><%= user.level %></td>
+          <td><%= user.created_at.strftime("%y/%m/%d") %></td>
+        </tr>
+      <% end %>
+   </table>
   </div>
 </div>

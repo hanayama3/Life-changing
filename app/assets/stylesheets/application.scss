@@ -18,165 +18,162 @@
  @import '_colors.scss';
  
  @mixin icon {
- border: solid 1px black;
- border-radius: 58px;
- object-fit: cover;
+   border: solid 1px black;
+   border-radius: 58px;
+   object-fit: cover;
  }
  
  @mixin btn {
-  margin: 16px;
+   margin: 16px;
    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
    color: white;
-  &:hover {
-   color: white;
-   opacity: 0.8;
-  }
+   &:hover {
+     color: white;
+     opacity: 0.8;
+   }
  }
  
- html,body {
+html,body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: rgb(248,248,248);
-  // background-image: image-url('background.jpeg');
-  // background-size: cover;
  }
  
   // ヘッダー
- header {
+header {
   padding: 4px 0px;
   background: black;
   opacity: 0.8;
   height: 100%;
-  .header-nav {
-   position: relative;
-   display: flex;
-   flex-wrap: wrap;
-   align-items: center;
-   justify-content: space-between;
-   height: 100%;
-   .title {
-    font-size: 20px;
-    padding-left: 12px;
-   }
-  .bell {
+.header-nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+.title {
+  font-size: 20px;
+  padding-left: 12px;
+}
+.bell {
   color: #FFFF00;
- }
-  }
-  a {
+}
+}
+a {
   color: #EEE;
- &:hover {
- color: $accent-color;
+  &:hover {
+    color: $accent-color;
   }
  }
  }
  
-  footer {
- background: black;
- opacity: 0.8;
- height: 39px;
- text-align: center;
- color: white;
- margin-top: auto;
+footer {
+  background: black;
+  opacity: 0.8;
+  height: 39px;
+  text-align: center;
+  color: white;
+  margin-top: auto;
  }
 
  // リスト
- ul {
- margin: 0px;
- padding: 0px;
- list-style: none;
- li {
- font-size: 15px;
- padding: 5px;
- display: inline-block;
- border-right: solid 1px white;
- padding: 0px 6px;
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+li {
+  font-size: 15px;
+  padding: 5px;
+  display: inline-block;
+  border-right: solid 1px white;
+  padding: 0px 6px;
  }
- .dropdown-menu {
+.dropdown-menu {
   background: black;
   opacity: 0.9px;
   text-align: left;
   li {
-   border: none;
+    border: none;
   }
- }
- }
+}
+}
 
 .flash {
- margin: 0px;
- padding: 10px;
- text-align: center;
- line-height: 3px;
- font-size: 14px;
- }
+  margin: 0px;
+  padding: 10px;
+  text-align: center;
+  line-height: 3px;
+  font-size: 14px;
+}
  
- .flash-warning {
+.flash-warning {
   background: $flash-warning-error;
   color: white;
- }
+}
  
- .flash-success {
+.flash-success {
   background: darken($flash-sccess, 10%);
   color: white;
- }
+}
  
- .flash-error {
+.flash-error {
   background: $flash-warning-error;
   color: white;
- }
+}
  
- .error_messages {
- color: red;
- padding-top: 6px;
- }
+.error_messages {
+  color: red;
+  padding-top: 6px;
+}
 
 .btn {
-   @include btn;
-   background: $accent-color;
-  }
+  @include btn;
+  background: $accent-color;
+}
   
-  .btn-dark {
-   @include btn;
-   background:  $font-color;
-  }
- 
-  
-  .delete-btn {
- background: $destroy-btn-color;
- color: white;
- cursor: pointer;
- padding: 6px;
- border: 1px solid transparent;
- box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
- border-radius: 6px;
+.btn-dark {
+  @include btn;
+  background:  $font-color;
+}
+   
+.delete-btn {
+  background: $destroy-btn-color;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  border: 1px solid transparent;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+  border-radius: 6px;
   &:hover {
-   color: white;
-   opacity: 0.9;
-   text-decoration: none;
+    color: white;
+    opacity: 0.9;
+    text-decoration: none;
   }
 }
 
- .icon {
- width: 80px;
- height: 80px;
- @include icon;
+.icon {
+  width: 80px;
+  height: 80px;
+  @include icon;
 }
 
 .normal-icon {
- @include icon;
- width: 60px;
- height: 60px;
+  @include icon;
+  width: 60px;
+  height: 60px;
 }
 
  .mini-icon {
- width: 46px;
- height: 46px;
- display: inline-block;
- @include icon;
+   width: 46px;
+   height: 46px;
+   display: inline-block;
+   @include icon;
  }
 
 a {
-@include box-a-color;
+  @include box-a-color;
 }
  
 .ago-time {
@@ -185,21 +182,21 @@ a {
   padding: 0px 6px;
  }
  
- .pagination {
+.pagination {
   padding: 8px;
-  .active {
-   .page-link {
-    background: black;
-    opacity: 0.8;
-    border: none;
-    &:hover {
-     opacity: 0.6;
-     color: white;
-    }
-   }
+.active {
+.page-link {
+  background: black;
+  opacity: 0.8;
+  border: none;
+  &:hover {
+    opacity: 0.6;
+    color: white;
   }
-  .page-link {
-   color: $font-color;
-  }
-  }
+}
+}
+.page-link {
+  color: $font-color;
+}
+}
  

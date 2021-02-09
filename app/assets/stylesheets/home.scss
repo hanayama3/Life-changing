@@ -12,25 +12,25 @@
 .login-index {
   background-image: image-url('habit.jpeg');
   background-size: cover;
-   min-height: 100vh;
-   display: flex;
-   justify-content: flex-strt;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-strt;
 .index-content {
-min-height: 100vh;
-width: 40%;
-background: black;
-opacity: 0.8;
-color: white;
-opacity: 0.8;
-padding-left: 16px;
-a {
-color: white;
-  &:hover {
-   color: $accent-color;
-   opacity: 0.8;
-   text-decoration: none;
+  min-height: 100vh;
+  width: 40%;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  opacity: 0.8;
+  padding-left: 16px;
+  a {
+   color: white;
+   &:hover {
+     color: $accent-color;
+     opacity: 0.8;
+     text-decoration: none;
   }
-}
+  }
 .user-content {
   display: flex;
   padding: 86px 6px;
@@ -40,22 +40,22 @@ color: white;
 }
 }
 .habit-list-item {
-border-left: solid 3px $accent-color;
-margin-bottom: 3px;
-line-height: 1.5;
-padding: 16px 8px;
+  border-left: solid 3px $accent-color;
+  margin-bottom: 3px;
+  line-height: 1.5;
+  padding: 16px 8px;
 .habit-show {
-margin: 7px 0px;
+  margin: 7px 0px;
 cursor: pointer;
-&:hover {
-color: $accent-color;
-text-decoration: underline;
+  &:hover {
+  color: $accent-color;
+  text-decoration: underline;
 }
 } 
 }
 .not-habit {
-font-size: 17px;
-padding: 15px 0px;
+  font-size: 17px;
+  padding: 15px 0px;
 }
 }
 }
@@ -69,7 +69,7 @@ padding: 15px 0px;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
   display: none;
-  .modal-box {
+.modal-box {
   position: absolute;
   top: 16%;
   left: 0;
@@ -85,14 +85,14 @@ padding: 15px 0px;
   padding-left: 31px;
   border: double $accent-color;
   color: $font-color;
-  .modal-task {
-    font-size: 18px;
-  }
-  .modal-item {
-    text-decoration: underline;
-    }
-  
-  .fa-times {
+.modal-task {
+  font-size: 18px;
+}
+.modal-item {
+  text-decoration: underline;
+}
+
+.fa-times {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -105,46 +105,46 @@ padding: 15px 0px;
 
 // ログインする前のフォーム
 .not-login-home {
-background-image: image-url('home.jpeg');
-background-size: cover;
-min-height: 100vh;
-color: white;
-display: flex;
-justify-content: flex-end;
+  background-image: image-url('home.jpeg');
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
 .main-box {
-min-height: 100vh;
-width: 40%;
-background: black;
-opacity: 0.7;
-text-align: center;
+  min-height: 100vh;
+  width: 40%;
+  background: black;
+  opacity: 0.7;
+  text-align: center;
 .about {
-h3 {
-padding: 160px 0px 80px;
-font-family: "ＭＳ 明朝",serif;
-font-size: 58px;
-line-height: 86px;
+  h3 {
+    padding: 160px 0px 80px;
+    font-family: "ＭＳ 明朝",serif;
+    font-size: 58px;
+    line-height: 86px;
 }
 }
 }
 }
 
 .about-box {
-min-height: 100vh;
-background: white;
-padding: 30px;
-text-align: center;
-p {
-color: $font-color;
-cursor: pointer;
-&:hover {
-color: $accent-color;
-}
-}
+  min-height: 100vh;
+  background: white;
+  padding: 30px;
+  text-align: center;
+  p {
+    color: $font-color;
+    cursor: pointer;
+    &:hover {
+     color: $accent-color;
+    }
+  }
 .video {
-display: none;
+  display: none;
 .video-content {
-width: 80%;
-padding: 22px;
+  width: 80%;
+  padding: 22px;
 }
 }
 }
