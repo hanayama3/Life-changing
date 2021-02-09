@@ -12,11 +12,8 @@ set :rbenv_ruby, '2.6.3'
 
 set :deploy_to, "/var/rails/Habit-is-power"  # deploy先のディレクトリ
 
-# set :linked_files, fetch(:linked_files, []).push("config/master.key")
-
-# gitの管理外のファイルもデプロイするための記述？
 append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/storage"
 
 set :keep_releases, 5
 
