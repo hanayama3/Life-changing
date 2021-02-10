@@ -43,13 +43,14 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end  
-  def record(before_level)
+  def add_record
+    before_level = self.records.last.level
     after_level = self.level
     date = Date.current
     self.records.create(level: after_level,date: date)
     if before_level > after_level && self.followers
       self.followers.each do |f|
-        Notification.create(visitor_id: self.id,visited_id: f.id, action: "lose")
+      Notification.create(visitor_id: self.id,visited_id: f.id, action: "lose")
       end
     end
   end

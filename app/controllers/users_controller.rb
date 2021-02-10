@@ -27,14 +27,13 @@ class UsersController < ApplicationController
   end
 
   def complete
-    before_level = @user.level
-    @habit = Habit.find(complete_params)
-    @habit.each do |habit|
-      habit.update(complete: habit.complete += 1)
-      @user.update(level: @user.level += 1)
-      flash[:notice] = "達成！"
-    end
-    @user.record(before_level)
+    habits = Habit.find(complete_params)
+      if habits.present?
+        habits.each { |habit| habit.completed }
+        binding.pry
+        flash[:notice] = "達成！"
+      end
+    @user.add_record
     redirect_to @user
   end
 

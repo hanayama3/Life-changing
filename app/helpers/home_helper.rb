@@ -1,7 +1,6 @@
 module HomeHelper
     
   def time_out?(user)
-    before_level = user.level
     @tasks = []
     user.habits.each do |habit|
       if habit.end_time < Date.current
@@ -9,7 +8,7 @@ module HomeHelper
           if habit.complete < habit.frequency
             user.update(level: user.level -= 5)
             habit.update(complete: 0)
-            user.record(before_level)
+            user.add_record
             @tasks << habit.task
             @message = "Lvが#{before_level}から#{user.level}になりフォロワーに通知を送信しました"
           else

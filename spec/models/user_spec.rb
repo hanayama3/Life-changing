@@ -38,24 +38,28 @@ RSpec.describe User, type: :model do
     end
   end
  
-  describe '#record' do
+  describe '#add_record' do  #修正箇所
+    subject { user.records.create(level: 0, date: Date.current)}
     context 'userのlevelが上がった場合' do
       it 'recordモデルが生成される' do
-        user.level += 1
-        expect{user.record(0)}.to change{ Record.count }.by(1)
+        subject
+        user.increment(:level)
+        expect{user.add_record}.to change{ Record.count }.by(1)
       end
     end
     context 'userのlevelが下がった場合でfollowerがいない場合' do
       it 'recordモデルが生成される' do
-        user.level -= 1
-        expect{user.record(0)}.to change{ Record.count }.by(1)
+        subject
+        user.increment!(:level)
+        expect{user.add_record}.to change{ Record.count }.by(1)
       end
     end
     context 'userのlevelが下がった場合でfollowersがいる場合' do
       it 'recordモデルとnotificationモデルが生成される' do
+        subject
         user.passive_relationships.create(follower_id: other_user.id)
-        user.level -= 1
-        expect{user.record(0)}.to change{ Record.count }.by(1)
+        user.decrement!(:level)
+        expect{user.add_record}.to change{ Record.count }.by(1)
         .and change{ Notification.count }.by(1)
       end
     end
