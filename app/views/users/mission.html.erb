@@ -2,7 +2,7 @@
   <% unless @user.habits.empty? %>
     <div class="form-content">
       <%= form_with(model: @user,url: complete_user_path, local: true) do |f|%>
-    <h4>記録</h4>
+      <h4>記録</h4>
       <div class="input-box">
         <%= f.collection_check_boxes :habit_ids, @user.habits,:id,:task,checked: false do |b| %>
           <%= b.label do %>
