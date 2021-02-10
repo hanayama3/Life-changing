@@ -26,4 +26,13 @@ RSpec.describe Habit, type: :model do
       expect(habit).to_not be_valid
     end
   end
+  describe '#completed' do
+    subject { habit.completed }
+    it 'completeカラムが+1されているか' do
+      expect{subject}.to change{ habit.complete }.to be 1
+    end
+    it 'userのlevelが+1されているか' do
+      expect{subject}.to change{ habit.user.level }.to be 1
+    end
+  end
 end

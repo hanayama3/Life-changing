@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
     end
   end
  
-  describe '#add_record' do  #修正箇所
+  describe '#add_record' do
     subject { user.records.create(level: 0, date: Date.current)}
     context 'userのlevelが上がった場合' do
       it 'recordモデルが生成される' do
