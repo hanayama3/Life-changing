@@ -1,6 +1,7 @@
 module HomeHelper
     
   def time_out?(user)
+    before_level = user.level
     @tasks = []
     user.habits.each do |habit|
       if habit.end_time < Date.current

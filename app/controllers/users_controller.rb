@@ -27,12 +27,9 @@ class UsersController < ApplicationController
   end
 
   def complete
-    habits = Habit.find(complete_params)
-      if habits.present?
-        habits.each { |habit| habit.completed }
-        binding.pry
-        flash[:notice] = "達成！"
-      end
+    habits = @user.habits.find(complete_params)
+    habits.each { |habit| habit.completed }
+    flash[:notice] = "達成！"
     @user.add_record
     redirect_to @user
   end

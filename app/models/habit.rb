@@ -11,9 +11,9 @@ class Habit < ApplicationRecord
       errors.add(:task,"は#{HABIT_MAX}つまでしか登録出来ません")
     end
   end
-  def completed #モデルテスト
+  
+  def completed
     self.increment!(:complete)
-    # self.user.update!(level: self.user.level += 1)
     self.user.increment!(:level)
   end
 end
