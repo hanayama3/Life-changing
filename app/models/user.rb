@@ -19,7 +19,7 @@ class User < ApplicationRecord
                                    dependent: :destroy
   
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable
          
   attachment :image
  
