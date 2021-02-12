@@ -1,22 +1,21 @@
- <% unless @notifications.empty? %>
- <div class="notification-box container mt-3">
- <div class="all-delete">
- <%= link_to "通知全件削除", notification_path(current_user),
- data: { confirm: "通知を全件削除しますか？" }, method: :delete, class: "delete-btn"%>
- </div>
- <% @notifications.each do |n| %>
- <!--case文でlose,follow,commentで分けよう-->
- <% if n.action == "lose" %>
- <div class="notification-item">
- <%= attachment_image_tag n.visitor, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
- <div class="lose"><strong><%= link_to n.visitor.name, n.visitor %></strong>さんが習慣を実行できませんでした。</div>
- <div class="ago-time"><%= n.how_long_ago %></div>
- </div>
- <% end %>
- <% end %>
- <% else %>
- <div class="text-center mt-3">通知はありません</div>
- <% end %>
- </div>
-
+<% unless @notifications.empty? %>
+  <div class="notification-box container mt-3">
+    <div class="all-delete">
+      <%= link_to "通知全件削除", notification_path(current_user),
+      data: { confirm: "通知を全件削除しますか？" }, method: :delete, class: "delete-btn"%>
+    </div>
+  <% @notifications.each do |n| %>
+   <!--case文でlose,follow,commentで分けよう-->
+    <% if n.action == "lose" %>
+      <div class="notification-item">
+        <%= attachment_image_tag n.visitor, :image, fallback: "no-image.jpeg",class: "mini-icon"%>
+        <div class="lose"><strong><%= link_to n.visitor.name, n.visitor %></strong>さんが習慣を実行できませんでした。</div>
+          <div class="ago-time"><%= n.how_long_ago %></div>
+        </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="text-center mt-3">通知はありません</div>
+  </div>
+<% end %>
 <%= paginate @notifications %>
